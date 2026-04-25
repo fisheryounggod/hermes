@@ -15,14 +15,14 @@
   .stat-card { background: white; border-radius: 16px; padding: 24px 32px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); flex: 1; max-width: 200px; }
   .stat-card .num { font-size: 2.2em; font-weight: 700; color: #667eea; }
   .stat-card .label { font-size: 0.9em; color: #888; margin-top: 4px; }
-  h2 { font-size: 1.3em; color: #444; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #667eea; }
-  .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  h2 { font-size: 1.3em; color: #444; margin: 32px 0 16px; padding-left: 12px; border-left: 4px solid #667eea; display: flex; align-items: center; gap: 8px; }
+  .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .file-card { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
   .file-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(102,126,234,0.18); }
   .file-card .icon { font-size: 2em; margin-bottom: 10px; }
-  .file-card .name { font-weight: 600; font-size: 1em; color: #333; word-break: break-all; margin-bottom: 8px; }
-  .file-card .meta { display: flex; gap: 8px; flex-wrap: wrap; }
-  .tag { background: #f0f1ff; color: #667eea; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; }
+  .file-card .name { font-weight: 600; font-size: 0.95em; color: #333; word-break: break-all; margin-bottom: 8px; }
+  .file-card .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .tag { background: #f0f1ff; color: #667eea; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; }
   .tag.size { background: #e8f5e9; color: #2e7d32; margin-left: auto; }
   footer { text-align: center; padding: 40px 20px; color: #aaa; font-size: 0.85em; }
   footer a { color: #667eea; text-decoration: none; }
@@ -31,55 +31,60 @@
 <body>
 <header>
   <h1>📁 Hermes 文件中心</h1>
-  <p>自动同步自 ~/Downloads/ · <span id="date"></span></p>
+  <p>~/Downloads/ 分类整理 · <span id="date"></span></p>
 </header>
 <div class="container">
   <div class="stats">
-    <div class="stat-card"><div class="num">8</div><div class="label">文件数量</div></div>
-    <div class="stat-card"><div class="num">5.1</div><div class="label">总大小 (MB)</div></div>
+    <div class="stat-card"><div class="num">4</div><div class="label">分类目录</div></div>
+    <div class="stat-card"><div class="num">8</div><div class="label">文件总数</div></div>
     <div class="stat-card"><div class="num">每6小时</div><div class="label">自动同步</div></div>
   </div>
-  <h2>全部文件</h2>
+
+  <h2>✈️ 出行 travel</h2>
   <div class="file-grid">
-    <a class="file-card" href="hangzhou5day_relaxed.png" target="_blank">
-      <div class="icon">🖼️</div>
-      <div class="name">hangzhou5day_relaxed.png</div>
+    <a class="file-card" href="travel/hangzhou5day_relaxed.png" target="_blank">
+      <div class="icon">🖼️</div><div class="name">hangzhou5day_relaxed.png</div>
       <div class="meta"><span class="tag">杭州5日</span><span class="tag">舒适档</span><span class="tag size">1.1 MB</span></div>
     </a>
-    <a class="file-card" href="hangzhou_handdrawn.png" target="_blank">
-      <div class="icon">🎨</div>
-      <div class="name">hangzhou_handdrawn.png</div>
+    <a class="file-card" href="travel/hangzhou_handdrawn.png" target="_blank">
+      <div class="icon">🎨</div><div class="name">hangzhou_handdrawn.png</div>
       <div class="meta"><span class="tag">杭州</span><span class="tag">手绘风</span><span class="tag size">0.9 MB</span></div>
     </a>
-    <a class="file-card" href="hangzhou-5day-trip.png" target="_blank">
-      <div class="icon">🖼️</div>
-      <div class="name">hangzhou-5day-trip.png</div>
+    <a class="file-card" href="travel/hangzhou-5day-trip.png" target="_blank">
+      <div class="icon">🗺️</div><div class="name">hangzhou-5day-trip.png</div>
       <div class="meta"><span class="tag">杭州5日</span><span class="tag size">0.2 MB</span></div>
     </a>
-    <a class="file-card" href="shanghai-3day.png" target="_blank">
-      <div class="icon">🗼</div>
-      <div class="name">shanghai-3day.png</div>
+    <a class="file-card" href="travel/shanghai-3day.png" target="_blank">
+      <div class="icon">🗼</div><div class="name">shanghai-3day.png</div>
       <div class="meta"><span class="tag">上海3日</span><span class="tag size">0.4 MB</span></div>
     </a>
-    <a class="file-card" href="shanghai-5day.png" target="_blank">
-      <div class="icon">🗼</div>
-      <div class="name">shanghai-5day.png</div>
+    <a class="file-card" href="travel/shanghai-5day.png" target="_blank">
+      <div class="icon">🗼</div><div class="name">shanghai-5day.png</div>
       <div class="meta"><span class="tag">上海5日</span><span class="tag size">0.6 MB</span></div>
     </a>
-    <a class="file-card" href="ols-white-card.png" target="_blank">
-      <div class="icon">📊</div>
-      <div class="name">ols-white-card.png</div>
+  </div>
+
+  <h2>🎴 卡片 cards</h2>
+  <div class="file-grid">
+    <a class="file-card" href="cards/ols-white-card.png" target="_blank">
+      <div class="icon">📊</div><div class="name">ols-white-card.png</div>
       <div class="meta"><span class="tag">OLS</span><span class="tag size">0.1 MB</span></div>
     </a>
-    <a class="file-card" href="个人系统工程指南.png" target="_blank">
-      <div class="icon">🗂️</div>
-      <div class="name">个人系统工程指南.png</div>
-      <div class="meta"><span class="tag">系统指南</span><span class="tag size">1.2 MB</span></div>
-    </a>
-    <a class="file-card" href="量化交易指南.png" target="_blank">
-      <div class="icon">📈</div>
-      <div class="name">量化交易指南.png</div>
+  </div>
+
+  <h2>📈 金融 finance</h2>
+  <div class="file-grid">
+    <a class="file-card" href="finance/量化交易指南.png" target="_blank">
+      <div class="icon">📊</div><div class="name">量化交易指南.png</div>
       <div class="meta"><span class="tag">量化</span><span class="tag size">0.5 MB</span></div>
+    </a>
+  </div>
+
+  <h2>🗂️ 系统 system</h2>
+  <div class="file-grid">
+    <a class="file-card" href="system/个人系统工程指南.png" target="_blank">
+      <div class="icon">🗂️</div><div class="name">个人系统工程指南.png</div>
+      <div class="meta"><span class="tag">系统</span><span class="tag size">1.2 MB</span></div>
     </a>
   </div>
 </div>
