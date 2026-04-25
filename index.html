@@ -9,62 +9,62 @@
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f6fa; color: #1a1a2e; }
   a { color: inherit; text-decoration: none; }
 
-  header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 20px; text-align: center; }
-  header h1 { font-size: 2.4em; font-weight: 700; margin-bottom: 8px; }
-  header p { font-size: 1.1em; opacity: 0.85; }
+  /* ===== 任务看板 ===== */
+  .task-board { background: white; border-radius: 16px; margin: 30px auto; max-width: 1060px; padding: 28px 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  .task-board h2 { font-size: 1.1em; color: #444; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #667eea; display: flex; align-items: center; gap: 8px; }
+  .task-board-meta { font-size: 0.78em; color: #aaa; margin-bottom: 14px; }
+  .task-section { margin-bottom: 18px; }
+  .task-section-title { font-size: 0.85em; color: #888; margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; }
+  .task-item { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; font-size: 0.88em; color: #555; }
+  .task-item.done { color: #aaa; text-decoration: line-through; }
+  .task-item .check { flex-shrink: 0; width: 16px; height: 16px; border-radius: 4px; margin-top: 2px; }
+  .task-item.done .check { background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; }
+  .task-item:not(.done) .check { border: 2px solid #ddd; margin-top: 2px; }
+  .task-item.progress { color: #333; }
+  .task-item.progress .check { border: 2px solid #f0ad4e; background: #f0ad4e; margin-top: 2px; }
+  .task-item.pending .check { border: 2px solid #ddd; margin-top: 2px; }
+  .task-stats { display: flex; gap: 20px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #f0f0f0; flex-wrap: wrap; }
+  .task-stats span { font-size: 0.8em; color: #888; }
+  .task-stats strong { color: #667eea; }
 
-  .container { max-width: 1060px; margin: 40px auto; padding: 0 20px; }
-  .stats { display: flex; gap: 16px; margin-bottom: 36px; justify-content: center; }
-  .stat-card { background: white; border-radius: 14px; padding: 20px 28px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .stat-card .num { font-size: 2em; font-weight: 700; color: #667eea; }
-  .stat-card .label { font-size: 0.85em; color: #888; margin-top: 2px; }
+  /* ===== 页面其余部分 ===== */
+  header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px; text-align: center; }
+  header h1 { font-size: 2em; font-weight: 700; margin-bottom: 6px; }
+  header p { font-size: 1em; opacity: 0.85; }
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 20px 40px; }
 
-  h2 { font-size: 1.2em; color: #444; margin: 36px 0 16px; padding-left: 12px; border-left: 4px solid #667eea; display: flex; align-items: center; gap: 8px; }
-  h2 .count { background: #f0f1ff; color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; font-weight: normal; }
+  h2 { font-size: 1.15em; color: #444; margin: 32px 0 14px; padding-left: 12px; border-left: 4px solid #667eea; display: flex; align-items: center; gap: 8px; }
+  h2 .count { background: #f0f1ff; color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.78em; font-weight: normal; }
 
-  /* 图片画廊 */
-  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .gallery-item { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
   .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(102,126,234,0.2); }
   .gallery-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
   .gallery-item .info { padding: 14px 16px; }
-  .gallery-item .name { font-weight: 600; font-size: 0.9em; color: #333; margin-bottom: 6px; }
-  .gallery-item .desc { font-size: 0.8em; color: #888; }
-  .gallery-item .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .gallery-item .name { font-weight: 600; font-size: 0.9em; color: #333; margin-bottom: 5px; }
+  .gallery-item .desc { font-size: 0.78em; color: #888; }
+  .gallery-item .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 7px; }
   .tag { background: #f0f1ff; color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 0.72em; }
   .tag.size { background: #e8f5e9; color: #2e7d32; }
 
-  /* Markdown 文档列表 */
-  .doc-list { display: flex; flex-direction: column; gap: 12px; }
-  .doc-item { background: white; border-radius: 12px; padding: 18px 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: border-color 0.2s; border-left: 4px solid #667eea; }
-  .doc-item:hover { border-left-color: #764ba2; }
-  .doc-item summary { cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .doc-item summary .doc-title { font-weight: 600; font-size: 0.95em; color: #333; flex: 1; }
-  .doc-item summary .doc-date { font-size: 0.8em; color: #aaa; white-space: nowrap; }
-  .doc-item summary .doc-icon { font-size: 1.1em; }
-  .doc-item .doc-content { margin-top: 12px; padding-top: 12px; border-top: 1px solid #f0f0f0; font-size: 0.85em; color: #666; line-height: 1.7; }
-  .doc-item .doc-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
-
-  /* 其他文件 */
   .file-list { display: flex; flex-direction: column; gap: 10px; }
-  .file-item { background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 14px; transition: transform 0.15s; }
-  .file-item:hover { transform: translateX(4px); }
-  .file-item .icon { font-size: 1.8em; flex-shrink: 0; }
+  .file-item { background: white; border-radius: 12px; padding: 15px 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 14px; transition: transform 0.15s, box-shadow 0.15s; }
+  .file-item:hover { transform: translateX(3px); box-shadow: 0 4px 16px rgba(102,126,234,0.12); }
+  .file-item .icon { font-size: 1.6em; flex-shrink: 0; }
   .file-item .info { flex: 1; min-width: 0; }
-  .file-item .name { font-weight: 600; font-size: 0.92em; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .file-item .desc { font-size: 0.8em; color: #999; margin-top: 3px; }
+  .file-item .name { font-weight: 600; font-size: 0.9em; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .file-item .desc { font-size: 0.78em; color: #999; margin-top: 3px; }
   .file-item .tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
-  .file-item .arrow { color: #ccc; font-size: 1.2em; }
+  .file-item .arrow { color: #ccc; font-size: 1.1em; }
 
-  footer { text-align: center; padding: 40px 20px; color: #aaa; font-size: 0.85em; }
+  footer { text-align: center; padding: 40px 20px; color: #aaa; font-size: 0.82em; }
   footer a { color: #667eea; }
 
-  /* Lightbox */
   #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9999; align-items: center; justify-content: center; flex-direction: column; padding: 20px; }
   #lightbox.active { display: flex; }
   #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-  #lightbox .lb-title { color: white; margin-top: 16px; font-size: 1em; text-align: center; max-width: 600px; }
-  #lightbox .lb-close { position: absolute; top: 20px; right: 28px; color: white; font-size: 2.2em; cursor: pointer; line-height: 1; }
+  #lightbox .lb-title { color: white; margin-top: 14px; font-size: 0.95em; text-align: center; }
+  #lightbox .lb-close { position: absolute; top: 18px; right: 26px; color: white; font-size: 2.2em; cursor: pointer; line-height: 1; }
 </style>
 </head>
 <body>
@@ -76,123 +76,190 @@
 
 <div class="container">
 
-  <div class="stats">
-    <div class="stat-card"><div class="num">4</div><div class="label">分类目录</div></div>
-    <div class="stat-card"><div class="num">8</div><div class="label">文件总数</div></div>
-    <div class="stat-card"><div class="num">每6小时</div><div class="label">自动同步</div></div>
+  <!-- ===== 任务看板 ===== -->
+  <div class="task-board">
+    <h2>📋 任务看板 <span style="font-weight:normal;color:#aaa;font-size:0.8em;">TASK.md</span></h2>
+    <div class="task-board-meta">最后更新：2026-04-25 · 状态文件与 GitHub 同步</div>
+
+    <div class="task-section">
+      <div class="task-section-title">✅ 已完成</div>
+      <div class="task-item done"><span class="check">✓</span>Hermes 仓库初始化 · fisheryounggod/hermes 已创建，GitHub Pages 已启用</div>
+      <div class="task-item done"><span class="check">✓</span>Downloads 分类整理 · 根目录干净，8 分类存储</div>
+      <div class="task-item done"><span class="check">✓</span>GitHub Pages 索引页 · 任务看板置顶，图片厨窗+文件列表</div>
+      <div class="task-item done"><span class="check">✓</span>自动同步 Cron · 每6小时执行，token 存于 ~/.profile</div>
+      <div class="task-item done"><span class="check">✓</span>归档检查机制 · 同步前自动将杂散文件归档到对应分类</div>
+      <div class="task-item done"><span class="check">✓</span>杭州5日出行卡片 · 舒适档+手绘风，已上传至 travel/</div>
+      <div class="task-item done"><span class="check">✓</span>历史文件归集 · scripts(13) reports(4) work(3) learning(1) research(1)</div>
+    </div>
+
+    <div class="task-section">
+      <div class="task-section-title">📋 待办</div>
+      <div class="task-item pending"><span class="check"></span>文档区自动构建 · Markdown 文档 list+summary，按日期降序</div>
+      <div class="task-item pending"><span class="check"></span>分类索引 · 每个分类目录下生成子 README.md</div>
+      <div class="task-item pending"><span class="check"></span>feedgrab 内容库 · 纳入同步体系</div>
+      <div class="task-item pending"><span class="check"></span>Fine-Grained PAT · 替换当前 Classic PAT</div>
+    </div>
+
+    <div class="task-stats">
+      <span>📁 <strong>8</strong> 分类目录</span>
+      <span>📄 <strong>25</strong> 文件总数</span>
+      <span>⏰ 每 <strong>6小时</strong> 自动同步</span>
+      <span>🌐 <a href="https://fisheryounggod.github.io/hermes/" style="color:#667eea;">https://fisheryounggod.github.io/hermes/</a></span>
+    </div>
   </div>
 
   <!-- ===== 图片画廊 ===== -->
   <h2>🖼️ 图片 <span class="count">5</span></h2>
   <div class="gallery">
-
     <div class="gallery-item" onclick="openLightbox(this)">
       <img src="travel/hangzhou5day_relaxed.png" alt="杭州5日舒适档">
       <div class="info">
         <div class="name">杭州5日舒适档</div>
         <div class="desc">慢节奏出行计划 · 手绘风格</div>
-        <div class="tags">
-          <span class="tag">杭州</span><span class="tag">舒适档</span><span class="tag">5日</span><span class="tag size">1.1 MB</span>
-        </div>
+        <div class="tags"><span class="tag">杭州</span><span class="tag">舒适档</span><span class="tag">5日</span><span class="tag size">1.1 MB</span></div>
       </div>
     </div>
-
     <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="travel/hangzhou_handdrawn.png" alt="杭州出行手绘风">
+      <img src="travel/hangzhou_handdrawn.png" alt="杭州手绘风">
       <div class="info">
-        <div class="name">杭州出行手绘风</div>
+        <div class="name">杭州手绘风</div>
         <div class="desc">五日行程 · 手绘插画版</div>
-        <div class="tags">
-          <span class="tag">杭州</span><span class="tag">手绘风</span><span class="tag size">0.9 MB</span>
-        </div>
+        <div class="tags"><span class="tag">杭州</span><span class="tag">手绘风</span><span class="tag size">0.9 MB</span></div>
       </div>
     </div>
-
     <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="travel/hangzhou-5day-trip.png" alt="杭州5日行程">
+      <img src="travel/hangzhou-5day-trip.png" alt="杭州5日">
       <div class="info">
         <div class="name">杭州5日行程</div>
         <div class="desc">常规出行规划</div>
-        <div class="tags">
-          <span class="tag">杭州</span><span class="tag">5日</span><span class="tag size">0.2 MB</span>
-        </div>
+        <div class="tags"><span class="tag">杭州</span><span class="tag">5日</span><span class="tag size">0.2 MB</span></div>
       </div>
     </div>
-
     <div class="gallery-item" onclick="openLightbox(this)">
       <img src="travel/shanghai-3day.png" alt="上海3日">
       <div class="info">
         <div class="name">上海3日游</div>
         <div class="desc">都市出行计划</div>
-        <div class="tags">
-          <span class="tag">上海</span><span class="tag">3日</span><span class="tag size">0.4 MB</span>
-        </div>
+        <div class="tags"><span class="tag">上海</span><span class="tag">3日</span><span class="tag size">0.4 MB</span></div>
       </div>
     </div>
-
     <div class="gallery-item" onclick="openLightbox(this)">
       <img src="travel/shanghai-5day.png" alt="上海5日">
       <div class="info">
         <div class="name">上海5日深度游</div>
         <div class="desc">五日都市行程</div>
-        <div class="tags">
-          <span class="tag">上海</span><span class="tag">5日</span><span class="tag size">0.6 MB</span>
-        </div>
+        <div class="tags"><span class="tag">上海</span><span class="tag">5日</span><span class="tag size">0.6 MB</span></div>
       </div>
     </div>
-
   </div>
 
-  <!-- ===== Markdown 文档 ===== -->
-  <h2>📄 文档 <span class="count">0</span></h2>
-  <div class="doc-list" id="doc-list">
-    <div class="doc-item" style="border-left-color:#ccc;">
-      <summary>
-        <span class="doc-icon">📭</span>
-        <span class="doc-title" style="color:#aaa;">暂无文档</span>
-        <span class="doc-date">—</span>
-      </summary>
-    </div>
+  <!-- ===== Scripts ===== -->
+  <h2>⚙️ 脚本 scripts <span class="count">13</span></h2>
+  <div class="file-list">
+    <a class="file-item" href="scripts/work-planning-v2.py" target="_blank">
+      <div class="icon">📅</div><div class="info"><div class="name">work-planning-v2.py</div><div class="desc">工作计划生成器</div><div class="tags"><span class="tag">工作</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/work-planning.sh" target="_blank">
+      <div class="icon">📅</div><div class="info"><div class="name">work-planning.sh</div><div class="desc">工作计划 Cron 触发</div><div class="tags"><span class="tag">工作</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/work-summary.sh" target="_blank">
+      <div class="icon">📝</div><div class="info"><div class="name">work-summary.sh</div><div class="desc">工作日报生成</div><div class="tags"><span class="tag">工作</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/english-learning-reminder.sh" target="_blank">
+      <div class="icon">🇬🇧</div><div class="info"><div class="name">english-learning-reminder.sh</div><div class="desc">英语30天学习提醒</div><div class="tags"><span class="tag">英语</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/sp500_gold_1week.py" target="_blank">
+      <div class="icon">📈</div><div class="info"><div class="name">sp500_gold_1week.py</div><div class="desc">SP500 黄金etf 1周期分析</div><div class="tags"><span class="tag">SP500</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/sp500_3days_final.py" target="_blank">
+      <div class="icon">📊</div><div class="info"><div class="name">sp500_3days_final.py</div><div class="desc">SP500 近3日分析</div><div class="tags"><span class="tag">SP500</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/sp500_5days_final.py" target="_blank">
+      <div class="icon">📊</div><div class="info"><div class="name">sp500_5days_final.py</div><div class="desc">SP500 近5日图表</div><div class="tags"><span class="tag">SP500</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/a_share_bull_final.py" target="_blank">
+      <div class="icon">🐂</div><div class="info"><div class="name">a_share_bull_final.py</div><div class="desc">A股牛市分析</div><div class="tags"><span class="tag">A股</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/a_share_bull_market_fixed.py" target="_blank">
+      <div class="icon">🐂</div><div class="info"><div class="name">a_share_bull_market_fixed.py</div><div class="desc">A股牛市市场分析</div><div class="tags"><span class="tag">A股</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/a_share_absolute_simple.py" target="_blank">
+      <div class="icon">📉</div><div class="info"><div class="name">a_share_absolute_simple.py</div><div class="desc">A股绝对收益分析</div><div class="tags"><span class="tag">A股</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/currency_analysis_final.py" target="_blank">
+      <div class="icon">💱</div><div class="info"><div class="name">currency_analysis_final.py</div><div class="desc">人民币货币对分析</div><div class="tags"><span class="tag">外汇</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/cny_currency_pairs_final.py" target="_blank">
+      <div class="icon">💱</div><div class="info"><div class="name">cny_currency_pairs_final.py</div><div class="desc">CNY 货币对分析</div><div class="tags"><span class="tag">外汇</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="scripts/feishu_bot_final.py" target="_blank">
+      <div class="icon">🤖</div><div class="info"><div class="name">feishu_bot_final.py</div><div class="desc">飞书Bot自动化</div><div class="tags"><span class="tag">飞书</span></div></div><div class="arrow">→</div>
+    </a>
+  </div>
+
+  <!-- ===== Reports ===== -->
+  <h2>📊 报告 reports <span class="count">4</span></h2>
+  <div class="file-list">
+    <a class="file-item" href="reports/sp500_analysis_20260310_114820.pdf" target="_blank">
+      <div class="icon">📄</div><div class="info"><div class="name">sp500_analysis_20260310_114820.pdf</div><div class="desc">SP500 深度分析报告</div><div class="tags"><span class="tag">SP500</span><span class="tag size">210 KB</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="reports/indicators_^GSPC_20260310_114820.png" target="_blank">
+      <div class="icon">📈</div><div class="info"><div class="name">indicators_^GSPC_20260310_114820.png</div><div class="desc">SP500 技术指标图</div><div class="tags"><span class="tag">SP500</span><span class="tag size">155 KB</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="reports/kline_^GSPC_20260310_114820.png" target="_blank">
+      <div class="icon">📉</div><div class="info"><div class="name">kline_^GSPC_20260310_114820.png</div><div class="desc">SP500 K线图</div><div class="tags"><span class="tag">SP500</span><span class="tag size">116 KB</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="reports/kline_^GSPC_20260310_new.png" target="_blank">
+      <div class="icon">📉</div><div class="info"><div class="name">kline_^GSPC_20260310_new.png</div><div class="desc">SP500 新K线图</div><div class="tags"><span class="tag">SP500</span><span class="tag size">43 KB</span></div></div><div class="arrow">→</div>
+    </a>
+  </div>
+
+  <!-- ===== Work ===== -->
+  <h2>📅 工作 work <span class="count">3</span></h2>
+  <div class="file-list">
+    <a class="file-item" href="work/2026-04-25.md" target="_blank">
+      <div class="icon">📆</div><div class="info"><div class="name">2026-04-25.md</div><div class="desc">2026年4月25日工作计划</div><div class="tags"><span class="tag">计划</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="work/2026-04-24.md" target="_blank">
+      <div class="icon">📆</div><div class="info"><div class="name">2026-04-24.md</div><div class="desc">2026年4月24日工作计划</div><div class="tags"><span class="tag">计划</span></div></div><div class="arrow">→</div>
+    </a>
+    <a class="file-item" href="work/2026-04.md" target="_blank">
+      <div class="icon">📆</div><div class="info"><div class="name">2026-04.md</div><div class="desc">2026年4月月度总结</div><div class="tags"><span class="tag">总结</span></div></div><div class="arrow">→</div>
+    </a>
+  </div>
+
+  <!-- ===== Learning ===== -->
+  <h2>📚 学习 learning <span class="count">1</span></h2>
+  <div class="file-list">
+    <a class="file-item" href="learning/overseas-ecommerce-english-30day-plan.md" target="_blank">
+      <div class="icon">🇬🇧</div><div class="info"><div class="name">overseas-ecommerce-english-30day-plan.md</div><div class="desc">海外电商英语30天学习计划</div><div class="tags"><span class="tag">英语</span><span class="tag">电商</span><span class="tag size">23 KB</span></div></div><div class="arrow">→</div>
+    </a>
+  </div>
+
+  <!-- ===== Research ===== -->
+  <h2>🔬 研究 research <span class="count">1</span></h2>
+  <div class="file-list">
+    <a class="file-item" href="research/capital_flow_papers.json" target="_blank">
+      <div class="icon">📑</div><div class="info"><div class="name">capital_flow_papers.json</div><div class="desc">资金流论文数据集</div><div class="tags"><span class="tag">论文</span><span class="tag size">27 KB</span></div></div><div class="arrow">→</div>
+    </a>
   </div>
 
   <!-- ===== 其他文件 ===== -->
   <h2>📦 其他文件 <span class="count">3</span></h2>
   <div class="file-list">
-
     <a class="file-item" href="cards/ols-white-card.png" target="_blank">
-      <div class="icon">📊</div>
-      <div class="info">
-        <div class="name">ols-white-card.png</div>
-        <div class="desc">OLS 白色卡片展示图</div>
-        <div class="tags"><span class="tag">卡片</span><span class="tag size">141 KB</span></div>
-      </div>
-      <div class="arrow">→</div>
+      <div class="icon">📊</div><div class="info"><div class="name">ols-white-card.png</div><div class="desc">OLS 白色卡片</div><div class="tags"><span class="tag">卡片</span><span class="tag size">141 KB</span></div></div><div class="arrow">→</div>
     </a>
-
     <a class="file-item" href="finance/量化交易指南.png" target="_blank">
-      <div class="icon">📈</div>
-      <div class="info">
-        <div class="name">量化交易指南</div>
-        <div class="desc">量化策略与交易系统指南</div>
-        <div class="tags"><span class="tag">金融</span><span class="tag">量化</span><span class="tag size">555 KB</span></div>
-      </div>
-      <div class="arrow">→</div>
+      <div class="icon">📈</div><div class="info"><div class="name">量化交易指南.png</div><div class="desc">量化交易系统指南</div><div class="tags"><span class="tag">金融</span><span class="tag size">555 KB</span></div></div><div class="arrow">→</div>
     </a>
-
     <a class="file-item" href="system/个人系统工程指南.png" target="_blank">
-      <div class="icon">🗂️</div>
-      <div class="info">
-        <div class="name">个人系统工程指南</div>
-        <div class="desc">个人系统工程方法论与实践</div>
-        <div class="tags"><span class="tag">系统</span><span class="tag">工程</span><span class="tag size">1.2 MB</span></div>
-      </div>
-      <div class="arrow">→</div>
+      <div class="icon">🗂️</div><div class="info"><div class="name">个人系统工程指南.png</div><div class="desc">系统工程方法论与实践</div><div class="tags"><span class="tag">系统</span><span class="tag size">1.2 MB</span></div></div><div class="arrow">→</div>
     </a>
-
   </div>
+
 </div>
 
-<!-- Lightbox -->
 <div id="lightbox" onclick="closeLightbox()">
   <div class="lb-close">×</div>
   <img id="lb-img" src="" alt="">
@@ -201,23 +268,18 @@
 
 <script>
   function openLightbox(el) {
-    var img = el.querySelector('img');
-    var name = el.querySelector('.name').textContent;
+    var img = el.querySelector('img'), name = el.querySelector('.name').textContent;
     document.getElementById('lb-img').src = img.src;
     document.getElementById('lb-title').textContent = name;
     document.getElementById('lightbox').classList.add('active');
   }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
+  function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLightbox(); });
   document.getElementById('date').textContent = new Date().toLocaleString('zh-CN');
 </script>
 
 <footer>
-  <p>由 <a href="https://github.com/fisheryounggod/hermes">Hermes</a> 驱动 · 每6小时自动同步</p>
+  <p>由 <a href="https://github.com/fisheryounggod/hermes">Hermes</a> 驱动 · 每6小时自动同步 · ~/workspace/ 保留</p>
 </footer>
 
 </body>
