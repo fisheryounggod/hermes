@@ -3,33 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hermes Files</title>
+<title>Hermes 文件中心</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; background: #fafafa; }
-  h1 { border-bottom: 2px solid #24292f; padding-bottom: 12px; }
-  .file-list { list-style: none; padding: 0; }
-  .file-item { background: white; border: 1px solid #d1d5da; border-radius: 6px; margin: 12px 0; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
-  .file-item:hover { border-color: #0969da; }
-  .file-icon { font-size: 24px; }
-  .file-name { font-weight: 600; color: #0969da; text-decoration: none; flex: 1; }
-  .file-name:hover { text-decoration: underline; }
-  .file-size { color: #57606a; font-size: 14px; }
-  .tag { background: #ddf4ff; color: #0969da; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f6fa; color: #1a1a2e; }
+  header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 20px; text-align: center; }
+  header h1 { font-size: 2.4em; font-weight: 700; margin-bottom: 8px; }
+  header p { font-size: 1.1em; opacity: 0.85; }
+  .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+  .stats { display: flex; gap: 20px; margin-bottom: 32px; justify-content: center; }
+  .stat-card { background: white; border-radius: 16px; padding: 24px 32px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); flex: 1; max-width: 200px; }
+  .stat-card .num { font-size: 2.2em; font-weight: 700; color: #667eea; }
+  .stat-card .label { font-size: 0.9em; color: #888; margin-top: 4px; }
+  h2 { font-size: 1.3em; color: #444; margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #667eea; }
+  .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .file-card { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .file-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(102,126,234,0.18); }
+  .file-card .icon { font-size: 2em; margin-bottom: 10px; }
+  .file-card .name { font-weight: 600; font-size: 1em; color: #333; word-break: break-all; margin-bottom: 8px; }
+  .file-card .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { background: #f0f1ff; color: #667eea; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; }
+  .tag.size { background: #e8f5e9; color: #2e7d32; margin-left: auto; }
+  footer { text-align: center; padding: 40px 20px; color: #aaa; font-size: 0.85em; }
+  footer a { color: #667eea; text-decoration: none; }
 </style>
 </head>
 <body>
-<h1>📁 Hermes Files</h1>
-<p>自动同步自 /home/yxf/Downloads/ · 更新于 <span id="date"></span></p>
-<ul class="file-list">
-  <li class="file-item"><span class="file-icon">🖼️</span><a class="file-name" href="hangzhou5day_relaxed.png" target="_blank">hangzhou5day_relaxed.png</a><span class="tag">杭州5日</span><span class="tag">舒适档</span><span class="file-size">1.1 MB</span></li>
-  <li class="file-item"><span class="file-icon">🎨</span><a class="file-name" href="hangzhou_handdrawn.png" target="_blank">hangzhou_handdrawn.png</a><span class="tag">杭州</span><span class="tag">手绘风</span><span class="file-size">0.9 MB</span></li>
-  <li class="file-item"><span class="file-icon">🖼️</span><a class="file-name" href="hangzhou-5day-trip.png" target="_blank">hangzhou-5day-trip.png</a><span class="tag">杭州5日</span><span class="file-size">0.2 MB</span></li>
-  <li class="file-item"><span class="file-icon">🗼</span><a class="file-name" href="shanghai-3day.png" target="_blank">shanghai-3day.png</a><span class="tag">上海3日</span><span class="file-size">0.4 MB</span></li>
-  <li class="file-item"><span class="file-icon">🗼</span><a class="file-name" href="shanghai-5day.png" target="_blank">shanghai-5day.png</a><span class="tag">上海5日</span><span class="file-size">0.6 MB</span></li>
-  <li class="file-item"><span class="file-icon">📊</span><a class="file-name" href="ols-white-card.png" target="_blank">ols-white-card.png</a><span class="tag">OLS</span><span class="file-size">0.1 MB</span></li>
-  <li class="file-item"><span class="file-icon">🗂️</span><a class="file-name" href="个人系统工程指南.png" target="_blank">个人系统工程指南.png</a><span class="tag">系统</span><span class="file-size">1.2 MB</span></li>
-  <li class="file-item"><span class="file-icon">📈</span><a class="file-name" href="量化交易指南.png" target="_blank">量化交易指南.png</a><span class="tag">量化</span><span class="file-size">0.5 MB</span></li>
-</ul>
-<script>document.getElementById('date').textContent = new Date().toLocaleString('zh-CN');</script>
+<header>
+  <h1>📁 Hermes 文件中心</h1>
+  <p>自动同步自 ~/Downloads/ · <span id="date"></span></p>
+</header>
+<div class="container">
+  <div class="stats">
+    <div class="stat-card"><div class="num">8</div><div class="label">文件数量</div></div>
+    <div class="stat-card"><div class="num">5.1</div><div class="label">总大小 (MB)</div></div>
+    <div class="stat-card"><div class="num">每6小时</div><div class="label">自动同步</div></div>
+  </div>
+  <h2>全部文件</h2>
+  <div class="file-grid">
+    <a class="file-card" href="hangzhou5day_relaxed.png" target="_blank">
+      <div class="icon">🖼️</div>
+      <div class="name">hangzhou5day_relaxed.png</div>
+      <div class="meta"><span class="tag">杭州5日</span><span class="tag">舒适档</span><span class="tag size">1.1 MB</span></div>
+    </a>
+    <a class="file-card" href="hangzhou_handdrawn.png" target="_blank">
+      <div class="icon">🎨</div>
+      <div class="name">hangzhou_handdrawn.png</div>
+      <div class="meta"><span class="tag">杭州</span><span class="tag">手绘风</span><span class="tag size">0.9 MB</span></div>
+    </a>
+    <a class="file-card" href="hangzhou-5day-trip.png" target="_blank">
+      <div class="icon">🖼️</div>
+      <div class="name">hangzhou-5day-trip.png</div>
+      <div class="meta"><span class="tag">杭州5日</span><span class="tag size">0.2 MB</span></div>
+    </a>
+    <a class="file-card" href="shanghai-3day.png" target="_blank">
+      <div class="icon">🗼</div>
+      <div class="name">shanghai-3day.png</div>
+      <div class="meta"><span class="tag">上海3日</span><span class="tag size">0.4 MB</span></div>
+    </a>
+    <a class="file-card" href="shanghai-5day.png" target="_blank">
+      <div class="icon">🗼</div>
+      <div class="name">shanghai-5day.png</div>
+      <div class="meta"><span class="tag">上海5日</span><span class="tag size">0.6 MB</span></div>
+    </a>
+    <a class="file-card" href="ols-white-card.png" target="_blank">
+      <div class="icon">📊</div>
+      <div class="name">ols-white-card.png</div>
+      <div class="meta"><span class="tag">OLS</span><span class="tag size">0.1 MB</span></div>
+    </a>
+    <a class="file-card" href="个人系统工程指南.png" target="_blank">
+      <div class="icon">🗂️</div>
+      <div class="name">个人系统工程指南.png</div>
+      <div class="meta"><span class="tag">系统指南</span><span class="tag size">1.2 MB</span></div>
+    </a>
+    <a class="file-card" href="量化交易指南.png" target="_blank">
+      <div class="icon">📈</div>
+      <div class="name">量化交易指南.png</div>
+      <div class="meta"><span class="tag">量化</span><span class="tag size">0.5 MB</span></div>
+    </a>
+  </div>
+</div>
+<footer>
+  <p>由 <a href="https://github.com/fisheryounggod/hermes">Hermes</a> 驱动 · 每6小时自动同步</p>
+</footer>
+<script>
+  document.getElementById('date').textContent = new Date().toLocaleString('zh-CN');
+</script>
 </body>
 </html>
