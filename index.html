@@ -5,330 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hermes 文件中心</title>
 <style>
-:root {
-  --bg: #f0f2f8; --surface: #fff; --surface2: #f8f9fc; --border: #e8eaf0;
-  --text: #1a1a2e; --text2: #6668a0; --text3: #99a0c0;
-  --accent: #6c7ee1; --accent2: #a5b4fc; --accent-bg: #eef0fe;
-  --radius: 14px; --shadow: 0 2px 16px rgba(30,35,70,0.08); --shadow2: 0 8px 32px rgba(30,35,70,0.15);
-  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
-}
-[data-theme="dark"] {
-  --bg: #12131e; --surface: #1a1b2e; --surface2: #22233a; --border: #2d2f4a;
-  --text: #e8eaf6; --text2: #99a0c0; --text3: #6668a0;
-  --accent: #8b93f0; --accent2: #5a63d4; --accent-bg: #1e2040;
-  --shadow: 0 2px 16px rgba(0,0,0,0.3); --shadow2: 0 8px 32px rgba(0,0,0,0.4);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Inter','PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); transition:var(--transition); line-height:1.6; }
-a { color:inherit; text-decoration:none; }
-header { background: linear-gradient(135deg,#6c7ee1 0%,#8b93f0 50%,#a78bfa 100%); color:white; position:relative; overflow:hidden; }
-header::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-.header-inner { position:relative; max-width:1060px; margin:0 auto; padding:40px 24px 36px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-.header-left h1 { font-size:1.7em; font-weight:800; margin-bottom:6px; letter-spacing:-0.02em; }
-.stats-bar { display:flex; gap:20px; flex-wrap:wrap; margin-top:8px; font-size:0.85em; opacity:0.9; }
-.dark-toggle { background:rgba(255,255,255,0.2); border:none; color:white; padding:9px 18px; border-radius:10px; cursor:pointer; font-size:0.88em; backdrop-filter:blur(8px); transition:var(--transition); }
-.dark-toggle:hover { background:rgba(255,255,255,0.32); }
-.container { max-width:1060px; margin:0 auto; padding:0 20px 60px; }
-.task-board { background:var(--surface); border-radius:var(--radius); margin:24px 0; padding:22px 26px; box-shadow:var(--shadow); border:1px solid var(--border); transition:var(--transition); }
-.task-board h2 { font-size:1em; font-weight:700; margin-bottom:12px; }
-.task-stats { display:flex; gap:18px; flex-wrap:wrap; margin-top:10px; padding-top:10px; border-top:1px solid var(--border); font-size:0.82em; color:var(--text2); }
-.task-stats strong { color:var(--accent); }
-.task-stats a { color:var(--accent); }
-.search-wrap { margin:16px 0 8px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-#searchInput { flex:1; min-width:200px; padding:11px 16px; border:2px solid var(--border); border-radius:10px; font-size:0.9em; background:var(--surface2); color:var(--text); outline:none; transition:var(--transition); }
-#searchInput:focus { border-color:var(--accent); background:var(--surface); }
-.filter-btn { padding:8px 14px; border:2px solid var(--border); border-radius:10px; background:var(--surface); color:var(--text2); cursor:pointer; font-size:0.82em; transition:var(--transition); white-space:nowrap; }
-.filter-btn:hover,.filter-btn.active { border-color:var(--accent); background:var(--accent-bg); color:var(--accent); }
-.no-results { text-align:center; padding:40px 0; color:var(--text3); font-size:0.95em; display:none; }
-.no-results.show { display:block; }
-.section-title { font-size:1.05em; font-weight:700; color:var(--text); margin:24px 0 12px; padding-left:14px; border-left:4px solid var(--accent); display:flex; align-items:center; gap:8px; }
-.section-title em { font-style:normal; font-weight:400; font-size:0.78em; color:var(--text3); background:var(--surface2); padding:2px 8px; border-radius:8px; }
-.gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px; }
-.gi { background:var(--surface); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:var(--transition); }
-.gi.hidden { display:none; }
-.gi:hover { transform:translateY(-4px); box-shadow:var(--shadow2); }
-.gi-inner { position:relative; cursor:pointer; overflow:hidden; }
-.gi-inner img { width:100%; height:113px; object-fit:cover; display:block; transition:transform 0.3s; }
-.gi:hover .gi-inner img { transform:scale(1.04); }
-.gi-overlay { position:absolute; top:0; left:0; right:0; padding:8px 10px; display:flex; justify-content:space-between; }
-.gi-tag { background:rgba(108,126,225,0.9); color:white; padding:2px 8px; border-radius:8px; font-size:0.72em; backdrop-filter:blur(4px); }
-.gi-size { background:rgba(0,0,0,0.5); color:white; padding:2px 7px; border-radius:8px; font-size:0.72em; backdrop-filter:blur(4px); }
-.gi-name { padding:7px 10px; font-size:0.76em; color:var(--text2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.section { background:var(--surface); border-radius:var(--radius); margin-bottom:10px; box-shadow:var(--shadow); border:1px solid var(--border); overflow:hidden; transition:var(--transition); }
-.section.hidden { display:none; }
-.sec-hd { width:100%; padding:14px 18px; background:none; border:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:0.92em; font-weight:600; color:var(--text); transition:var(--transition); }
-.sec-hd:hover { background:var(--surface2); }
-.sec-count { font-weight:400; font-size:0.8em; color:var(--text3); margin-left:4px; }
-.sec-chevron { color:var(--text3); transition:transform 0.2s; font-size:0.8em; }
-.section.collapsed .sec-chevron { transform:rotate(-90deg); }
-.sec-body { border-top:1px solid var(--border); }
-.section.collapsed .sec-body { display:none; }
-.fi { display:flex; align-items:center; gap:12px; padding:11px 18px; transition:var(--transition); border-bottom:1px solid var(--border); }
-.fi:last-child { border-bottom:none; }
-.fi:hover { background:var(--accent-bg); padding-left:22px; }
-.fi-icon { font-size:1.3em; flex-shrink:0; }
-.fi-body { flex:1; min-width:0; }
-.fi-name { font-size:0.88em; font-weight:500; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block; }
-.fi-meta { font-size:0.76em; color:var(--text3); margin-top:1px; }
-.fi-arrow { color:var(--text3); font-size:0.95em; flex-shrink:0; transition:var(--transition); }
-.fi:hover .fi-arrow { color:var(--accent); transform:translateX(2px); }
-#lightbox { display:none; position:fixed; inset:0; background:rgba(10,10,20,0.92); z-index:9999; align-items:center; justify-content:center; flex-direction:column; padding:24px; backdrop-filter:blur(4px); }
-#lightbox.active { display:flex; }
-#lightbox img { max-width:90%; max-height:78vh; border-radius:12px; box-shadow:0 24px 80px rgba(0,0,0,0.6); }
-#lightbox .lb-title { color:rgba(255,255,255,0.8); margin-top:14px; font-size:0.9em; text-align:center; max-width:600px; }
-#lightbox .lb-close { position:absolute; top:16px; right:22px; color:rgba(255,255,255,0.7); font-size:2.4em; cursor:pointer; line-height:1; transition:var(--transition); }
-#lightbox .lb-close:hover { color:white; }
-#lightbox .lb-nav { position:absolute; top:50%; transform:translateY(-50%); color:rgba(255,255,255,0.6); font-size:2em; cursor:pointer; padding:12px; transition:var(--transition); user-select:none; }
-#lightbox .lb-nav:hover { color:white; }
-#lightbox .lb-prev { left:16px; }
-#lightbox .lb-next { right:16px; }
-footer { text-align:center; padding:40px 20px 50px; color:var(--text3); font-size:0.8em; }
-footer a { color:var(--accent); }
-@media(max-width:640px) {
-  .header-inner { flex-direction:column; align-items:flex-start; }
-  .gallery { grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); }
-  .gi-inner img { height:130px; }
-}
-
+:root{--bg:#f0f2f8;--surface:#fff;--surface2:#f8f9fc;--border:#e8eaf0;--text:#1a1a2e;--text2:#6668a0;--text3:#99a0c0;--accent:#6c7ee1;--accent2:#a5b4fc;--accent-bg:#eef0fe;--radius:14px;--shadow:0 2px 16px rgba(30,35,70,0.08);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+header{background:linear-gradient(135deg,#6c7ee1,#8b93f0);color:white;padding:32px 24px;}
+.header-inner{max-width:1060px;margin:0 auto;}
+h1{font-size:1.6em;font-weight:800;margin-bottom:8px;}
+.container{max-width:1060px;margin:0 auto;padding:24px 20px 60px;}
+.meta{font-size:0.82em;opacity:0.85;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:20px;}
+.dir-card{background:var(--surface);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);border:1px solid var(--border);}
+.dir-name{font-weight:700;font-size:0.95em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.file-list{list-style:none;}
+.file-list li{padding:4px 0;font-size:0.82em;color:var(--text2);}
+.file-list li a{color:var(--text2);text-decoration:none;}
+.file-list li a:hover{color:var(--accent);text-decoration:underline;}
 </style>
 </head>
 <body>
-
-<header>
-<div class="header-inner">
-<div class="header-left">
-<h1>📁 Hermes 文件中心</h1>
-<div class="stats-bar">
-<span><strong>39</strong> 文件</span>
-<span><strong>11</strong> 图片</span>
-<span><strong>14</strong> 脚本</span>
-<span>每 <strong>6h</strong> 自动同步</span>
-</div>
-</div>
-<button class="dark-toggle" onclick="toggleDark()">◐ 深色模式</button>
-</div>
-</header>
-
+<header><div class="header-inner"><h1>📦 Hermes 文件中心</h1><div class="meta">fisheryounggod/hermes · 共 45 文件</div></div></header>
 <div class="container">
-
-<div class="task-board">
-<h2>Hermes 任务看板</h2>
-<div class="task-stats">
-<span>📁 <strong>8</strong> 分类</span>
-<span>📄 <strong>39</strong> 文件</span>
-<span>⏰ 每 <strong>6小时</strong> 自动同步</span>
-<span>🌐 <a href="https://fisheryounggod.github.io/hermes/">GitHub Pages</a></span>
-<span>📂 ~/workspace/ 独立保留</span>
-</div>
-</div>
-
-<div class="search-wrap">
-<input id="searchInput" type="text" placeholder="🔍 搜索文件名..." oninput="doFilter()">
-<button class="filter-btn active" data-filter="all" onclick="setFilter(this)">全部</button>
-<button class="filter-btn" data-filter="travel" onclick="setFilter(this)">🖼️ 图片</button>
-<button class="filter-btn" data-filter="scripts" onclick="setFilter(this)">⚙️ 脚本</button>
-<button class="filter-btn" data-filter="reports" onclick="setFilter(this)">📊 报告</button>
-<button class="filter-btn" data-filter="work" onclick="setFilter(this)">📅 工作</button>
-<button class="filter-btn" data-filter="other" onclick="setFilter(this)">📦 其他</button>
-</div>
-<div class="no-results" id="noResults">🔍 未找到匹配的文件</div>
-
-<div class="section-title">🖼️ 图片 <em>11</em></div>
-<div class="gallery" id="gallerySection">
-    <div class="gi" data-tag="other" data-name="ols-white-card.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="cards/ols-white-card.png" alt="ols-white-card.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">other</span>
-          <span class="gi-size">141KB</span>
+<div class="grid">
+        <div class="dir-card">
+          <div class="dir-name">📁 $RECYCLE.BIN</div>
+          <ul class="file-list">          <li><a href="$RECYCLE.BIN/desktop.ini" target="_blank">desktop.ini</a></li>
+          </ul>
         </div>
-      </div>
-      <div class="gi-name">ols-white-card.png</div>
-    </div>    <div class="gi" data-tag="finance" data-name="量化交易指南.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="finance/量化交易指南.png" alt="量化交易指南.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">finance</span>
-          <span class="gi-size">555KB</span>
-        </div>
-      </div>
-      <div class="gi-name">量化交易指南.png</div>
-    </div>    <div class="gi" data-tag="reports" data-name="indicators_^GSPC_20260310_114820.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="reports/indicators_^GSPC_20260310_114820.png" alt="indicators_^GSPC_20260310_114820.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">reports</span>
-          <span class="gi-size">155KB</span>
-        </div>
-      </div>
-      <div class="gi-name">indicators_^GSPC_20260310_114820.png</div>
-    </div>    <div class="gi" data-tag="reports" data-name="kline_^GSPC_20260310_114820.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="reports/kline_^GSPC_20260310_114820.png" alt="kline_^GSPC_20260310_114820.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">reports</span>
-          <span class="gi-size">116KB</span>
-        </div>
-      </div>
-      <div class="gi-name">kline_^GSPC_20260310_114820.png</div>
-    </div>    <div class="gi" data-tag="reports" data-name="kline_^GSPC_20260310_new.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="reports/kline_^GSPC_20260310_new.png" alt="kline_^GSPC_20260310_new.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">reports</span>
-          <span class="gi-size">43KB</span>
-        </div>
-      </div>
-      <div class="gi-name">kline_^GSPC_20260310_new.png</div>
-    </div>    <div class="gi" data-tag="system" data-name="个人系统工程指南.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="system/个人系统工程指南.png" alt="个人系统工程指南.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">system</span>
-          <span class="gi-size">1MB</span>
-        </div>
-      </div>
-      <div class="gi-name">个人系统工程指南.png</div>
-    </div>    <div class="gi" data-tag="travel" data-name="hangzhou-5day-trip.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="travel/hangzhou-5day-trip.png" alt="hangzhou-5day-trip.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">travel</span>
-          <span class="gi-size">204KB</span>
-        </div>
-      </div>
-      <div class="gi-name">hangzhou-5day-trip.png</div>
-    </div>    <div class="gi" data-tag="travel" data-name="hangzhou5day_relaxed.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="travel/hangzhou5day_relaxed.png" alt="hangzhou5day_relaxed.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">travel</span>
-          <span class="gi-size">1MB</span>
-        </div>
-      </div>
-      <div class="gi-name">hangzhou5day_relaxed.png</div>
-    </div>    <div class="gi" data-tag="travel" data-name="hangzhou_handdrawn.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="travel/hangzhou_handdrawn.png" alt="hangzhou_handdrawn.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">travel</span>
-          <span class="gi-size">951KB</span>
-        </div>
-      </div>
-      <div class="gi-name">hangzhou_handdrawn.png</div>
-    </div>    <div class="gi" data-tag="travel" data-name="shanghai-3day.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="travel/shanghai-3day.png" alt="shanghai-3day.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">travel</span>
-          <span class="gi-size">404KB</span>
-        </div>
-      </div>
-      <div class="gi-name">shanghai-3day.png</div>
-    </div>    <div class="gi" data-tag="travel" data-name="shanghai-5day.png">
-      <div class="gi-inner" onclick="lb(this)">
-        <img src="travel/shanghai-5day.png" alt="shanghai-5day.png">
-        <div class="gi-overlay">
-          <span class="gi-tag">travel</span>
-          <span class="gi-size">637KB</span>
-        </div>
-      </div>
-      <div class="gi-name">shanghai-5day.png</div>
-    </div>
-</div>
 
-<div class="section" data-tag="travel"><button class="sec-hd" onclick="toggleSec(this)"><span>🖼️ 图片 <em class="sec-count">1</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="travel" target="_blank" data-tag="travel" data-name="travel"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">travel</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="scripts"><button class="sec-hd" onclick="toggleSec(this)"><span>⚙️ 脚本 <em class="sec-count">14</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="scripts/a_share_absolute_simple.py" target="_blank" data-tag="scripts" data-name="a_share_absolute_simple.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">a_share_absolute_simple.py</span><span class="fi-meta">3KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/a_share_bull_final.py" target="_blank" data-tag="scripts" data-name="a_share_bull_final.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">a_share_bull_final.py</span><span class="fi-meta">9KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/a_share_bull_market_fixed.py" target="_blank" data-tag="scripts" data-name="a_share_bull_market_fixed.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">a_share_bull_market_fixed.py</span><span class="fi-meta">8KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/cny_currency_pairs_final.py" target="_blank" data-tag="scripts" data-name="cny_currency_pairs_final.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">cny_currency_pairs_final.py</span><span class="fi-meta">4KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/currency_analysis_final.py" target="_blank" data-tag="scripts" data-name="currency_analysis_final.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">currency_analysis_final.py</span><span class="fi-meta">7KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/english-learning-reminder.sh" target="_blank" data-tag="scripts" data-name="english-learning-reminder.sh"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">english-learning-reminder.sh</span><span class="fi-meta">4KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/feishu_bot_final.py" target="_blank" data-tag="scripts" data-name="feishu_bot_final.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">feishu_bot_final.py</span><span class="fi-meta">7KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts" target="_blank" data-tag="scripts" data-name="scripts"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">scripts</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/sp500_3days_final.py" target="_blank" data-tag="scripts" data-name="sp500_3days_final.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">sp500_3days_final.py</span><span class="fi-meta">2KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/sp500_5days_final.py" target="_blank" data-tag="scripts" data-name="sp500_5days_final.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">sp500_5days_final.py</span><span class="fi-meta">1KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/sp500_gold_1week.py" target="_blank" data-tag="scripts" data-name="sp500_gold_1week.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">sp500_gold_1week.py</span><span class="fi-meta">5KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/work-planning-v2.py" target="_blank" data-tag="scripts" data-name="work-planning-v2.py"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">work-planning-v2.py</span><span class="fi-meta">15KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/work-planning.sh" target="_blank" data-tag="scripts" data-name="work-planning.sh"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">work-planning.sh</span><span class="fi-meta">1KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="scripts/work-summary.sh" target="_blank" data-tag="scripts" data-name="work-summary.sh"><span class="fi-icon">📄</span><span class="fi-body"><span class="fi-name">work-summary.sh</span><span class="fi-meta">1KB</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="reports"><button class="sec-hd" onclick="toggleSec(this)"><span>📊 报告 <em class="sec-count">2</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="reports" target="_blank" data-tag="reports" data-name="reports"><span class="fi-icon">📈</span><span class="fi-body"><span class="fi-name">reports</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a><a class="fi" href="reports/sp500_analysis_20260310_114820.pdf" target="_blank" data-tag="reports" data-name="sp500_analysis_20260310_114820.pdf"><span class="fi-icon">📈</span><span class="fi-body"><span class="fi-name">sp500_analysis_20260310_114820.pdf</span><span class="fi-meta">210KB</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="work"><button class="sec-hd" onclick="toggleSec(this)"><span>📅 工作 <em class="sec-count">4</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="work/2026-04-24.md" target="_blank" data-tag="work" data-name="2026-04-24.md"><span class="fi-icon">📅</span><span class="fi-body"><span class="fi-name">2026-04-24.md</span><span class="fi-meta">1KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="work/2026-04-25.md" target="_blank" data-tag="work" data-name="2026-04-25.md"><span class="fi-icon">📅</span><span class="fi-body"><span class="fi-name">2026-04-25.md</span><span class="fi-meta">1KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="work/2026-04.md" target="_blank" data-tag="work" data-name="2026-04.md"><span class="fi-icon">📅</span><span class="fi-body"><span class="fi-name">2026-04.md</span><span class="fi-meta">221B</span></span><span class="fi-arrow">→</span></a><a class="fi" href="work" target="_blank" data-tag="work" data-name="work"><span class="fi-icon">📅</span><span class="fi-body"><span class="fi-name">work</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="learning"><button class="sec-hd" onclick="toggleSec(this)"><span>📚 学习 <em class="sec-count">2</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="learning" target="_blank" data-tag="learning" data-name="learning"><span class="fi-icon">📚</span><span class="fi-body"><span class="fi-name">learning</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a><a class="fi" href="learning/overseas-ecommerce-english-30day-plan.md" target="_blank" data-tag="learning" data-name="overseas-ecommerce-english-30day-plan.md"><span class="fi-icon">📚</span><span class="fi-body"><span class="fi-name">overseas-ecommerce-english-30day-plan.md</span><span class="fi-meta">23KB</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="research"><button class="sec-hd" onclick="toggleSec(this)"><span>🔬 研究 <em class="sec-count">2</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="research/capital_flow_papers.json" target="_blank" data-tag="research" data-name="capital_flow_papers.json"><span class="fi-icon">🔬</span><span class="fi-body"><span class="fi-name">capital_flow_papers.json</span><span class="fi-meta">5KB</span></span><span class="fi-arrow">→</span></a><a class="fi" href="research" target="_blank" data-tag="research" data-name="research"><span class="fi-icon">🔬</span><span class="fi-body"><span class="fi-name">research</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="finance"><button class="sec-hd" onclick="toggleSec(this)"><span>💰 金融 <em class="sec-count">1</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="finance" target="_blank" data-tag="finance" data-name="finance"><span class="fi-icon">💰</span><span class="fi-body"><span class="fi-name">finance</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a></div></div><div class="section" data-tag="system"><button class="sec-hd" onclick="toggleSec(this)"><span>🗂️ 系统 <em class="sec-count">1</em></span><span class="sec-chevron">▾</span></button><div class="sec-body"><a class="fi" href="system" target="_blank" data-tag="system" data-name="system"><span class="fi-icon">🗂️</span><span class="fi-body"><span class="fi-name">system</span><span class="fi-meta">0B</span></span><span class="fi-arrow">→</span></a></div></div>
-</div>
+        <div class="dir-card">
+          <div class="dir-name">📁 _root</div>
+          <ul class="file-list">          <li><a href="TASK.md" target="_blank">TASK.md</a></li>
+          <li><a href="Thumbs.db" target="_blank">Thumbs.db</a></li>
+          <li><a href="index.html" target="_blank">index.html</a></li>
+          </ul>
+        </div>
 
-<div id="lightbox" onclick="if(event.target===this)closeLb()">
-<div class="lb-close" onclick="closeLb()">×</div>
-<div class="lb-nav lb-prev" onclick="event.stopPropagation();lbNav(-1)">‹</div>
-<div class="lb-nav lb-next" onclick="event.stopPropagation();lbNav(1)">›</div>
-<img id="lb-img" src="" alt="">
-<div class="lb-title" id="lb-title"></div>
-</div>
+        <div class="dir-card">
+          <div class="dir-name">📁 booknote</div>
+          <ul class="file-list">          <li><a href="booknote/data.json" target="_blank">data.json</a></li>
+          <li><a href="booknote/main.js" target="_blank">main.js</a></li>
+          <li><a href="booknote/manifest.json" target="_blank">manifest.json</a></li>
+          <li><a href="booknote/styles.css" target="_blank">styles.css</a></li>
+          </ul>
+        </div>
 
-<script>
+        <div class="dir-card">
+          <div class="dir-name">📁 cards</div>
+          <ul class="file-list">          <li><a href="cards/ols-white-card.png" target="_blank">ols-white-card.png</a></li>
+          <li><a href="cards/product-intro-card.png" target="_blank">product-intro-card.png</a></li>
+          </ul>
+        </div>
 
-const imgs = document.querySelectorAll('.gi');
-const allSections = document.querySelectorAll('.section');
-const noResults = document.getElementById('noResults');
-let activeFilter = 'all';
-let searchQ = '';
-let lbIdx = 0;
-const lbItems = [];
+        <div class="dir-card">
+          <div class="dir-name">📁 finance</div>
+          <ul class="file-list">          <li><a href="finance/量化交易指南.png" target="_blank">量化交易指南.png</a></li>
+          </ul>
+        </div>
 
-function lb(el) {
-  lbItems.length = 0;
-  document.querySelectorAll('.gi:not(.hidden)').forEach(function(g) { lbItems.push(g.querySelector('img').src); });
-  const gi = el.closest('.gi');
-  lbIdx = Array.from(document.querySelectorAll('.gi:not(.hidden)')).indexOf(gi);
-  showLb();
-}
-function showLb() {
-  document.getElementById('lb-img').src = lbItems[lbIdx];
-  document.getElementById('lb-title').textContent = lbItems[lbIdx].split('/').pop();
-  document.getElementById('lightbox').classList.add('active');
-}
-function closeLb() { document.getElementById('lightbox').classList.remove('active'); }
-function lbNav(d) { lbIdx = (lbIdx + d + lbItems.length) % lbItems.length; showLb(); }
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLb();
-  if (e.key === 'ArrowLeft') lbNav(-1);
-  if (e.key === 'ArrowRight') lbNav(1);
-});
+        <div class="dir-card">
+          <div class="dir-name">📁 learning</div>
+          <ul class="file-list">          <li><a href="learning/overseas-ecommerce-english-30day-plan.md" target="_blank">overseas-ecommerce-english-30day-plan.md</a></li>
+          </ul>
+        </div>
 
-function doFilter() {
-  searchQ = document.getElementById('searchInput').value.trim().toLowerCase();
-  applyFilter();
-}
-function setFilter(btn) {
-  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
-  activeFilter = btn.dataset.filter;
-  doFilter();
-}
-function applyFilter() {
-  var count = 0;
-  imgs.forEach(function(gi) {
-    var tag = gi.dataset.tag;
-    var name = gi.dataset.name.toLowerCase();
-    var show = (activeFilter === 'all' || tag === activeFilter) && (!searchQ || name.indexOf(searchQ) !== -1);
-    gi.classList.toggle('hidden', !show);
-    if (show) count++;
-  });
-  allSections.forEach(function(sec) {
-    var tag = sec.dataset.tag;
-    var show = activeFilter === 'all' || tag === activeFilter;
-    sec.classList.toggle('hidden', !show);
-  });
-  document.querySelectorAll('.fi').forEach(function(fi) {
-    var tag = fi.dataset.tag;
-    var name = fi.dataset.name.toLowerCase();
-    var show = (activeFilter === 'all' || tag === activeFilter) && (!searchQ || name.indexOf(searchQ) !== -1);
-    fi.classList.toggle('hidden', !show);
-  });
-  noResults.classList.toggle('show', count === 0 && searchQ !== '');
-}
-function toggleSec(btn) { btn.closest('.section').classList.toggle('collapsed'); }
-function toggleDark() {
-  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
-  document.querySelector('.dark-toggle').textContent = isDark ? '◐ 深色模式' : '◑ 浅色模式';
-  localStorage.setItem('hermes-theme', isDark ? '' : 'dark');
-}
-(function() {
-  if (localStorage.getItem('hermes-theme') === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.querySelector('.dark-toggle').textContent = '◑ 浅色模式';
-  }
-})();
+        <div class="dir-card">
+          <div class="dir-name">📁 reports</div>
+          <ul class="file-list">          <li><a href="reports/indicators_^GSPC_20260310_114820.png" target="_blank">indicators_^GSPC_20260310_114820.png</a></li>
+          <li><a href="reports/kline_^GSPC_20260310_114820.png" target="_blank">kline_^GSPC_20260310_114820.png</a></li>
+          <li><a href="reports/kline_^GSPC_20260310_new.png" target="_blank">kline_^GSPC_20260310_new.png</a></li>
+          <li><a href="reports/sp500_analysis_20260310_114820.pdf" target="_blank">sp500_analysis_20260310_114820.pdf</a></li>
+          </ul>
+        </div>
 
-</script>
+        <div class="dir-card">
+          <div class="dir-name">📁 research</div>
+          <ul class="file-list">          <li><a href="research/SW2007-ppt/SW2007精读笔记.docx" target="_blank">SW2007精读笔记.docx</a></li>
+          <li><a href="research/SW2007-ppt/index.html" target="_blank">index.html</a></li>
+          <li><a href="research/SW2007-ppt/motion.min.js" target="_blank">motion.min.js</a></li>
+          <li><a href="research/capital_flow_papers.json" target="_blank">capital_flow_papers.json</a></li>
+          <li><a href="research/shanghai-metropolitan-circle/2025-02-11-上海都市圈扩容政策资料汇编.md" target="_blank">2025-02-11-上海都市圈扩容政策资料汇编.md</a></li>
+          </ul>
+        </div>
 
-<footer>
-<p>Hermes · <a href="https://github.com/fisheryounggod/hermes">fisheryounggod/hermes</a> · ~/workspace/ 独立保留 · 每6小时自动同步</p>
-</footer>
+        <div class="dir-card">
+          <div class="dir-name">📁 scripts</div>
+          <ul class="file-list">          <li><a href="scripts/a_share_absolute_simple.py" target="_blank">a_share_absolute_simple.py</a></li>
+          <li><a href="scripts/a_share_bull_final.py" target="_blank">a_share_bull_final.py</a></li>
+          <li><a href="scripts/a_share_bull_market_fixed.py" target="_blank">a_share_bull_market_fixed.py</a></li>
+          <li><a href="scripts/cny_currency_pairs_final.py" target="_blank">cny_currency_pairs_final.py</a></li>
+          <li><a href="scripts/currency_analysis_final.py" target="_blank">currency_analysis_final.py</a></li>
+          <li><a href="scripts/english-learning-reminder.sh" target="_blank">english-learning-reminder.sh</a></li>
+          <li><a href="scripts/feishu_bot_final.py" target="_blank">feishu_bot_final.py</a></li>
+          <li><a href="scripts/sp500_3days_final.py" target="_blank">sp500_3days_final.py</a></li>
+          <li><a href="scripts/sp500_5days_final.py" target="_blank">sp500_5days_final.py</a></li>
+          <li><a href="scripts/sp500_gold_1week.py" target="_blank">sp500_gold_1week.py</a></li>
+          <li><a href="scripts/work-planning-v2.py" target="_blank">work-planning-v2.py</a></li>
+          <li><a href="scripts/work-planning.sh" target="_blank">work-planning.sh</a></li>
+          <li><a href="scripts/work-summary.sh" target="_blank">work-summary.sh</a></li>
+          </ul>
+        </div>
 
-</body>
-</html>
+        <div class="dir-card">
+          <div class="dir-name">📁 system</div>
+          <ul class="file-list">          <li><a href="system/个人系统工程指南.png" target="_blank">个人系统工程指南.png</a></li>
+          </ul>
+        </div>
+
+        <div class="dir-card">
+          <div class="dir-name">📁 travel</div>
+          <ul class="file-list">          <li><a href="travel/hangzhou-5day-trip.png" target="_blank">hangzhou-5day-trip.png</a></li>
+          <li><a href="travel/hangzhou5day_relaxed.png" target="_blank">hangzhou5day_relaxed.png</a></li>
+          <li><a href="travel/hangzhou_handdrawn.png" target="_blank">hangzhou_handdrawn.png</a></li>
+          <li><a href="travel/shanghai-3day-couple.png" target="_blank">shanghai-3day-couple.png</a></li>
+          <li><a href="travel/shanghai-3day.png" target="_blank">shanghai-3day.png</a></li>
+          <li><a href="travel/shanghai-5day.png" target="_blank">shanghai-5day.png</a></li>
+          <li><a href="travel/shanghai-food.png" target="_blank">shanghai-food.png</a></li>
+          </ul>
+        </div>
+
+        <div class="dir-card">
+          <div class="dir-name">📁 work</div>
+          <ul class="file-list">          <li><a href="work/2026-04-24.md" target="_blank">2026-04-24.md</a></li>
+          <li><a href="work/2026-04-25.md" target="_blank">2026-04-25.md</a></li>
+          <li><a href="work/2026-04.md" target="_blank">2026-04.md</a></li>
+          </ul>
+        </div>
+
+</div></body></html>
