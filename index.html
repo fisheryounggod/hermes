@@ -5,130 +5,240 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hermes 文件中心</title>
 <style>
-:root{--bg:#f0f2f8;--surface:#fff;--surface2:#f8f9fc;--border:#e8eaf0;--text:#1a1a2e;--text2:#6668a0;--text3:#99a0c0;--accent:#6c7ee1;--accent2:#a5b4fc;--accent-bg:#eef0fe;--radius:14px;--shadow:0 2px 16px rgba(30,35,70,0.08);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-header{background:linear-gradient(135deg,#6c7ee1,#8b93f0);color:white;padding:32px 24px;}
-.header-inner{max-width:1060px;margin:0 auto;}
-h1{font-size:1.6em;font-weight:800;margin-bottom:8px;}
-.container{max-width:1060px;margin:0 auto;padding:24px 20px 60px;}
-.meta{font-size:0.82em;opacity:0.85;}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:20px;}
-.dir-card{background:var(--surface);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);border:1px solid var(--border);}
-.dir-name{font-weight:700;font-size:0.95em;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-.file-list{list-style:none;}
-.file-list li{padding:4px 0;font-size:0.82em;color:var(--text2);}
-.file-list li a{color:var(--text2);text-decoration:none;}
-.file-list li a:hover{color:var(--accent);text-decoration:underline;}
+:root {
+  --bg: #f0f2f8; --surface: #fff; --surface2: #f8f9fc; --border: #e8eaf0;
+  --text: #1a1a2e; --text2: #6668a0; --text3: #99a0c0;
+  --accent: #6c7ee1; --accent2: #a5b4fc; --accent-bg: #eef0fe;
+  --radius: 14px; --shadow: 0 2px 16px rgba(30,35,70,0.08);
+}
+[data-theme="dark"] {
+  --bg: #12131e; --surface: #1a1b2e; --surface2: #22233a; --border: #2d2f4a;
+  --text: #e8eaf6; --text2: #99a0c0; --text3: #6668a0;
+  --accent: #8b93f0; --accent2: #5a63d4; --accent-bg: #1e2040;
+  --shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; transition: 0.2s; }
+a { color:inherit; text-decoration:none; }
+
+header { background: linear-gradient(135deg,#6c7ee1 0%,#8b93f0 50%,#a78bfa 100%); color:white; padding:36px 24px; position:relative; overflow:hidden; }
+header::before { content:''; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.header-inner { position:relative; max-width:1060px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.header-left h1 { font-size:1.7em; font-weight:800; letter-spacing:-0.02em; margin-bottom:4px; }
+.stats-bar { display:flex; gap:20px; font-size:0.85em; opacity:0.9; }
+.dark-toggle { background:rgba(255,255,255,0.2); border:none; color:white; padding:9px 18px; border-radius:10px; cursor:pointer; font-size:0.88em; backdrop-filter:blur(8px); transition:background 0.2s; }
+.dark-toggle:hover { background:rgba(255,255,255,0.32); }
+
+.container { max-width:1060px; margin:0 auto; padding:24px 20px 60px; }
+
+/* Search */
+.search-wrap { margin:16px 0 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+#searchInput { flex:1; min-width:200px; padding:10px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:0.9em; background:var(--surface); color:var(--text); outline:none; transition:border-color 0.2s; }
+#searchInput:focus { border-color:var(--accent); }
+.filter-wrap { display:flex; gap:8px; flex-wrap:wrap; }
+.filter-btn { padding:6px 14px; border:1.5px solid var(--border); border-radius:8px; background:var(--surface); color:var(--text2); font-size:0.8em; cursor:pointer; transition:all 0.15s; }
+.filter-btn.active { background:var(--accent); color:white; border-color:var(--accent); }
+
+/* Loading */
+.loading { text-align:center; padding:60px 0; color:var(--text3); font-size:0.9em; }
+.loading::after { content:''; display:inline-block; width:20px; height:20px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; margin-left:10px; vertical-align:middle; }
+@keyframes spin { to{transform:rotate(360deg)} }
+
+/* Grid */
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
+.dir-card { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--border); padding:20px; transition:box-shadow 0.2s,transform 0.2s; }
+.dir-card:hover { box-shadow:0 4px 24px rgba(30,35,70,0.12); transform:translateY(-2px); }
+.dir-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.dir-title { font-weight:700; font-size:0.95em; display:flex; align-items:center; gap:6px; }
+.file-count { background:var(--accent-bg); color:var(--accent); font-size:0.72em; padding:2px 8px; border-radius:20px; font-weight:600; }
+.file-list { list-style:none; max-height:280px; overflow-y:auto; }
+.file-list li { padding:5px 0; font-size:0.82em; display:flex; align-items:center; gap:6px; }
+.file-list li a { color:var(--text2); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.file-list li a:hover { color:var(--accent); }
+.file-ext { font-size:0.7em; padding:1px 5px; border-radius:4px; background:var(--surface2); color:var(--text3); }
+.file-ext.img { background:#fef3c7; color:#92400e; }
+.file-ext.pdf { background:#fee2e2; color:#991b1b; }
+.file-ext.py { background:#d1fae5; color:#065f46; }
+.file-ext.md { background:#e0e7ff; color:#3730a3; }
+
+/* Footer */
+footer { text-align:center; padding:30px; color:var(--text3); font-size:0.8em; border-top:1px solid var(--border); margin-top:40px; }
+footer a { color:var(--accent); }
+
+@media(max-width:600px){ .grid{grid-template-columns:1fr;} .header-inner{flex-direction:column;} }
 </style>
 </head>
 <body>
-<header><div class="header-inner"><h1>📦 Hermes 文件中心</h1><div class="meta">fisheryounggod/hermes · 共 45 文件</div></div></header>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>📦 Hermes 文件中心</h1>
+      <div class="stats-bar">
+        <span id="totalCount">— 文件</span>
+        <span id="lastUpdate">—</span>
+      </div>
+    </div>
+    <button class="dark-toggle" onclick="toggleTheme()" id="themeBtn">🌙 深色模式</button>
+  </div>
+</header>
+
 <div class="container">
-<div class="grid">
-        <div class="dir-card">
-          <div class="dir-name">📁 $RECYCLE.BIN</div>
-          <ul class="file-list">          <li><a href="$RECYCLE.BIN/desktop.ini" target="_blank">desktop.ini</a></li>
-          </ul>
-        </div>
+  <div class="search-wrap">
+    <input type="text" id="searchInput" placeholder="🔍 搜索文件…" oninput="filterAll()">
+    <div class="filter-wrap" id="filterWrap"></div>
+  </div>
+  <div id="loading" class="loading">正在加载文件列表</div>
+  <div class="grid" id="grid" style="display:none"></div>
+  <footer>由 <a href="https://github.com/fisheryounggod/hermes" target="_blank">GitHub API</a> 驱动 · 实时更新</footer>
+</div>
 
-        <div class="dir-card">
-          <div class="dir-name">📁 _root</div>
-          <ul class="file-list">          <li><a href="TASK.md" target="_blank">TASK.md</a></li>
-          <li><a href="Thumbs.db" target="_blank">Thumbs.db</a></li>
-          <li><a href="index.html" target="_blank">index.html</a></li>
-          </ul>
-        </div>
+<script>
+const OWNER = 'fisheryounggod';
+const REPO  = 'hermes';
+const API    = `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
+const TOKEN  = ''; // 若有 PAT 可填在此处，否则用公开接口
 
-        <div class="dir-card">
-          <div class="dir-name">📁 booknote</div>
-          <ul class="file-list">          <li><a href="booknote/data.json" target="_blank">data.json</a></li>
-          <li><a href="booknote/main.js" target="_blank">main.js</a></li>
-          <li><a href="booknote/manifest.json" target="_blank">manifest.json</a></li>
-          <li><a href="booknote/styles.css" target="_blank">styles.css</a></li>
-          </ul>
-        </div>
+let allFiles = [];
+let activeDir = 'all';
 
-        <div class="dir-card">
-          <div class="dir-name">📁 cards</div>
-          <ul class="file-list">          <li><a href="cards/ols-white-card.png" target="_blank">ols-white-card.png</a></li>
-          <li><a href="cards/product-intro-card.png" target="_blank">product-intro-card.png</a></li>
-          </ul>
-        </div>
+// ── 主题 ──
+const stored = localStorage.getItem('hermes-theme');
+if (stored === 'dark') document.documentElement.setAttribute('data-theme','dark');
+function toggleTheme() {
+  const d = document.documentElement;
+  const is = d.getAttribute('data-theme') === 'dark';
+  d.setAttribute('data-theme', is ? '' : 'dark');
+  localStorage.setItem('hermes-theme', is ? '' : 'dark');
+  document.getElementById('themeBtn').textContent = is ? '🌙 深色模式' : '☀️ 浅色模式';
+}
+if (stored === 'dark') document.getElementById('themeBtn').textContent = '☀️ 浅色模式';
 
-        <div class="dir-card">
-          <div class="dir-name">📁 finance</div>
-          <ul class="file-list">          <li><a href="finance/量化交易指南.png" target="_blank">量化交易指南.png</a></li>
-          </ul>
-        </div>
+// ── 获取文件列表（递归） ──
+async function fetchDir(path) {
+  const headers = { 'Accept': 'application/vnd.github.v3+json' };
+  if (TOKEN) headers['Authorization'] = `Bearer ${TOKEN}`;
+  const r = await fetch(`${API}/${encodeURIComponent(path)}`, { headers });
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 learning</div>
-          <ul class="file-list">          <li><a href="learning/overseas-ecommerce-english-30day-plan.md" target="_blank">overseas-ecommerce-english-30day-plan.md</a></li>
-          </ul>
-        </div>
+async function walkDir(path) {
+  const items = await fetchDir(path);
+  const results = [];
+  for (const item of items) {
+    if (item.type === 'file') results.push(item);
+    else if (item.type === 'dir') {
+      const sub = await walkDir(item.path);
+      results.push(...sub);
+    }
+  }
+  return results;
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 reports</div>
-          <ul class="file-list">          <li><a href="reports/indicators_^GSPC_20260310_114820.png" target="_blank">indicators_^GSPC_20260310_114820.png</a></li>
-          <li><a href="reports/kline_^GSPC_20260310_114820.png" target="_blank">kline_^GSPC_20260310_114820.png</a></li>
-          <li><a href="reports/kline_^GSPC_20260310_new.png" target="_blank">kline_^GSPC_20260310_new.png</a></li>
-          <li><a href="reports/sp500_analysis_20260310_114820.pdf" target="_blank">sp500_analysis_20260310_114820.pdf</a></li>
-          </ul>
-        </div>
+async function loadFiles() {
+  try {
+    allFiles = await walkDir('');
+    renderDirs();
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('grid').style.display = 'grid';
+    document.getElementById('totalCount').textContent = `${allFiles.length} 文件`;
+    document.getElementById('lastUpdate').textContent = new Date().toLocaleString('zh-CN');
+    buildFilters();
+  } catch(e) {
+    document.getElementById('loading').textContent = '❌ 加载失败: ' + e.message;
+  }
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 research</div>
-          <ul class="file-list">          <li><a href="research/SW2007-ppt/SW2007精读笔记.docx" target="_blank">SW2007精读笔记.docx</a></li>
-          <li><a href="research/SW2007-ppt/index.html" target="_blank">index.html</a></li>
-          <li><a href="research/SW2007-ppt/motion.min.js" target="_blank">motion.min.js</a></li>
-          <li><a href="research/capital_flow_papers.json" target="_blank">capital_flow_papers.json</a></li>
-          <li><a href="research/shanghai-metropolitan-circle/2025-02-11-上海都市圈扩容政策资料汇编.md" target="_blank">2025-02-11-上海都市圈扩容政策资料汇编.md</a></li>
-          </ul>
-        </div>
+// ── 按目录分组 ──
+function getDirs() {
+  const map = {};
+  for (const f of allFiles) {
+    const parts = f.path.split('/');
+    const dir = parts.length > 1 ? parts[0] : '_root';
+    if (!map[dir]) map[dir] = [];
+    map[dir].push(f);
+  }
+  return map;
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 scripts</div>
-          <ul class="file-list">          <li><a href="scripts/a_share_absolute_simple.py" target="_blank">a_share_absolute_simple.py</a></li>
-          <li><a href="scripts/a_share_bull_final.py" target="_blank">a_share_bull_final.py</a></li>
-          <li><a href="scripts/a_share_bull_market_fixed.py" target="_blank">a_share_bull_market_fixed.py</a></li>
-          <li><a href="scripts/cny_currency_pairs_final.py" target="_blank">cny_currency_pairs_final.py</a></li>
-          <li><a href="scripts/currency_analysis_final.py" target="_blank">currency_analysis_final.py</a></li>
-          <li><a href="scripts/english-learning-reminder.sh" target="_blank">english-learning-reminder.sh</a></li>
-          <li><a href="scripts/feishu_bot_final.py" target="_blank">feishu_bot_final.py</a></li>
-          <li><a href="scripts/sp500_3days_final.py" target="_blank">sp500_3days_final.py</a></li>
-          <li><a href="scripts/sp500_5days_final.py" target="_blank">sp500_5days_final.py</a></li>
-          <li><a href="scripts/sp500_gold_1week.py" target="_blank">sp500_gold_1week.py</a></li>
-          <li><a href="scripts/work-planning-v2.py" target="_blank">work-planning-v2.py</a></li>
-          <li><a href="scripts/work-planning.sh" target="_blank">work-planning.sh</a></li>
-          <li><a href="scripts/work-summary.sh" target="_blank">work-summary.sh</a></li>
-          </ul>
-        </div>
+// ── 过滤按钮 ──
+function buildFilters() {
+  const dirs = getDirs();
+  const wrap = document.getElementById('filterWrap');
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn' + (activeDir === 'all' ? ' active' : '');
+  allBtn.textContent = '全部';
+  allBtn.onclick = () => { activeDir = 'all'; filterAll(); updateFilterBtns(); };
+  wrap.appendChild(allBtn);
+  for (const d of Object.keys(dirs).sort()) {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (activeDir === d ? ' active' : '');
+    btn.textContent = `📁 ${d} (${dirs[d].length})`;
+    btn.onclick = () => { activeDir = d; filterAll(); updateFilterBtns(); };
+    wrap.appendChild(btn);
+  }
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 system</div>
-          <ul class="file-list">          <li><a href="system/个人系统工程指南.png" target="_blank">个人系统工程指南.png</a></li>
-          </ul>
-        </div>
+function updateFilterBtns() {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    const label = b.textContent;
+    const isAll = label === '全部';
+    const isActive = isAll ? activeDir === 'all' : activeDir === label.split(' ')[1];
+    b.className = 'filter-btn' + (isActive ? ' active' : '');
+  });
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 travel</div>
-          <ul class="file-list">          <li><a href="travel/hangzhou-5day-trip.png" target="_blank">hangzhou-5day-trip.png</a></li>
-          <li><a href="travel/hangzhou5day_relaxed.png" target="_blank">hangzhou5day_relaxed.png</a></li>
-          <li><a href="travel/hangzhou_handdrawn.png" target="_blank">hangzhou_handdrawn.png</a></li>
-          <li><a href="travel/shanghai-3day-couple.png" target="_blank">shanghai-3day-couple.png</a></li>
-          <li><a href="travel/shanghai-3day.png" target="_blank">shanghai-3day.png</a></li>
-          <li><a href="travel/shanghai-5day.png" target="_blank">shanghai-5day.png</a></li>
-          <li><a href="travel/shanghai-food.png" target="_blank">shanghai-food.png</a></li>
-          </ul>
-        </div>
+// ── 搜索 ──
+function filterAll() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  renderDirs(q);
+}
 
-        <div class="dir-card">
-          <div class="dir-name">📁 work</div>
-          <ul class="file-list">          <li><a href="work/2026-04-24.md" target="_blank">2026-04-24.md</a></li>
-          <li><a href="work/2026-04-25.md" target="_blank">2026-04-25.md</a></li>
-          <li><a href="work/2026-04.md" target="_blank">2026-04.md</a></li>
-          </ul>
-        </div>
+function matchesSearch(f, q) {
+  if (!q) return true;
+  return f.name.toLowerCase().includes(q) || f.path.toLowerCase().includes(q);
+}
 
-</div></body></html>
+// ── 渲染 ──
+function renderDirs(search='') {
+  const dirs = getDirs();
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  const targetDirs = activeDir === 'all' ? Object.keys(dirs) : [activeDir];
+
+  for (const dir of targetDirs.sort()) {
+    const files = dirs[dir].filter(f => matchesSearch(f, search));
+    if (files.length === 0) continue;
+
+    const card = document.createElement('div');
+    card.className = 'dir-card';
+
+    const header = document.createElement('div');
+    header.className = 'dir-header';
+    header.innerHTML = `<span class="dir-title">📁 ${dir}</span><span class="file-count">${files.length}</span>`;
+    card.appendChild(header);
+
+    const ul = document.createElement('ul');
+    ul.className = 'file-list';
+    for (const f of files.sort((a,b) => a.name.localeCompare(b.name))) {
+      const ext = f.name.split('.').pop().toLowerCase();
+      const extClass = ['png','jpg','gif','svg','webp'].includes(ext) ? 'img'
+                     : ext === 'pdf' ? 'pdf'
+                     : ext === 'py' ? 'py'
+                     : ext === 'md' ? 'md' : '';
+      const li = document.createElement('li');
+      const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${f.path}`;
+      li.innerHTML = `<span class="file-ext ${extClass}">${ext}</span><a href="${url}" target="_blank" title="${f.path}">${f.name}</a>`;
+      ul.appendChild(li);
+    }
+    card.appendChild(ul);
+    grid.appendChild(card);
+  }
+}
+
+loadFiles();
+</script>
+</body>
+</html>
