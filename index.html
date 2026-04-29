@@ -31,7 +31,6 @@ header::before { content:''; position:absolute; inset:0; background-image:url("d
 
 .container { max-width:1060px; margin:0 auto; padding:24px 20px 60px; }
 
-/* Search */
 .search-wrap { margin:16px 0 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
 #searchInput { flex:1; min-width:200px; padding:10px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:0.9em; background:var(--surface); color:var(--text); outline:none; transition:border-color 0.2s; }
 #searchInput:focus { border-color:var(--accent); }
@@ -39,12 +38,10 @@ header::before { content:''; position:absolute; inset:0; background-image:url("d
 .filter-btn { padding:6px 14px; border:1.5px solid var(--border); border-radius:8px; background:var(--surface); color:var(--text2); font-size:0.8em; cursor:pointer; transition:all 0.15s; }
 .filter-btn.active { background:var(--accent); color:white; border-color:var(--accent); }
 
-/* Loading */
 .loading { text-align:center; padding:60px 0; color:var(--text3); font-size:0.9em; }
 .loading::after { content:''; display:inline-block; width:20px; height:20px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; margin-left:10px; vertical-align:middle; }
 @keyframes spin { to{transform:rotate(360deg)} }
 
-/* Grid */
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; }
 .dir-card { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid var(--border); padding:20px; transition:box-shadow 0.2s,transform 0.2s; }
 .dir-card:hover { box-shadow:0 4px 24px rgba(30,35,70,0.12); transform:translateY(-2px); }
@@ -55,13 +52,12 @@ header::before { content:''; position:absolute; inset:0; background-image:url("d
 .file-list li { padding:5px 0; font-size:0.82em; display:flex; align-items:center; gap:6px; }
 .file-list li a { color:var(--text2); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .file-list li a:hover { color:var(--accent); }
-.file-ext { font-size:0.7em; padding:1px 5px; border-radius:4px; background:var(--surface2); color:var(--text3); }
+.file-ext { font-size:0.7em; padding:1px 5px; border-radius:4px; background:var(--surface2); color:var(--text3); flex-shrink:0; }
 .file-ext.img { background:#fef3c7; color:#92400e; }
 .file-ext.pdf { background:#fee2e2; color:#991b1b; }
-.file-ext.py { background:#d1fae5; color:#065f46; }
-.file-ext.md { background:#e0e7ff; color:#3730a3; }
+.file-ext.py  { background:#d1fae5; color:#065f46; }
+.file-ext.md  { background:#e0e7ff; color:#3730a3; }
 
-/* Footer */
 footer { text-align:center; padding:30px; color:var(--text3); font-size:0.8em; border-top:1px solid var(--border); margin-top:40px; }
 footer a { color:var(--accent); }
 
@@ -96,13 +92,12 @@ footer a { color:var(--accent); }
 <script>
 const OWNER = 'fisheryounggod';
 const REPO  = 'hermes';
-const API    = `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
-const TOKEN  = ''; // 若有 PAT 可填在此处，否则用公开接口
+const TREE_API = `https://api.github.com/repos/${OWNER}/${REPO}/git/trees/main?recursive=1`;
+const TOKEN = '';
 
 let allFiles = [];
 let activeDir = 'all';
 
-// ── 主题 ──
 const stored = localStorage.getItem('hermes-theme');
 if (stored === 'dark') document.documentElement.setAttribute('data-theme','dark');
 function toggleTheme() {
@@ -114,31 +109,20 @@ function toggleTheme() {
 }
 if (stored === 'dark') document.getElementById('themeBtn').textContent = '☀️ 浅色模式';
 
-// ── 获取文件列表（递归） ──
-async function fetchDir(path) {
-  const headers = { 'Accept': 'application/vnd.github.v3+json' };
-  if (TOKEN) headers['Authorization'] = `Bearer ${TOKEN}`;
-  const r = await fetch(`${API}/${encodeURIComponent(path)}`, { headers });
-  if (!r.ok) throw new Error(r.status);
-  return r.json();
-}
-
-async function walkDir(path) {
-  const items = await fetchDir(path);
-  const results = [];
-  for (const item of items) {
-    if (item.type === 'file') results.push(item);
-    else if (item.type === 'dir') {
-      const sub = await walkDir(item.path);
-      results.push(...sub);
-    }
-  }
-  return results;
-}
-
+// ── 获取完整文件树（一次 API 调用） ──
 async function loadFiles() {
   try {
-    allFiles = await walkDir('');
+    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+    if (TOKEN) headers['Authorization'] = `Bearer ${TOKEN}`;
+    const r = await fetch(TREE_API, { headers });
+    if (r.status === 403) {
+      document.getElementById('loading').textContent = '❌ API 速率超限，请稍后再试（每小时最多 60 次请求）';
+      return;
+    }
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    // tree[].path = 文件路径，type = 'blob'
+    allFiles = data.tree.filter(item => item.type === 'blob');
     renderDirs();
     document.getElementById('loading').style.display = 'none';
     document.getElementById('grid').style.display = 'grid';
@@ -169,68 +153,54 @@ function buildFilters() {
   const allBtn = document.createElement('button');
   allBtn.className = 'filter-btn' + (activeDir === 'all' ? ' active' : '');
   allBtn.textContent = '全部';
-  allBtn.onclick = () => { activeDir = 'all'; filterAll(); updateFilterBtns(); };
+  allBtn.onclick = () => { activeDir = 'all'; filterAll(); updateBtns(); };
   wrap.appendChild(allBtn);
   for (const d of Object.keys(dirs).sort()) {
     const btn = document.createElement('button');
     btn.className = 'filter-btn' + (activeDir === d ? ' active' : '');
     btn.textContent = `📁 ${d} (${dirs[d].length})`;
-    btn.onclick = () => { activeDir = d; filterAll(); updateFilterBtns(); };
+    btn.onclick = () => { activeDir = d; filterAll(); updateBtns(); };
     wrap.appendChild(btn);
   }
 }
 
-function updateFilterBtns() {
+function updateBtns() {
   document.querySelectorAll('.filter-btn').forEach(b => {
-    const label = b.textContent;
-    const isAll = label === '全部';
-    const isActive = isAll ? activeDir === 'all' : activeDir === label.split(' ')[1];
-    b.className = 'filter-btn' + (isActive ? ' active' : '');
+    const isAll = b.textContent === '全部';
+    const active = isAll ? activeDir === 'all' : activeDir === b.textContent.split(' ')[1];
+    b.className = 'filter-btn' + (active ? ' active' : '');
   });
 }
 
-// ── 搜索 ──
-function filterAll() {
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  renderDirs(q);
-}
+function filterAll() { renderDirs(document.getElementById('searchInput').value.trim().toLowerCase()); }
 
-function matchesSearch(f, q) {
-  if (!q) return true;
-  return f.name.toLowerCase().includes(q) || f.path.toLowerCase().includes(q);
-}
-
-// ── 渲染 ──
 function renderDirs(search='') {
   const dirs = getDirs();
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
-
-  const targetDirs = activeDir === 'all' ? Object.keys(dirs) : [activeDir];
-
-  for (const dir of targetDirs.sort()) {
-    const files = dirs[dir].filter(f => matchesSearch(f, search));
-    if (files.length === 0) continue;
-
+  const targets = activeDir === 'all' ? Object.keys(dirs) : [activeDir];
+  for (const dir of targets.sort()) {
+    const files = dirs[dir].filter(f => {
+      if (!search) return true;
+      const q = search.toLowerCase();
+      return f.path.toLowerCase().includes(q);
+    });
+    if (!files.length) continue;
     const card = document.createElement('div');
     card.className = 'dir-card';
-
-    const header = document.createElement('div');
-    header.className = 'dir-header';
-    header.innerHTML = `<span class="dir-title">📁 ${dir}</span><span class="file-count">${files.length}</span>`;
-    card.appendChild(header);
-
+    const hdr = document.createElement('div');
+    hdr.className = 'dir-header';
+    hdr.innerHTML = `<span class="dir-title">📁 ${dir}</span><span class="file-count">${files.length}</span>`;
+    card.appendChild(hdr);
     const ul = document.createElement('ul');
     ul.className = 'file-list';
-    for (const f of files.sort((a,b) => a.name.localeCompare(b.name))) {
-      const ext = f.name.split('.').pop().toLowerCase();
-      const extClass = ['png','jpg','gif','svg','webp'].includes(ext) ? 'img'
-                     : ext === 'pdf' ? 'pdf'
-                     : ext === 'py' ? 'py'
-                     : ext === 'md' ? 'md' : '';
+    for (const f of files.sort((a,b) => a.path.localeCompare(b.path))) {
+      const ext = f.path.split('.').pop().toLowerCase();
+      const cls = ['png','jpg','gif','svg','webp'].includes(ext) ? 'img'
+                : ext === 'pdf' ? 'pdf' : ext === 'py' ? 'py' : ext === 'md' ? 'md' : '';
       const li = document.createElement('li');
-      const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${f.path}`;
-      li.innerHTML = `<span class="file-ext ${extClass}">${ext}</span><a href="${url}" target="_blank" title="${f.path}">${f.name}</a>`;
+      const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(f.path)}`;
+      li.innerHTML = `<span class="file-ext ${cls}">${ext}</span><a href="${url}" target="_blank" title="${f.path}">${f.path.split('/').pop()}</a>`;
       ul.appendChild(li);
     }
     card.appendChild(ul);
