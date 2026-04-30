@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/mac/Library/Mobile Documents/iCloud~md~obsidian/Documents/o
+> neinall/Outputs/log/temp_stata_1774577969054.log
+  log type:  text
+ opened on:  27 Mar 2026, 10:19:29
+
+. 
+. sysuse auto
+(1978 automobile data)
+
+. line pri wei
+
+. graph dis
+
+. quietly graph export `"/Users/mac/Library/Mobile Documents/iCloud~md~obsidian
+> /Documents/oneinall/Outputs/graph/auto_graph_1774577969055_1.png"', replace
+
+. display "===GRAPH_START===Outputs/graph/auto_graph_1774577969055_1.png===GRAP
+> H_END==="
+===GRAPH_START===Outputs/graph/auto_graph_1774577969055_1.png===GRAPH_END===
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/mac/Library/Mobile Documents/iCloud~md~obsidian/Documents/o
+> neinall/Outputs/log/temp_stata_1774577969054.log
+  log type:  text
+ closed on:  27 Mar 2026, 10:19:31
+-------------------------------------------------------------------------------
