@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+
+  {{CUSTOM_CSS}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+  
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #6C63FF; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #6C63FF; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #6C63FF; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #6C63FF; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 10 · 镜像世界</div>
+    <div class="title">普通人在镜像世界里如何总是选对的那一个</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 第10章</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">核心洞察</div>
+    <div class="highlight-box">
+      <div class="text">没有伟大目标的人<br>总是在镜像世界里选择错误的那一个</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">镜像世界：定投的那一刻，你已经赢了</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">✓</span>选择定投策略的那一瞬间 → 身处正确的一侧</div>
+      <div class="row"><span class="tag">✗</span>没有伟大目标 → 永远选错那侧</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">施瓦辛格的启示：Goal（目标）</div>
+    <div class="quote">
+      "I have a goal."<br>
+      有目标的人，和没有目标的人，<br>身处镜像世界截然相反的两侧
+      <div class="author">—— 阿诺德·施瓦辛格</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">为自己做的事赋予伟大意义</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">✓</div>
+        <div class="label">无需坚持<br>无需鼓励<br>不怕挫折</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">✓</div>
+        <div class="label">不在意反对<br>自驱力爆发<br>直接翻脸拦路人</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">生命意义</div>
+    <div class="quote">
+      人生本无意义，意义是活出来的罢？<br>
+      <div class="author">—— 毕淑敏</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">定投：普通人唯一靠谱的阶层突破方式</div>
+    <ul class="point-list">
+      <li>不分国界、地域、种族、性别、年龄、智商</li>
+      <li>全靠你自己，无需依靠任何人</li>
+      <li>七年就是一辈子，你我有的是时间</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    📖 明日内容：第11章 内容未完待续...
+  </div>
+</div>
+
+  <div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
