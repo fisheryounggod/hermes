@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\YXF\obsidian-vault\Outputs\log\temp_stata_1774579580691.l
+> og
+  log type:  text
+ opened on:  27 Mar 2026, 10:46:22
+
+. 
+. sysuse auto
+(1978 automobile data)
+
+. reg pri wei
+
+      Source |       SS           df       MS      Number of obs   =        74
+-------------+----------------------------------   F(1, 72)        =     29.42
+       Model |   184233937         1   184233937   Prob > F        =    0.0000
+    Residual |   450831459        72  6261548.04   R-squared       =    0.2901
+-------------+----------------------------------   Adj R-squared   =    0.2802
+       Total |   635065396        73  8699525.97   Root MSE        =    2502.3
+
+------------------------------------------------------------------------------
+       price | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+      weight |      2.044      0.377     5.42   0.000        1.293       2.795
+       _cons |     -6.707   1174.430    -0.01   0.995    -2347.890    2334.475
+------------------------------------------------------------------------------
+
+. scatter pri wei
+
+. graph dis
+
+. quietly graph export `"C:\Users\YXF\obsidian-vault\Outputs\graph\auto_graph_1
+> 774579580691_1.png"', replace
+
+. display "===GRAPH_START===/Outputs/graph/auto_graph_1774579580691_1.png===GRA
+> PH_END==="
+===GRAPH_START===/Outputs/graph/auto_graph_1774579580691_1.png===GRAPH_END===
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\YXF\obsidian-vault\Outputs\log\temp_stata_1774579580691.l
+> og
+  log type:  text
+ closed on:  27 Mar 2026, 10:46:25
+-------------------------------------------------------------------------------
