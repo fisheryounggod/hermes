@@ -1,0 +1,37 @@
+{
+  "bookPath": "/Users/mac/Documents/Books",
+  "bookSettingPath": "raw/08-BOOKS/boox",
+  "defaultVaultName": "Books",
+  "useLocalWebViewerServer": true,
+  "webviewerRootPath": "/Users/mac/Plug-in/webviewer",
+  "webviewerLocalPort": "1448",
+  "webviewerExternalServerAddress": "https://relaxed-torvalds-5a5c77.netlify.app",
+  "openAllBookBySystem": false,
+  "openOfficeBookBySystem": false,
+  "selectionAnnotationLinkTemplate": "[{{content}}]({{url}})",
+  "regionAnnotationLinkTemplate": "![|#center|{{width}}]({{img}})",
+  "currentPageLinkTemplage": "[**P{{page}}**]({{url}})",
+  "fixedAnnotImageZoom": true,
+  "fixedAnnotImageZoomValue": "2",
+  "addClickEventForAnnotImage": true,
+  "autoOpenProjectView": true,
+  "copyNewAnnotationLink": true,
+  "bookTreeSortType": 0,
+  "bookTreeSortAsc": true,
+  "currentBookVault": "default",
+  "bookVaults": [
+    {
+      "name": "Local PDF",
+      "path": ""
+    },
+    {
+      "name": "",
+      "path": ""
+    },
+    {
+      "name": "",
+      "path": ""
+    }
+  ],
+  "zoteroImportPath": ""
+}
