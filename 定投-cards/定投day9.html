@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+
+  {{CUSTOM_CSS}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+  
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 48px; font-weight: 700; color: #2D2926; line-height: 1.2; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .table-box { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .table-box table { width: 100%; border-collapse: collapse; }
+  .table-box th { background: #2D2926; color: #fff; padding: 12px 18px; font-size: 20px; text-align: left; }
+  .table-box td { padding: 10px 18px; font-size: 20px; border-bottom: 1px solid rgba(45,41,38,0.08); }
+  .table-box tr:last-child td { border-bottom: none; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 9 · 深度机理</div>
+    <div class="title">定投策略神奇力量背后的深刻机理</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 第9章</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">核心：主动地被动</div>
+    <div class="highlight-box">
+      <div class="text">主动地选择最正确的趋势<br>被动地等待趋势发挥作用</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">主动的两个边界</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">01</div>
+        <div class="label">边界一：自己<br>在自身范围内主动，<br>在边界之外乱主动产生负作用</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">02</div>
+        <div class="label">边界二：控制范围<br>技巧和运气各占一端，<br>决定性因素在边界之外</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">决定命运的关键：趋势</div>
+    <div class="quote">
+      凡是对你产生重大影响的，都不是你所能控制的……<br>
+      识时务者为俊杰，时势造英雄
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">被动的力量</div>
+    <div class="table-box">
+      <table>
+        <tr><th>投资周期</th><th>被动优势</th></tr>
+        <tr><td>15年</td><td>92.2%大型基金跑输S&P 500</td></tr>
+        <tr><td>志向越远大</td><td>越需要被动力量</td></tr>
+        <tr><td>能量越充足</td><td>越需要被动力量</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">完全不信命</div>
+    <ul class="point-list">
+      <li>过去 ≠ 将来（独立事件概念）</li>
+      <li>下定决心切断过去与未来之间的必然联系</li>
+      <li>定投：用行动证明过去不必然决定未来</li>
+    </ul>
+  </div>
+
+  <div class="footer-note">
+    📖 明日内容：第10章 面对大跌的正确姿势
+  </div>
+</div>
+
+  <div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
