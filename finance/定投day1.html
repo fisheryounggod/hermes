@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+
+  {{CUSTOM_CSS}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+  
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner {
+    width: 1080px;
+    background: #F2F2F2;
+    padding: 56px 60px 48px;
+    font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif;
+    color: #2D2926;
+  }
+  .header {
+    border-left: 6px solid #B8D8BE;
+    padding-left: 24px;
+    margin-bottom: 40px;
+  }
+  .header .label {
+    font-size: 20px;
+    color: #5C5350;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .header .title {
+    font-size: 52px;
+    font-weight: 700;
+    color: #2D2926;
+    line-height: 1.2;
+  }
+  .header .subtitle {
+    font-size: 26px;
+    color: #5C5350;
+    margin-top: 12px;
+  }
+  .section {
+    margin-bottom: 36px;
+  }
+  .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2D2926;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #E91E63;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .quote {
+    background: #B8D8BE;
+    border-radius: 8px;
+    padding: 20px 28px;
+    font-size: 26px;
+    line-height: 1.7;
+    color: #2D2926;
+    margin-bottom: 20px;
+  }
+  .quote .author {
+    font-size: 20px;
+    color: #5C5350;
+    margin-top: 12px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .grid-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .grid-item .num {
+    font-size: 48px;
+    font-weight: 700;
+    color: #E91E63;
+    line-height: 1;
+  }
+  .grid-item .label {
+    font-size: 20px;
+    color: #5C5350;
+    margin-top: 6px;
+  }
+  .highlight-box {
+    background: #FFF200;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+  .highlight-box .text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2D2926;
+    line-height: 1.5;
+  }
+  .point-list {
+    list-style: none;
+    padding: 0;
+  }
+  .point-list li {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #2D2926;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(45,41,38,0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .point-list li:last-child {
+    border-bottom: none;
+  }
+  .point-list li::before {
+    content: '→';
+    color: #E91E63;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .footer-note {
+    font-size: 20px;
+    color: #5C5350;
+    padding-top: 24px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+    text-align: center;
+  }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 1 · 认知重构</div>
+    <div class="title">定投改变命运</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 前言 + 第1章</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">核心论点</div>
+    <div class="quote">
+      不读这本书的"踏空成本"对所有普通人来说接近于<strong>无穷大</strong>。
+      <div class="author">—— 李笑来</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"> Knight 法则：决定富有的三要素</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">01</div>
+        <div class="label">出身</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">02</div>
+        <div class="label">运气</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">03</div>
+        <div class="label" style="color:#E91E63;font-weight:700;">努力 ← 最微不足道</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">∞</div>
+        <div class="label">投资 ← 唯一通路</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">时间账本（平均寿命78年）</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">28.3</div>
+        <div class="label">睡觉</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">10.5</div>
+        <div class="label">工作</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">9</div>
+        <div class="label">社交媒体</div>
+      </div>
+      <div class="grid-item">
+        <div class="num" style="color:#2D2926;">9</div>
+        <div class="label">真正可自由支配</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="highlight-box">
+      <div class="text">钱不休息——一年365天，每天24小时<br>为你工作。你的汗水怎么跟它比拼？</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">巴菲特的复利奇迹</div>
+    <ul class="point-list">
+      <li>11岁买第一支股票 → 78年持续复利</li>
+      <li>相当于普通人 <strong>8.67辈子</strong> 的有效时间</li>
+      <li>即便去世，上市公司仍在替他赚钱</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="highlight-box" style="background:#B8D8BE;">
+      <div class="text">定投 = 投资标的 × 长时间 × 定期 × 定额</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 明日内容：第2章 证券交易市场是世界第九大奇迹
+  </div>
+</div>
+
+  <div class="colophon">
+    <div class="who">
+      <img src="file:///home/yxf/.hermes/skills/ljg-card/assets/logo.png" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
