@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg: #FBF6EE;
+    --text: #1D1D1F;
+    --text-mid: #6E6E73;
+    --text-dim: #ACACB0;
+    --accent: #E89BA8;
+    --accent-deep: #C97A8A;
+    --rule: #E5E5EA;
+    --font: 'KingHwa_OldSong', 'PingFang SC', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    background: var(--bg);
+  }
+
+  .card {
+    width: 1080px;
+    background: var(--bg);
+    padding: 60px 72px 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    flex-shrink: 0;
+    margin-bottom: 30px;
+  }
+
+  .hero .eyebrow {
+    font: 400 20px/1.4 var(--font);
+    color: var(--accent-deep);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font: 700 78px/1.1 var(--font);
+    color: var(--text);
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+
+  .hero .sub {
+    font: 400 26px/1.5 var(--font);
+    color: var(--text-mid);
+    margin-bottom: 22px;
+  }
+
+  .hero .meta {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 22px;
+  }
+
+  .hero .meta-item {
+    font: 500 22px/1.3 var(--font);
+    color: var(--text);
+    padding: 8px 16px;
+    background: rgba(232, 155, 168, 0.12);
+    border-radius: 8px;
+  }
+
+  .hero .meta-item span {
+    color: var(--text-mid);
+    font-weight: 400;
+    margin-right: 6px;
+  }
+
+  .hero::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  /* ── Route steps ── */
+  .route {
+    margin-top: 26px;
+  }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .step .marker {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 700 24px/1 var(--font);
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step .marker.start {
+    background: var(--text);
+  }
+
+  .step .body {
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .step .name {
+    font: 600 30px/1.3 var(--font);
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .step .desc {
+    font: 400 22px/1.6 var(--font);
+    color: var(--text-mid);
+  }
+
+  .step .tag {
+    display: inline-block;
+    font: 400 18px/1.3 var(--font);
+    color: var(--accent-deep);
+    background: rgba(232, 155, 168, 0.10);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* connecting line */
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 64px;
+    bottom: -20px;
+    width: 2px;
+    background: var(--rule);
+    z-index: 1;
+  }
+
+  /* ── Highlights ── */
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 30px 0;
+  }
+
+  .highlights .section-title {
+    font: 600 30px/1.3 var(--font);
+    color: var(--text);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  .highlights .item {
+    margin-bottom: 18px;
+  }
+
+  .highlights .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlights .item .label {
+    font: 600 24px/1.4 var(--font);
+    color: var(--accent-deep);
+    margin-bottom: 4px;
+  }
+
+  .highlights .item p {
+    font: 400 22px/1.6 var(--font);
+    color: var(--text-mid);
+  }
+
+  /* ── Tips ── */
+  .tips {
+    margin-top: 22px;
+    padding: 22px 24px;
+    background: rgba(232, 155, 168, 0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .tips .tip-title {
+    font: 600 24px/1.4 var(--font);
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .tips ul {
+    list-style: none;
+  }
+
+  .tips ul li {
+    font: 400 22px/1.6 var(--font);
+    color: var(--text-mid);
+    padding: 3px 0 3px 20px;
+    position: relative;
+  }
+
+  .tips ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer .author-name {
+    font: 400 22px/1.5 var(--font);
+    color: var(--text-mid);
+    letter-spacing: 0.03em;
+  }
+
+  .footer .page-info {
+    font: 400 18px/1.5 var(--font);
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="hero">
+      <div class="eyebrow">SEASHORE WALK · SHENZHEN BAY</div>
+      <h1>深圳湾公园<br>海滨漫步路线</h1>
+      <div class="sub">3 公里海岸线，一站式打卡红树林 + 候鸟 + 日落</div>
+      <div class="meta">
+        <div class="meta-item"><span>起点</span>9 号线 · 深圳湾公园 D2 口</div>
+        <div class="meta-item"><span>终点</span>日出剧场</div>
+        <div class="meta-item"><span>距离</span>≈ 3 km</div>
+      </div>
+    </div>
+
+    <div class="route">
+
+      <div class="step">
+        <div class="marker start">GO</div>
+        <div class="body">
+          <div class="name">起点 · 深圳湾公园站 D2 口</div>
+          <div class="desc">9 号线 D2 口出来就是大海，视野开阔。向左走 10 分钟可到免费椰林沙池（秋千+滑梯+沙池）。</div>
+          <span class="tag">🚇 地铁 9 号线 · D2 口</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="marker">1</div>
+        <div class="body">
+          <div class="name">红树林海滨生态公园</div>
+          <div class="desc">观鸟圣地。10 月-次年 4 月成千上万候鸟栖息于此，建议带望远镜在水鸟滩涂静观。</div>
+          <span class="tag">🦅 观鸟 · 生态</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="marker">2</div>
+        <div class="body">
+          <div class="name">海韵公园 & 北湾鹭港</div>
+          <div class="desc">继续向西。北湾鹭港是拍摄「春笋」地标与深圳湾大桥同框的绝佳机位。</div>
+          <span class="tag">📸 打卡机位 · 春笋+大桥同框</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="marker">3</div>
+        <div class="body">
+          <div class="name">白鹭坡 · 白鹭坡书吧</div>
+          <div class="desc">面朝大海的红色椅子是必打卡点，电影感十足。书吧可买咖啡、短暂歇脚。</div>
+          <span class="tag">☕ 书吧 · 红色椅子</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="marker">★</div>
+        <div class="body">
+          <div class="name">终点 · 日出剧场</div>
+          <div class="desc">弧形草坪 + 开阔海面，等待日落的最佳位置。建议提前 30 分钟到位占位。</div>
+          <span class="tag">🌅 日落 · 候鸟归巢</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="highlights">
+      <div class="section-title">🌟 必打卡亮点</div>
+
+      <div class="item">
+        <div class="label">追一场浪漫日落</div>
+        <p>下午 3-5 点开始闲逛，等待夕阳洒满海面、候鸟归巢——深圳最浪漫的场景之一。</p>
+      </div>
+
+      <div class="item">
+        <div class="label">看一群可爱候鸟</div>
+        <p>每年 10 月-次年 4 月是观鸟最佳季节，红树林、海韵公园、北湾鹭港都能拍到。</p>
+      </div>
+
+      <div class="item">
+        <div class="label">踩一片椰林沙滩</div>
+        <p>D2 口向左走约 10 分钟，免费椰林沙池。秋千 + 攀爬架 + 滑梯，度假感拉满。</p>
+      </div>
+    </div>
+
+    <div class="tips">
+      <div class="tip-title">实用 Tips</div>
+      <ul>
+        <li>地铁 9 号线「深圳湾公园」站 D2 口出，全程免门票</li>
+        <li>推荐下午 3-5 点出发 → 拍日落 + 拍晚霞 + 拍候鸟归巢，一趟全收</li>
+        <li>10 月-次年 4 月观鸟季，带望远镜可看清黑脸琵鹭、反嘴鹬</li>
+        <li>红椅子打卡建议工作日下午或周末早晨，光线柔和、人少</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <span class="author-name">Fisher</span>
+      <span class="page-info">SHENZHEN BAY · 3KM WALK</span>
+    </div>
+  </div>
+</body>
+</html>

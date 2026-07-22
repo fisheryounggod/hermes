@@ -1,0 +1,476 @@
+{
+  "template_slug": "mckinsey-style",
+  "selected_slides": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    18,
+    19,
+    20,
+    22,
+    23,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30,
+    37
+  ],
+  "edits": [
+    {
+      "slide": 1,
+      "slot_id": "title_cn",
+      "new_text": "如何研读经济学文献"
+    },
+    {
+      "slide": 1,
+      "slot_id": "subtitle_cn",
+      "new_text": "从ABC范式出发 · 读书笔记"
+    },
+    {
+      "slide": 1,
+      "slot_id": "author_cn",
+      "new_text": "白军飞"
+    },
+    {
+      "slide": 1,
+      "slot_id": "org_cn",
+      "new_text": "中国农业大学经管学院"
+    },
+    {
+      "slide": 3,
+      "slot_id": "section_num",
+      "new_text": "01"
+    },
+    {
+      "slide": 3,
+      "slot_id": "section_title",
+      "new_text": "科学研究的底层问题"
+    },
+    {
+      "slide": 4,
+      "slot_id": "content_title",
+      "new_text": "科学研究的本源目标"
+    },
+    {
+      "slide": 4,
+      "slot_id": "point_1",
+      "new_text": "认识世界：发现未发现，解释未解释的关系"
+    },
+    {
+      "slide": 4,
+      "slot_id": "point_2",
+      "new_text": "基础研究回答\"是什么\"和\"为什么\""
+    },
+    {
+      "slide": 4,
+      "slot_id": "point_3",
+      "new_text": "改造世界：通过行动改变现有状态"
+    },
+    {
+      "slide": 5,
+      "slot_id": "content_title",
+      "new_text": "三种应用科学研究"
+    },
+    {
+      "slide": 5,
+      "slot_id": "item_1_title",
+      "new_text": "改造型"
+    },
+    {
+      "slide": 5,
+      "slot_id": "item_1_desc",
+      "new_text": "消除已知的不好"
+    },
+    {
+      "slide": 5,
+      "slot_id": "item_2_title",
+      "new_text": "揭示型"
+    },
+    {
+      "slide": 5,
+      "slot_id": "item_2_desc",
+      "new_text": "发现因果机制"
+    },
+    {
+      "slide": 5,
+      "slot_id": "item_3_title",
+      "new_text": "方法型"
+    },
+    {
+      "slide": 5,
+      "slot_id": "item_3_desc",
+      "new_text": "提供分析工具"
+    },
+    {
+      "slide": 6,
+      "slot_id": "content_title",
+      "new_text": "因果关系四要点"
+    },
+    {
+      "slide": 6,
+      "slot_id": "item_1",
+      "new_text": "A导致B（A先于B）"
+    },
+    {
+      "slide": 6,
+      "slot_id": "item_2",
+      "new_text": "AB共变（相关性）"
+    },
+    {
+      "slide": 6,
+      "slot_id": "item_3",
+      "new_text": "无第三因素C"
+    },
+    {
+      "slide": 6,
+      "slot_id": "item_4",
+      "new_text": "机制分析不可缺"
+    },
+    {
+      "slide": 8,
+      "slot_id": "section_num",
+      "new_text": "02"
+    },
+    {
+      "slide": 8,
+      "slot_id": "section_title",
+      "new_text": "ABC与C2B分析范式"
+    },
+    {
+      "slide": 9,
+      "slot_id": "content_title",
+      "new_text": "ABC范式"
+    },
+    {
+      "slide": 9,
+      "slot_id": "main_text",
+      "new_text": "Agents × Behavior × Constraints\n任何经济现象 = 主体 × 行为 × 约束"
+    },
+    {
+      "slide": 10,
+      "slot_id": "content_title",
+      "new_text": "C2B范式"
+    },
+    {
+      "slide": 10,
+      "slot_id": "main_text",
+      "new_text": "Constraint → Behavior\n约束如何影响行为？"
+    },
+    {
+      "slide": 10,
+      "slot_id": "sub_text",
+      "new_text": "科学问题的标准表述"
+    },
+    {
+      "slide": 11,
+      "slot_id": "content_title",
+      "new_text": "经济学ABC"
+    },
+    {
+      "slide": 11,
+      "slot_id": "point_1",
+      "new_text": "主体：消费者/企业/政府"
+    },
+    {
+      "slide": 11,
+      "slot_id": "point_2",
+      "new_text": "行为：消费/生产/政策"
+    },
+    {
+      "slide": 11,
+      "slot_id": "point_3",
+      "new_text": "约束：预算/技术/制度"
+    },
+    {
+      "slide": 13,
+      "slot_id": "section_num",
+      "new_text": "03"
+    },
+    {
+      "slide": 13,
+      "slot_id": "section_title",
+      "new_text": "期刊文章研读方法"
+    },
+    {
+      "slide": 14,
+      "slot_id": "content_title",
+      "new_text": "文献研读七阶段"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_1",
+      "new_text": "读得懂"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_2",
+      "new_text": "讲得出"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_3",
+      "new_text": "会归类"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_4",
+      "new_text": "能评价"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_5",
+      "new_text": "会批判"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_6",
+      "new_text": "有洞见"
+    },
+    {
+      "slide": 14,
+      "slot_id": "level_7",
+      "new_text": "能创新"
+    },
+    {
+      "slide": 15,
+      "slot_id": "content_title",
+      "new_text": "递推法：从整体到细节"
+    },
+    {
+      "slide": 15,
+      "slot_id": "step_1",
+      "new_text": "标题：推断主体/行为/约束"
+    },
+    {
+      "slide": 15,
+      "slot_id": "step_2",
+      "new_text": "摘要：定位创新与贡献"
+    },
+    {
+      "slide": 15,
+      "slot_id": "step_3",
+      "new_text": "引言：识别缺口与动机"
+    },
+    {
+      "slide": 15,
+      "slot_id": "step_4",
+      "new_text": "结论：判断发现与局限"
+    },
+    {
+      "slide": 18,
+      "slot_id": "section_num",
+      "new_text": "04"
+    },
+    {
+      "slide": 18,
+      "slot_id": "section_title",
+      "new_text": "文献检索与管理"
+    },
+    {
+      "slide": 19,
+      "slot_id": "content_title",
+      "new_text": "搜索起点：三条路径"
+    },
+    {
+      "slide": 19,
+      "slot_id": "path_1",
+      "new_text": "痛点出发：找到痛点原因C"
+    },
+    {
+      "slide": 19,
+      "slot_id": "path_2",
+      "new_text": "话题出发：JEL分类编码"
+    },
+    {
+      "slide": 19,
+      "slot_id": "path_3",
+      "new_text": "科学问题出发：C2B框架"
+    },
+    {
+      "slide": 20,
+      "slot_id": "content_title",
+      "new_text": "文献管理工具"
+    },
+    {
+      "slide": 20,
+      "slot_id": "tool_1",
+      "new_text": "Endnote：文献分类管理"
+    },
+    {
+      "slide": 20,
+      "slot_id": "tool_2",
+      "new_text": "重要文献记录表"
+    },
+    {
+      "slide": 20,
+      "slot_id": "tool_3",
+      "new_text": "文献云图：发现脉络"
+    },
+    {
+      "slide": 20,
+      "slot_id": "tool_4",
+      "new_text": "何时停止：回到研究实践"
+    },
+    {
+      "slide": 22,
+      "slot_id": "section_num",
+      "new_text": "05"
+    },
+    {
+      "slide": 22,
+      "slot_id": "section_title",
+      "new_text": "如何找文献缺口"
+    },
+    {
+      "slide": 23,
+      "slot_id": "content_title",
+      "new_text": "七种文献缺口类型"
+    },
+    {
+      "slide": 23,
+      "slot_id": "gap_1",
+      "new_text": "群体空白：特定人群未研究"
+    },
+    {
+      "slide": 23,
+      "slot_id": "gap_2",
+      "new_text": "机制模糊：作用路径不明"
+    },
+    {
+      "slide": 23,
+      "slot_id": "gap_3",
+      "new_text": "情境缺失：特定条件未探讨"
+    },
+    {
+      "slide": 23,
+      "slot_id": "gap_4",
+      "new_text": "结论矛盾：同类问题相左"
+    },
+    {
+      "slide": 23,
+      "slot_id": "gap_5",
+      "new_text": "方法局限：新工具有待应用"
+    },
+    {
+      "slide": 24,
+      "slot_id": "content_title",
+      "new_text": "探宝图法"
+    },
+    {
+      "slide": 24,
+      "slot_id": "method_1",
+      "new_text": "从痛点出发→找原因C→提出C2B问题"
+    },
+    {
+      "slide": 24,
+      "slot_id": "method_2",
+      "new_text": "质疑一切：逻辑清晰的质疑=新假说"
+    },
+    {
+      "slide": 25,
+      "slot_id": "content_title",
+      "new_text": "文献树与边界"
+    },
+    {
+      "slide": 25,
+      "slot_id": "point_1",
+      "new_text": "从小边界开始，随认知提升逐步放大"
+    },
+    {
+      "slide": 25,
+      "slot_id": "point_2",
+      "new_text": "JEL分类编码定位边界"
+    },
+    {
+      "slide": 25,
+      "slot_id": "point_3",
+      "new_text": "有意义边界=至少一个ABC完整的因果链"
+    },
+    {
+      "slide": 27,
+      "slot_id": "section_num",
+      "new_text": "06"
+    },
+    {
+      "slide": 27,
+      "slot_id": "section_title",
+      "new_text": "文献写作要点"
+    },
+    {
+      "slide": 28,
+      "slot_id": "content_title",
+      "new_text": "期刊文章的文献接续"
+    },
+    {
+      "slide": 28,
+      "slot_id": "key_1",
+      "new_text": "内嵌引言 vs 独立文献小节"
+    },
+    {
+      "slide": 28,
+      "slot_id": "key_2",
+      "new_text": "呈现时间×学科跨度"
+    },
+    {
+      "slide": 28,
+      "slot_id": "key_3",
+      "new_text": "牛头必须对马尾"
+    },
+    {
+      "slide": 29,
+      "slot_id": "content_title",
+      "new_text": "研究计划书文献综述"
+    },
+    {
+      "slide": 29,
+      "slot_id": "key_1",
+      "new_text": "时间轴越远，线条越粗，体量越小"
+    },
+    {
+      "slide": 29,
+      "slot_id": "key_2",
+      "new_text": "面（综述）× 点（本文缺口）"
+    },
+    {
+      "slide": 29,
+      "slot_id": "key_3",
+      "new_text": "出资方类型决定详略"
+    },
+    {
+      "slide": 30,
+      "slot_id": "content_title",
+      "new_text": "综述类文章定位"
+    },
+    {
+      "slide": 30,
+      "slot_id": "key_1",
+      "new_text": "描绘过去→未来脉络"
+    },
+    {
+      "slide": 30,
+      "slot_id": "key_2",
+      "new_text": "指明研究方向"
+    },
+    {
+      "slide": 30,
+      "slot_id": "key_3",
+      "new_text": "述评穿插，以评带述"
+    },
+    {
+      "slide": 37,
+      "slot_id": "end_text",
+      "new_text": "谢谢观看"
+    }
+  ]
+}
