@@ -21,8 +21,8 @@ A股板块主力资金流视频生成 → 微信发送全流程（22色全色轮
 
 > 📋 **板块 secid 速查表**：`references/sector-secids.md`（农业12板块、新能源12板块、更多有效/无效板块列表）
 
-- CSV数据：`/Users/mac/hermes/sector-fund-flow/data/`
-- 视频输出：`/Users/mac/hermes/sector-fund-flow/output/`
+- CSV数据：`/Users/mac/hermes/05-projects/sector-fund-flow/data/`
+- 视频输出：`/Users/mac/hermes/05-projects/sector-fund-flow/output/`
 - 动画引擎：`/Users/mac/Downloads/Data/animation_player.py`
 - API状态：`references/eastmoney-api-status.md`
 - 板块 secid 参考：`references/sector-secids.md`
@@ -54,7 +54,7 @@ SECTORS = {
     '医药生物':'90.BK1043'
 }
 
-DATA_DIR = '/Users/mac/hermes/sector-fund-flow/data/'
+DATA_DIR = '/Users/mac/hermes/05-projects/sector-fund-flow/data/'
 os.makedirs(DATA_DIR, exist_ok=True)
 
 results = []
@@ -104,8 +104,8 @@ sectors_info = [
     ('医药生物',    '#B0BEC5'),
 ]
 
-DATA_DIR = '/Users/mac/hermes/sector-fund-flow/data/'
-OUTPUT = '/Users/mac/hermes/sector-fund-flow/output/'
+DATA_DIR = '/Users/mac/hermes/05-projects/sector-fund-flow/data/'
+OUTPUT = '/Users/mac/hermes/05-projects/sector-fund-flow/output/'
 import os; os.makedirs(OUTPUT, exist_ok=True)
 today = datetime.now().strftime('%Y-%m-%d')
 
@@ -225,7 +225,7 @@ sys.path.insert(0, '/Users/mac/.local/bin/hermes-agent')
 from tools.send_message_tool import send_message_tool
 
 chat_id = 'o9cq802nxSy8F1d7Vc65-XgAe83E@im.wechat'
-video_path = f'/Users/mac/hermes/sector-fund-flow/output/{today}_主力资金分时对比.mp4'
+video_path = f'/Users/mac/hermes/05-projects/sector-fund-flow/output/{today}_主力资金分时对比.mp4'
 
 result = send_message_tool({
     'action': 'send',
@@ -248,7 +248,7 @@ message: 📈 主力资金板块分时流向对比  {当天日期}
 **第二步**：用 send_message 工具发送视频文件：
 ```
 target: weixin:o9cq802nxSy8F1d7Vc65-XgAe83E@im.wechat
-message: MEDIA:/Users/mac/hermes/sector-fund-flow/output/{当天日期}_主力资金分时对比.mp4
+message: MEDIA:/Users/mac/hermes/05-projects/sector-fund-flow/output/{当天日期}_主力资金分时对比.mp4
 ```
 
 **deliver 必须是显式 Weixin ID**，不能用 `"origin"`——background session 中 origin 解析失败，视频不会推送：
@@ -262,8 +262,8 @@ deliver: weixin:o9cq802nxSy8F1d7Vc65-XgAe83E@im.wechat
 
 ## 5. 输出目录
 
-- CSV：`/Users/mac/hermes/sector-fund-flow/data/`
-- 视频：`/Users/mac/hermes/sector-fund-flow/output/`
+- CSV：`/Users/mac/hermes/05-projects/sector-fund-flow/data/`
+- 视频：`/Users/mac/hermes/05-projects/sector-fund-flow/output/`
 - 命名规范：`2026-05-18_主力资金分时对比.mp4`
 
 ## 6. v2 视觉标准（最终版）
