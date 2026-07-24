@@ -253,15 +253,38 @@ loadFiles();
 // ── 最近 24 张图片看板 ──
 const IMG_EXTS = ['png','jpg','jpeg','gif','svg','webp','bmp'];
 
-// 优先从路径里抓 8 位日期（YYYYMMDD 或 YYYY-MM-DD），用于"最新"排序
+// 提取文件"真实日期"用于时间倒序排序（统一归一为 YYYYMMDD 字符串）
+// 优先级：① 文件名里的 13 位 Unix 毫秒时间戳（auto_graph_1774577969055.png 之类，最真实）
+//         ② 文件名/路径里的 8 位日期（YYYYMMDD）
+//         ③ YYYY-MM-DD / YYYY_MM_DD 形式
 function extractDate(path) {
-  // 1) YYYY-MM-DD（分隔符 . / - _）
-  let m = path.match(/(\d{4})[-_/.](\d{2})[-_/.](\d{2})/);
-  if (m) return m[1] + m[2] + m[3];
-  // 2) YYYYMMDD（连续 8 位）
-  m = path.match(/(\d{8})/);
-  if (m) return m[1];
+  // 1) 文件名中的 13 位 Unix 毫秒时间戳 → 转 YYYYMMDD
+  const ms = path.match(/(\d{13})(?:_\d+\.?|_\d+\.|$)/);
+  if (ms) return new Date(parseInt(ms[1])).toISOString().slice(0,10).replace(/-/g,'');
+  // 2) 连续 8 位数字，年份前缀 19/20
+  const ymd = path.match(/(19|20)\d{6}/);
+  if (ymd) return ymd[0];
+  // 3) YYYY-MM-DD / YYYY_MM_DD / YYYY.MM.DD 形式
+  const iso = path.match(/(19|20)\d{2}[-_/.](\d{2})[-_/.](\d{2})/);
+  if (iso) return iso[1] + iso[2] + iso[3];
   return null;
+}
+
+// _gallery_index.json 由 sync 时构建，按本地 mtime 倒序——真正的「时间倒序」
+let _galleryMtimeMap = null;
+async function loadGalleryIndex() {
+  if (_galleryMtimeMap) return _galleryMtimeMap;
+  try {
+    const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/_gallery_index.json`;
+    const r = await fetch(url, { cache: 'no-cache' });
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    _galleryMtimeMap = new Map(data.items.map(it => [it.path, it.mtime]));
+  } catch (e) {
+    console.warn('_gallery_index.json 加载失败，降级到路径日期猜测:', e.message);
+    _galleryMtimeMap = new Map();
+  }
+  return _galleryMtimeMap;
 }
 
 function pickRecentImages() {
@@ -269,10 +292,18 @@ function pickRecentImages() {
     const ext = f.path.split('.').pop().toLowerCase();
     return IMG_EXTS.includes(ext);
   });
-  // 排序：① 路径里提取的日期倒序 ② 文件路径字典序倒序（兜底）
+  // 主排序：_gallery_index.json 的 mtime（真实时间倒序）；fallback 到路径日期猜测
+  const m = _galleryMtimeMap || new Map();
   imgs.sort((a, b) => {
-    const da = extractDate(a.path), db = extractDate(b.path);
-    if (da && db && da !== db) return db.localeCompare(da);
+    const ma = m.get(a.path), mb = m.get(b.path);
+    if (ma != null && mb != null) return mb - ma;                    // 双 mtime：晚的在前
+    if (ma != null) return -1;                                       // 有 mtime 排前
+    if (mb != null) return 1;
+    const da = extractDate(a.path), db = extractDate(b.path);       // fallback
+    if (da && db) {
+      if (da !== db) return db.localeCompare(da);
+      return a.path.localeCompare(b.path);
+    }
     if (da && !db) return -1;
     if (!da && db) return 1;
     return b.path.localeCompare(a.path);
@@ -280,7 +311,8 @@ function pickRecentImages() {
   return imgs.slice(0, 24);
 }
 
-function renderGallery() {
+async function renderGallery() {
+  await loadGalleryIndex();
   const imgs = pickRecentImages();
   const grid = document.getElementById('galleryGrid');
   const count = document.getElementById('galleryCount');
