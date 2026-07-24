@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg: #FBF6EE;
+    --text: #1D1D1F;
+    --text-mid: #6E6E73;
+    --text-dim: #ACACB0;
+    --accent: #E89BA8;
+    --rule: #E5E5EA;
+    --font: 'KingHwa_OldSong', 'PingFang SC', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1080px;
+    background: var(--bg);
+  }
+
+  .card {
+    width: 1080px;
+    background: var(--bg);
+    padding: 64px 72px 52px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Title ── */
+  .title-area {
+    flex-shrink: 0;
+    margin-bottom: 28px;
+  }
+
+  .title-area h1 {
+    font: 700 72px/1.15 var(--font);
+    color: var(--text);
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  .title-area .tags {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .title-area .tag {
+    font: 400 20px/1 var(--font);
+    color: var(--text-mid);
+    letter-spacing: 0.12em;
+    padding: 5px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+  }
+
+  .title-area .start {
+    font: 400 22px/1.4 var(--font);
+    color: var(--text-mid);
+    margin-bottom: 16px;
+  }
+
+  .title-area .start strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .title-area::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  /* ── Day header ── */
+  .day-head {
+    flex-shrink: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 16px 0 18px;
+  }
+
+  .day-head .day-num {
+    font: 700 52px/1 var(--font);
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .day-head .day-title {
+    font: 600 34px/1.2 var(--font);
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .day-head .day-sub {
+    font: 400 20px/1.2 var(--font);
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Timeline items ── */
+  .item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 18px;
+  }
+
+  .item .time {
+    flex-shrink: 0;
+    width: 120px;
+    font: 500 26px/1.3 var(--font);
+    color: var(--accent);
+    padding-top: 5px;
+  }
+
+  .item .body {
+    flex: 1;
+  }
+
+  .item .name {
+    font: 600 30px/1.3 var(--font);
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+
+  .item .desc {
+    font: 400 22px/1.55 var(--font);
+    color: var(--text-mid);
+  }
+
+  .item .route {
+    display: inline-block;
+    font: 400 18px/1.3 var(--font);
+    color: var(--accent);
+    background: rgba(232, 155, 168, 0.12);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 22px 0;
+  }
+
+  .tips {
+    margin-top: 8px;
+    padding: 18px 22px;
+    background: rgba(232, 155, 168, 0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .tips .tip-title {
+    font: 600 24px/1.4 var(--font);
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .tips ul {
+    list-style: none;
+  }
+
+  .tips ul li {
+    font: 400 21px/1.6 var(--font);
+    color: var(--text-mid);
+    padding: 3px 0 3px 20px;
+    position: relative;
+  }
+
+  .tips ul li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer .author-name {
+    font: 400 22px/1.5 var(--font);
+    color: var(--text-mid);
+    letter-spacing: 0.03em;
+  }
+
+  .footer .page-info {
+    font: 400 18px/1.5 var(--font);
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="title-area">
+      <h1>深圳两日漫游</h1>
+      <div class="start">起点 · <strong>光明区</strong> · 情侣向 · 舒适预算</div>
+      <div class="tags">
+        <span class="tag">FROM GUANGMING</span>
+        <span class="tag">COUPLE</span>
+        <span class="tag">COMFORT</span>
+      </div>
+    </div>
+
+    <div class="day-head">
+      <span class="day-num">D1</span>
+      <span class="day-title">光明出发 → 西岸山海</span>
+      <span class="day-sub">轻装进城 · 海边夜宿</span>
+    </div>
+
+    <div class="item">
+      <span class="time">09:30</span>
+      <div class="body">
+        <div class="name">光明 · 虹桥公园</div>
+        <div class="desc">离家最近的开场。4 km 红桥穿森林公园，免费、人少、空气好。走完红桥可顺路光明农场看奶牛。</div>
+        <span class="route">🚇 地铁 6 号线 · 光明大街站</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">12:00</span>
+      <div class="body">
+        <div class="name">光明 · 公明老街</div>
+        <div class="desc">光明乳鸽（光明招待所/光明鸽城）必吃，¥80/只。再来一份肠粉+凉茶。</div>
+        <span class="route">🚇 6 号线 · 公明广场站</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">14:30</span>
+      <div class="body">
+        <div class="name">南头古城 · 麻雀 Sibe</div>
+        <div class="desc">6 号线 → 5 号线 → 11 号线直插。岭南老宅 + 独立咖啡 + 文创小店，文艺氛围满。</div>
+        <span class="route">🚇 11 号线 · 南头站</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">17:00</span>
+      <div class="body">
+        <div class="name">深圳湾公园 · 日落骑行</div>
+        <div class="desc">从南头打车 15 分钟到红树林，沿海岸线踩单车看对岸香港米铺，日落前 1 小时到位。</div>
+        <span class="route">🚖 打车 15 min / 🚇 11 号线 → 后海</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">19:30</span>
+      <div class="body">
+        <div class="name">后海/蛇口 · 椰子鸡晚餐</div>
+        <div class="desc">返市区方向椰子鸡（推荐润园/四季）或潮汕牛肉火锅。吃完就近地铁回福田住。</div>
+        <span class="route">🏨 建议住宿：福田/车公庙</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="day-head">
+      <span class="day-num">D2</span>
+      <span class="day-title">大鹏半岛 · 山海日落</span>
+      <span class="day-sub">早出发 · 直插东海岸</span>
+    </div>
+
+    <div class="item">
+      <span class="time">08:00</span>
+      <div class="body">
+        <div class="name">福田出发 → 大鹏所城</div>
+        <div class="desc">从福田/车公庙走盐坝高速直插大鹏，约 80 km / 1h15min。早出门避堵+避日晒。</div>
+        <span class="route">🚗 自驾/打车 · 经盐坝高速</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">10:00</span>
+      <div class="body">
+        <div class="name">大鹏所城 · 鹏城饭馆</div>
+        <div class="desc">600 年明清海防古城，吃将军鸭、海胆炒饭、濑尿虾。巷子里现炸糯米糍必试。</div>
+        <span class="route">🎫 免费（部分祠堂单独收费）</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">13:30</span>
+      <div class="body">
+        <div class="name">较场尾 · 海滩民宿区</div>
+        <div class="desc">深圳小「鼓浪屿」，民宿密集 + 海滩 + 桨板。下午踩水、巷子里逛小店。</div>
+        <span class="route">🚶 步行 8 min · 从所城步行可达</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">16:30</span>
+      <div class="body">
+        <div class="name">西涌 · 情人岛栈道日落</div>
+        <div class="desc">深圳最长沙滩 4 km。走木栈道登情人岛，看透明海水 + 礁石阵。日落前 1 小时到位。</div>
+        <span class="route">🚗 20 min · 需预约大鹏通行</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="time">19:30</span>
+      <div class="body">
+        <div class="name">返程 → 光明</div>
+        <div class="desc">西涌 → 盐坝高速 → 沈海高速 → 光明，全程约 1h30min。建议提前下载离线音乐。</div>
+        <span class="route">🏠 终点 · 光明区</span>
+      </div>
+    </div>
+
+    <div class="tips">
+      <div class="tip-title">实用 Tips · 光明出发专属</div>
+      <ul>
+        <li>大鹏半岛周末/节假日必在「深圳交警」公众号预约通行（提前 1 周放号）</li>
+        <li>地铁主轴：6 号线（光明/公明）→ 5 号线（西丽/翻身）→ 11 号线（南山/福田），1 小时到南山</li>
+        <li>D1 强烈建议住福田/车公庙，不要赶回光明——次晨直接走盐坝高速插大鹏省 30 km</li>
+        <li>大鹏返光明末班车紧张，强烈自驾或提前预约顺风车；地铁无直达需多次换乘</li>
+        <li>舒适预算日均人均 ¥600-900：D1 住宿 ¥500+，D2 光明/大鹏吃 ¥80-200/顿</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <span class="author-name">Fisher</span>
+      <span class="page-info">SHENZHEN · 2D · GUANGMING</span>
+    </div>
+  </div>
+</body>
+</html>
