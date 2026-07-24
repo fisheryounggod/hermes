@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SW2007 精读 · Smets &amp; Wouters AER 2007</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a1f3d;
+    --ink-rgb:10,31,61;
+    --paper:#f1f3f5;
+    --paper-rgb:241,243,245;
+    --paper-tint:#e4e8ec;
+    --ink-tint:#152a4a;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --serif-en:"Playfair Display","Source Serif 4",Georgia,serif;
+    --serif-body-en:"Source Serif 4",Georgia,serif;
+    --serif-zh:"Noto Serif SC",source-han-serif-sc,serif;
+    --sans-zh:"Noto Sans SC",source-han-sans-sc,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  canvas.bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;transition:opacity 1.2s ease}
+  canvas#bg-light{opacity:0}
+  canvas#bg-dark{opacity:1}
+  body.light-bg canvas#bg-light{opacity:1}
+  body.light-bg canvas#bg-dark{opacity:0}
+  #deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .9s cubic-bezier(.77,0,.175,1);z-index:10;will-change:transform}
+  .slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;padding:6vh 6vw 10vh 6vw;display:flex;flex-direction:column;overflow:hidden}
+  .slide.light{color:var(--ink)}
+  .slide.dark{color:var(--paper)}
+  .slide::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;transition:background .7s ease}
+  .slide.light::before{background:rgba(var(--paper-rgb),.78);backdrop-filter:blur(3px)}
+  .slide.dark::before{background:rgba(var(--ink-rgb),.78);backdrop-filter:blur(3px)}
+  .slide.hero.light::before{background:rgba(var(--paper-rgb),.16);backdrop-filter:none}
+  .slide.hero.dark::before{background:rgba(var(--ink-rgb),.12);backdrop-filter:none}
+  .slide.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+  .slide.hero.light::after{background:linear-gradient(180deg,rgba(var(--paper-rgb),.28) 0%,rgba(var(--paper-rgb),0) 14%,rgba(var(--paper-rgb),0) 86%,rgba(var(--paper-rgb),.28) 100%)}
+  .slide.hero.dark::after{background:linear-gradient(180deg,rgba(var(--ink-rgb),.32) 0%,rgba(var(--ink-rgb),0) 14%,rgba(var(--ink-rgb),0) 86%,rgba(var(--ink-rgb),.32) 100%)}
+  .chrome{display:flex;justify-content:space-between;align-items:flex-start;font-family:var(--mono);font-size:max(11px,.78vw);letter-spacing:.2em;text-transform:uppercase;opacity:.62}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);font-size:max(11px,.78vw);letter-spacing:.18em;text-transform:uppercase;opacity:.5}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin-bottom:2.6vh}
+  .lead{font-family:var(--serif-zh);font-weight:400;font-size:1.75vw;line-height:1.5;opacity:.86}
+  .meta-row{display:flex;gap:1.2em;align-items:baseline;flex-wrap:wrap;font-family:var(--mono);font-size:max(12px,.92vw);letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+  .h-hero{font-family:var(--serif-zh);font-weight:900;font-size:10vw;line-height:.96;letter-spacing:-.02em}
+  .h-xl{font-family:var(--serif-zh);font-weight:700;font-size:6.2vw;line-height:1.08;letter-spacing:-.01em}
+  .h-sub{font-family:var(--serif-zh);font-weight:500;font-size:3.1vw;line-height:1.25;letter-spacing:0;opacity:.7}
+  .h-md{font-family:var(--serif-zh);font-weight:600;font-size:2.3vw;line-height:1.3}
+  .frame{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .frame.grid-2-7-5,.frame.grid-2-6-6,.frame.grid-2-8-4,.frame.grid-3-3,.frame.grid-6{display:grid}
+  .grid-2-7-5{display:grid;grid-template-columns:7fr 5fr;gap:3vw 4vh;align-items:start}
+  .grid-2-6-6{display:grid;grid-template-columns:1fr 1fr;gap:3vw 4vh;align-items:start}
+  .grid-2-8-4{display:grid;grid-template-columns:8fr 4fr;gap:3vw 4vh;align-items:start}
+  .grid-3-3{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(0,1fr);gap:2.4vh 2vw}
+  .grid-6{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4vw 6vw;flex:1;align-content:center;padding:2vh 0}
+  .grid-4{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:4vh 6vw;flex:1;align-content:center}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:4vw;flex:1;align-content:center}
+  .stat-card{display:flex;flex-direction:column;gap:.8vh;align-items:flex-start;padding-top:1.6vh;border-top:1px solid currentColor;border-color:rgba(127,127,127,.3)}
+  .stat-card .stat-label{font-family:var(--mono);font-size:max(10px,.78vw);letter-spacing:.24em;text-transform:uppercase;opacity:.55}
+  .stat-card .stat-nb{font-family:var(--serif-en);font-weight:800;font-size:5.8vw;line-height:.9;letter-spacing:-.03em;font-feature-settings:"tnum";margin-top:.4vh}
+  .stat-card .stat-nb .stat-unit{font-family:var(--serif-zh);font-weight:500;font-size:.38em;letter-spacing:0;opacity:.72;margin-left:.14em}
+  .stat-card .stat-note{font-family:var(--sans-zh);font-weight:400;font-size:max(13px,1.05vw);line-height:1.5;opacity:.72;margin-top:.6vh}
+  .grid-4 .stat-card .stat-nb{font-size:5vw}
+  .grid-3 .stat-card .stat-nb{font-size:6.8vw}
+  .pipeline-section{margin-top:4.4vh;padding-top:2.8vh;border-top:1px dashed rgba(127,127,127,.32)}
+  .pipeline-section:first-of-type{border-top:0;padding-top:0;margin-top:3vh}
+  .pipeline-label{font-family:var(--mono);font-size:max(11px,.85vw);letter-spacing:.24em;text-transform:uppercase;opacity:.62;margin-bottom:2.2vh}
+  .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2vw}
+  .pipeline[data-cols="3"]{grid-template-columns:repeat(3,1fr)}
+  .pipeline[data-cols="4"]{grid-template-columns:repeat(4,1fr)}
+  .pipeline[data-cols="6"]{grid-template-columns:repeat(6,1fr)}
+  .step{display:flex;flex-direction:column;gap:.8vh;padding-top:1.4vh;border-top:1px solid currentColor;border-color:rgba(127,127,127,.35)}
+  .step-nb{font-family:var(--serif-en);font-style:italic;font-weight:500;font-size:1.15vw;opacity:.45}
+  .step-title{font-family:var(--sans-zh);font-weight:700;font-size:1.55vw;letter-spacing:.01em;line-height:1.2}
+  .step-desc{font-family:var(--sans-zh);font-weight:400;font-size:max(12px,.95vw);line-height:1.45;opacity:.72}
+  .callout{padding:3vh 2.4vw;border-left:3px solid currentColor;position:relative;font-family:var(--serif-zh);font-size:max(15px,1.2vw);line-height:1.55;opacity:.92}
+  .slide.light .callout{background:rgba(var(--ink-rgb),.05)}
+  .slide.dark .callout{background:rgba(var(--paper-rgb),.06)}
+  .callout-src{display:block;margin-top:1.6vh;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+  .frame-img{overflow:hidden;position:relative;background:rgba(0,0,0,.04);box-sizing:border-box;width:100%;border-radius:4px}
+  .frame-img > img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .img-cap{display:block;margin-top:.8vh;font-family:var(--mono);font-size:max(10px,.8vw);letter-spacing:.22em;text-transform:uppercase;opacity:.6}
+  figure.frame-img{margin:0;display:flex;flex-direction:column;min-width:0}
+  #nav{position:fixed;left:50%;bottom:2.6vh;transform:translateX(-50%);z-index:30;display:flex;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  #nav .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease;border:0;padding:0}
+  #nav .dot:hover{background:rgba(255,255,255,.5);transform:scale(1.15)}
+  #nav .dot.active{background:rgba(255,255,255,.95);width:22px;border-radius:999px}
+  body.light-bg #nav{background:rgba(255,255,255,.25)}
+  body.light-bg #nav .dot{background:rgba(var(--ink-rgb),.25)}
+  body.light-bg #nav .dot.active{background:rgba(var(--ink-rgb),.9)}
+  #hint{position:fixed;bottom:3vh;right:3vw;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.4;mix-blend-mode:difference;color:#aaa}
+  [data-anim]{opacity:0}
+  [data-anim="left"]{transform:translateX(-24px)}
+  [data-anim="right"]{transform:translateX(24px)}
+  [data-anim="line"]{opacity:0;transform:translateY(10px)}
+  [data-animate="pipeline"] [data-anim]{opacity:.15}
+  @media (max-width:900px){
+    .h-hero{font-size:14vw}.h-xl{font-size:9vw}
+    .pipeline{grid-template-columns:repeat(2,1fr)}
+    .grid-2-7-5,.grid-2-6-6,.grid-2-8-4{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg-dark" class="bg"></canvas>
+<canvas id="bg-light" class="bg"></canvas>
+<div id="hint">← → 翻页 · ESC 索引</div>
+
+<div id="deck">
+
+<!-- ① 封面 -->
+<section class="slide hero dark">
+  <div class="chrome"><div>SW2007 · AER 精读</div><div>2026</div></div>
+  <div class="frame" style="display:grid;gap:4vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>Smets &amp; Wouters · AER 2007</div>
+    <h1 class="h-hero" data-anim>SW2007</h1>
+    <h2 class="h-sub" data-anim>摩擦、冲击与美国商业周期</h2>
+    <p class="lead" style="max-width:62vw" data-anim>六大摩擦 · 七大冲击 · 贝叶斯 DSGE 的现代参照系</p>
+    <div class="meta-row" data-anim>
+      <span>Shocks and Frictions in US Business Cycles</span><span>·</span><span>American Economic Review 97(3) 586–606</span>
+    </div>
+  </div>
+  <div class="foot"><div>宏观货政精读系列</div><div>— 2026 —</div></div>
+</section>
+
+<!-- ② 三个第一 -->
+<section class="slide light">
+  <div class="chrome"><div>SW2007 · 为何重要</div><div>02 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Why It Matters</div>
+    <h2 class="h-xl" data-anim>三个"第一次"</h2>
+    <p class="lead" style="margin-bottom:4vh" data-anim>此前从未有论文同时做到以下三点</p>
+    <div class="grid-3" style="margin-top:2vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label">Frictions · 摩擦</div>
+        <div class="stat-nb" style="font-size:6vw">全<span class="stat-unit">覆盖</span></div>
+        <div class="stat-note">将所有主流名义与实际摩擦整合进同一个模型，无一遗漏</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">Estimation · 估计</div>
+        <div class="stat-nb" style="font-size:6vw">贝<span class="stat-unit">叶斯</span></div>
+        <div class="stat-note">不是校准，而是用数据估计所有参数并量化不确定性</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">Forecast · 预测</div>
+        <div class="stat-nb" style="font-size:6vw">≈<span class="stat-unit">VAR</span></div>
+        <div class="stat-note">样本外预测能力媲美贝叶斯 VAR——这让宏观经济学界震惊</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Why Standard · 三大突破</div><div>02 / 20</div></div>
+</section>
+
+<!-- ③ 历史地位引用 -->
+<section class="slide dark" data-animate="quote">
+  <div class="chrome"><div>SW2007 · 历史地位</div><div>03 / 20</div></div>
+  <div class="frame" style="display:grid;gap:5vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>The Standard · 参照系</div>
+    <blockquote style="font-family:var(--serif-zh);font-weight:700;font-size:4.8vw;line-height:1.25;max-width:75vw">
+      <span data-anim="line" style="display:block">"此后所有央行的</span>
+      <span data-anim="line" style="display:block">DSGE 建模，</span>
+      <span data-anim="line" style="display:block">都以此为参照系。"</span>
+    </blockquote>
+    <div class="meta-row" data-anim>
+      <span>— AER 2007 · 586–606</span><span>·</span><span>Google Scholar 引用 7000+</span>
+    </div>
+  </div>
+  <div class="foot"><div>Historical Impact · 学术地位</div><div>03 / 20</div></div>
+</section>
+
+<!-- ④ Act I 幕封 -->
+<section class="slide hero light">
+  <div class="chrome"><div>第一幕 · 模型架构</div><div>Act I · 04 / 20</div></div>
+  <div class="frame" style="display:grid;gap:6vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>Act I</div>
+    <h1 class="h-hero" style="font-size:8.5vw" data-anim>模型架构</h1>
+    <p class="lead" style="max-width:55vw" data-anim>六大摩擦 + 七大冲击 = 一个可识别的完整 DSGE 系统</p>
+  </div>
+  <div class="foot"><div>Model Architecture · 架构总览</div><div>— · —</div></div>
+</section>
+
+<!-- ⑤ 六大摩擦 Pipeline -->
+<section class="slide light" data-animate="pipeline">
+  <div class="chrome"><div>Act I · 摩擦</div><div>05 / 20</div></div>
+  <div class="frame">
+    <div class="kicker">Frictions · 六大（七项）摩擦</div>
+    <h2 class="h-xl" style="font-size:4.5vw">让价格和工资"粘"住</h2>
+    <div class="pipeline-section">
+      <div class="pipeline-label">名义摩擦 · Nominal — 价格与工资</div>
+      <div class="pipeline" data-cols="4">
+        <div class="step" data-anim="step">
+          <div class="step-nb">01</div>
+          <div class="step-title">价格粘性</div>
+          <div class="step-desc">Calvo 定价：每期仅 (1−ξ<sub>p</sub>) 厂商可调价格</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">02</div>
+          <div class="step-title">价格指数化</div>
+          <div class="step-desc">不调价者按过去通胀部分索引化，参数 ι<sub>p</sub></div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">03</div>
+          <div class="step-title">工资粘性</div>
+          <div class="step-desc">Calvo 工资：每期仅 (1−ξ<sub>w</sub>) 工会可重谈工资</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">04</div>
+          <div class="step-title">工资指数化</div>
+          <div class="step-desc">不调薪者按过去通胀部分索引化，参数 ι<sub>w</sub></div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-section">
+      <div class="pipeline-label">实际摩擦 · Real — 消费、投资、资本</div>
+      <div class="pipeline" data-cols="3">
+        <div class="step" data-anim="step">
+          <div class="step-nb">05</div>
+          <div class="step-title">习惯形成</div>
+          <div class="step-desc">消费效用依赖相对习惯存量偏差，参数 h∈(0,1)</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">06</div>
+          <div class="step-title">投资调整成本</div>
+          <div class="step-desc">投资变化率产生凸性成本，参数 φ（后验≈5.74）</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">07</div>
+          <div class="step-title">可变资本利用率</div>
+          <div class="step-desc">利用率内生，利用率高则折旧成本更高，参数 ψ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Frictions · 摩擦全覆盖</div><div>05 / 20</div></div>
+</section>
+
+<!-- ⑥ 七大冲击 Pipeline -->
+<section class="slide dark" data-animate="pipeline">
+  <div class="chrome"><div>Act I · 冲击</div><div>06 / 20</div></div>
+  <div class="frame">
+    <div class="kicker">Shocks · 七大结构冲击</div>
+    <h2 class="h-xl" style="font-size:4.5vw">7 个冲击，对应 7 个可观测</h2>
+    <div class="pipeline-section">
+      <div class="pipeline-label">跨期边际 · Intertemporal</div>
+      <div class="pipeline" data-cols="3">
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>a</sup></div>
+          <div class="step-title">TFP 冲击</div>
+          <div class="step-desc">全要素生产率，移动生产可能性边界</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>b</sup></div>
+          <div class="step-title">风险溢价</div>
+          <div class="step-desc">储蓄-投资楔子，扭曲跨期替代决策</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>i</sup></div>
+          <div class="step-title">投资技术</div>
+          <div class="step-desc">投资品相对价格的外生冲击</div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-section">
+      <div class="pipeline-label">总需求 + 跨时期边际 · AD &amp; Intratemporal</div>
+      <div class="pipeline" data-cols="4">
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>g</sup></div>
+          <div class="step-title">政府支出</div>
+          <div class="step-desc">外生需求，部分由 TFP 驱动（ρ<sub>ga</sub>）</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>p</sup></div>
+          <div class="step-title">价格加成</div>
+          <div class="step-desc">ARMA(1,1)，供给侧扰动，MA项捕捉即时通胀效应</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>w</sup></div>
+          <div class="step-title">工资加成</div>
+          <div class="step-desc">ARMA(1,1)，劳动市场供给侧扰动</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">ε<sup>r</sup></div>
+          <div class="step-title">货币政策</div>
+          <div class="step-desc">Taylor 规则偏离，纯需求侧冲击</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>7 Shocks · 精确识别</div><div>06 / 20</div></div>
+</section>
+
+<!-- ⑦ 识别逻辑 对比 -->
+<section class="slide light" data-animate="directional">
+  <div class="chrome"><div>Act I · 识别策略</div><div>07 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Design Logic · 恰好识别</div>
+    <h2 class="h-xl" style="margin-bottom:4vh" data-anim>为什么是 7 = 7？</h2>
+    <div class="grid-2-6-6" style="gap:5vw 4vh">
+      <div data-anim="left" style="padding:3vh 2vw;border-left:3px solid currentColor;opacity:.5">
+        <div class="kicker" style="opacity:.9">问题 · Problem</div>
+        <h3 class="h-md" style="margin-top:2vh">随机奇异性</h3>
+        <p style="margin-top:2.5vh;font-family:var(--sans-zh);font-size:max(14px,1.1vw);line-height:1.7;opacity:.85">冲击数 &lt; 可观测变量数 → 模型预测某些变量组合方差为零 → 似然函数退化，无法估计</p>
+      </div>
+      <div data-anim="right" style="padding:3vh 2vw;border-left:3px solid currentColor">
+        <div class="kicker" style="opacity:.9">解法 · Solution</div>
+        <h3 class="h-md" style="margin-top:2vh">7 冲击 = 7 可观测</h3>
+        <p style="margin-top:2.5vh;font-family:var(--sans-zh);font-size:max(14px,1.1vw);line-height:1.7;opacity:.85">GDP、消费、投资增长 + 劳动小时 + 实际工资 + 通胀 + 利率，恰好 7 个，避免随机奇异性，模型可估计</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Exact Identification · 识别策略</div><div>07 / 20</div></div>
+</section>
+
+<!-- ⑧ Act II 幕封 -->
+<section class="slide hero dark">
+  <div class="chrome"><div>第二幕 · 核心方程</div><div>Act II · 08 / 20</div></div>
+  <div class="frame" style="display:grid;gap:6vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>Act II</div>
+    <h1 class="h-hero" style="font-size:8.5vw" data-anim>核心方程</h1>
+    <p class="lead" style="max-width:55vw" data-anim>10 个方程，覆盖家庭、厂商、工会与央行的完整决策</p>
+  </div>
+  <div class="foot"><div>Core Equations · 10 Equations</div><div>— · —</div></div>
+</section>
+
+<!-- ⑨ 消费欧拉方程 -->
+<section class="slide light">
+  <div class="chrome"><div>Act II · 消费方程</div><div>09 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Eq.1 · Consumption Euler Equation</div>
+    <h2 class="h-xl" data-anim>消费欧拉方程</h2>
+    <p class="lead" style="margin:2vh 0 3vh" data-anim>消费受过去习惯、当期实际利率、未来预期三力共同拉扯</p>
+    <div class="grid-3" style="margin-top:1vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label">后向：习惯形成 c₁</div>
+        <div class="stat-nb" style="font-size:4vw">h/γ</div>
+        <div class="stat-note">消费有惯性，锚定上期习惯水平。h 后验均值≈0.71</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">前向：理性预期</div>
+        <div class="stat-nb" style="font-size:4vw">E<sub style="font-size:.55em">t</sub></div>
+        <div class="stat-note">消费者预期未来消费与劳动，理性前瞻决策</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">实际利率效应 c₃</div>
+        <div class="stat-nb" style="font-size:4vw">σ<sub style="font-size:.55em">c</sub><sup style="font-size:.45em">−1</sup></div>
+        <div class="stat-note">利率↑ → 储蓄↑ → 消费↓，弹性由跨期替代弹性决定</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:3.5vh" data-anim>
+      驼峰状响应的来源之一：习惯形成使消费不能瞬间大幅跳变，货币政策传导有天然时滞——利率上升后，消费要 4–6 季度才见底。
+      <div class="callout-src">Economic Intuition · Hump-shaped IRF</div>
+    </div>
+  </div>
+  <div class="foot"><div>Consumption Euler · Habit Formation</div><div>09 / 20</div></div>
+</section>
+
+<!-- ⑩ 投资 + Tobin Q -->
+<section class="slide dark">
+  <div class="chrome"><div>Act II · 投资方程</div><div>10 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Eq.2–3 · Investment &amp; Tobin's Q</div>
+    <h2 class="h-xl" data-anim>投资的双向时间依赖</h2>
+    <p class="lead" style="margin:2vh 0 3vh" data-anim>调整成本让投资峰值响应推迟，产生驼峰状 IRF</p>
+    <div class="grid-2-6-6" style="gap:5vw 4vh">
+      <div style="display:flex;flex-direction:column;gap:2.5vh">
+        <p data-anim style="font-family:var(--sans-zh);font-size:max(14px,1.15vw);line-height:1.75;opacity:.85">调整成本函数 S(·) 在稳态处 S=S′=0，S″=φ>0。投资对 Tobin's Q 的灵敏度 = 1/φ。</p>
+        <p data-anim style="font-family:var(--sans-zh);font-size:max(14px,1.15vw);line-height:1.75;opacity:.85">φ 越大 → 投资对 Q 越不敏感 → 响应越慢、越平滑</p>
+        <div class="callout" data-anim>
+          SW2007 后验均值 φ≈5.74，高于 CEE(2005)，意味着更强的投资调整摩擦
+          <div class="callout-src">Table 1 · Posterior Mean</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3vh">
+        <div class="stat-card" data-anim>
+          <div class="stat-label">预期资本回报高 → Tobin's Q</div>
+          <div class="stat-nb" style="font-size:4.2vw">q ↑</div>
+          <div class="stat-note">当期安装新资本合算，投资需求增加</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">实际利率上升 →</div>
+          <div class="stat-nb" style="font-size:4.2vw">q ↓</div>
+          <div class="stat-note">持有资本机会成本上升，投资减少</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Investment · Tobin's Q · 驼峰状响应</div><div>10 / 20</div></div>
+</section>
+
+<!-- ⑪ 菲利普斯曲线 -->
+<section class="slide light">
+  <div class="chrome"><div>Act II · 通胀方程</div><div>11 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Eq.7 · New Keynesian Phillips Curve</div>
+    <h2 class="h-xl" data-anim>混合型菲利普斯曲线</h2>
+    <p class="lead" style="margin:2vh 0 3vh" data-anim>通胀 = 后向惯性 + 前向预期 + 边际成本压力 + 加成冲击</p>
+    <div class="grid-3" style="margin-top:1vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label">π₁ · 后向惯性</div>
+        <div class="stat-nb" style="font-size:4vw">ι<sub style="font-size:.55em">p</sub></div>
+        <div class="stat-note">价格指数化带来通胀持续性，解释实际数据的粘滞，后验均值≈0.24</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">π₂ · 前向预期</div>
+        <div class="stat-nb" style="font-size:4vw">β̃</div>
+        <div class="stat-note">纯 Calvo NK 成分，今天通胀受未来预期通胀驱动</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">π₃ · 边际成本</div>
+        <div class="stat-nb" style="font-size:4vw">mc</div>
+        <div class="stat-note">ξ<sub>p</sub>↑ → 成本传递越慢；Kimball 聚合器提供额外实际刚性</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:3.5vh" data-anim>
+      Kimball(1995) 聚合器使需求弹性随价格变化——允许 ξ<sub>p</sub> 估计值更小，与微观价格变动频率数据更一致。
+      <div class="callout-src">Real Rigidity · Kimball 1995</div>
+    </div>
+  </div>
+  <div class="foot"><div>NK Phillips Curve · 混合型</div><div>11 / 20</div></div>
+</section>
+
+<!-- ⑫ Taylor 规则 -->
+<section class="slide dark">
+  <div class="chrome"><div>Act II · 货币政策规则</div><div>12 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Eq.9 · Taylor Rule · 货币政策方程</div>
+    <h2 class="h-xl" data-anim>央行如何设定利率</h2>
+    <p class="lead" style="margin:2vh 0 3vh" data-anim>利率平滑 + 通胀反应 + 产出缺口 + 缺口变化率</p>
+    <div class="grid-4" style="margin-top:1vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label">利率平滑 ρ</div>
+        <div class="stat-nb" style="font-size:4.5vw">0.81</div>
+        <div class="stat-note">强渐进主义，央行避免利率剧烈波动，建立可信度</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">通胀反应 ψ₁</div>
+        <div class="stat-nb" style="font-size:4.5vw">2.03</div>
+        <div class="stat-note">&gt;1，满足 Taylor 原则，确保名义利率超过通胀上升幅度</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">产出缺口 ψ₂</div>
+        <div class="stat-nb" style="font-size:4.5vw">0.08</div>
+        <div class="stat-note">对弹性价格均衡产出偏差的反应，相对较弱</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">缺口变化 ψ₃</div>
+        <div class="stat-nb" style="font-size:4.5vw">0.22</div>
+        <div class="stat-note">对产出缺口动态变化的快速响应，捕捉经济动量</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Taylor Rule · 货币政策</div><div>12 / 20</div></div>
+</section>
+
+<!-- ⑬ Act III 幕封 -->
+<section class="slide hero light">
+  <div class="chrome"><div>第三幕 · 贝叶斯估计</div><div>Act III · 13 / 20</div></div>
+  <div class="frame" style="display:grid;gap:6vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>Act III</div>
+    <h1 class="h-hero" style="font-size:8.5vw" data-anim>贝叶斯估计</h1>
+    <p class="lead" style="max-width:55vw" data-anim>先验 × 似然 → 后验：让数据来检验参数的合理性</p>
+  </div>
+  <div class="foot"><div>Bayesian Estimation · MCMC</div><div>— · —</div></div>
+</section>
+
+<!-- ⑭ 估计流程 Pipeline -->
+<section class="slide light" data-animate="pipeline">
+  <div class="chrome"><div>Act III · 估计流程</div><div>14 / 20</div></div>
+  <div class="frame">
+    <div class="kicker">Estimation · 贝叶斯估计四步</div>
+    <h2 class="h-xl" style="font-size:4.5vw">先验 + 数据 → 后验</h2>
+    <div class="pipeline-section">
+      <div class="pipeline-label">先验选择 · Prior Distributions</div>
+      <div class="pipeline" data-cols="3">
+        <div class="step" data-anim="step">
+          <div class="step-nb">Beta</div>
+          <div class="step-title">比例参数</div>
+          <div class="step-desc">h, ξ<sub>p</sub>, ξ<sub>w</sub>, ψ, ι<sub>p</sub>, ι<sub>w</sub> — 支撑在 (0,1)</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">Normal</div>
+          <div class="step-title">无界参数</div>
+          <div class="step-desc">σ<sub>c</sub>, σ<sub>l</sub>, φ, ψ₁–ψ₃ — 来自微观证据</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">校准</div>
+          <div class="step-title">固定参数</div>
+          <div class="step-desc">δ=0.025，α=0.19，g*=0.18 — 直接设定</div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-section">
+      <div class="pipeline-label">MH-MCMC 抽样 · Metropolis-Hastings</div>
+      <div class="pipeline" data-cols="4">
+        <div class="step" data-anim="step">
+          <div class="step-nb">01</div>
+          <div class="step-title">模式搜索</div>
+          <div class="step-desc">数值优化找后验众数，计算 Hessian 矩阵</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">02</div>
+          <div class="step-title">提议分布</div>
+          <div class="step-desc">θ*∼N(θ, c²H⁻¹)，调整 c 使接受率≈25%</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">03</div>
+          <div class="step-title">MCMC 抽样</div>
+          <div class="step-desc">2 条链 × 100 万次，前 50% 为 burn-in 丢弃</div>
+        </div>
+        <div class="step" data-anim="step">
+          <div class="step-nb">04</div>
+          <div class="step-title">收敛诊断</div>
+          <div class="step-desc">Trace plot"毛毛虫"形状 + Geweke 检验</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Bayesian MCMC · 四步流程</div><div>14 / 20</div></div>
+</section>
+
+<!-- ⑮ 后验参数 -->
+<section class="slide dark">
+  <div class="chrome"><div>Act III · 后验结果</div><div>15 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Posterior · Table 1 关键参数</div>
+    <h2 class="h-xl" data-anim>数据说了什么</h2>
+    <p class="lead" style="margin:2vh 0 3vh" data-anim>后验均值揭示美国经济的深层结构摩擦</p>
+    <div class="grid-4" style="margin-top:1vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label">习惯形成 h</div>
+        <div class="stat-nb" style="font-size:4.5vw">0.71</div>
+        <div class="stat-note">数据强烈支持高习惯形成，先验 0.70，几乎没有更新</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">价格粘性 ξ<sub>p</sub></div>
+        <div class="stat-nb" style="font-size:4.5vw">0.66</div>
+        <div class="stat-note">价格平均约 3 季度调一次，90% CI [0.56, 0.74]</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">工资粘性 ξ<sub>w</sub></div>
+        <div class="stat-nb" style="font-size:4.5vw">0.73</div>
+        <div class="stat-note">工资比价格更粘，约 4 季度调一次</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">投资调整成本 φ</div>
+        <div class="stat-nb" style="font-size:4.5vw">5.74</div>
+        <div class="stat-note">高于先验 4.0，投资对 Q 的敏感度仅 1/5.74</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Posterior Means · Table 1</div><div>15 / 20</div></div>
+</section>
+
+<!-- ⑯ Act IV 幕封 -->
+<section class="slide hero dark">
+  <div class="chrome"><div>第四幕 · 主要结果</div><div>Act IV · 16 / 20</div></div>
+  <div class="frame" style="display:grid;gap:6vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>Act IV</div>
+    <h1 class="h-hero" style="font-size:8.5vw" data-anim>主要结果</h1>
+    <p class="lead" style="max-width:55vw" data-anim>脉冲响应 · 方差分解 · 击败 VAR</p>
+  </div>
+  <div class="foot"><div>Results · IRF &amp; Variance Decomposition</div><div>— · —</div></div>
+</section>
+
+<!-- ⑰ 货币冲击 IRF -->
+<section class="slide light">
+  <div class="chrome"><div>Act IV · 脉冲响应</div><div>17 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>IRF · Monetary Policy Shock</div>
+    <h2 class="h-xl" data-anim>利率意外上升 25bp 后…</h2>
+    <p class="lead" style="margin:2vh 0 3vh" data-anim>驼峰状响应：峰值在第 5–6 季度，不是当期</p>
+    <div class="grid-3" style="margin-top:1vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label">GDP · 第 8 期峰值</div>
+        <div class="stat-nb" style="font-size:4.5vw">−0.15<span class="stat-unit">%</span></div>
+        <div class="stat-note">驼峰状下降，习惯形成 + 投资调整成本共同推迟峰值</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">投资 · 响应最大</div>
+        <div class="stat-nb" style="font-size:4.5vw">−0.35<span class="stat-unit">%</span></div>
+        <div class="stat-note">Tobin's Q 渠道放大，投资是货币政策传导的主战场</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label">通胀 · 极度迟缓</div>
+        <div class="stat-nb" style="font-size:4.5vw">−0.08<span class="stat-unit">%</span></div>
+        <div class="stat-note">第 16 期才达到 −0.08%，价格粘性的直观体现</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:3vh" data-anim>
+      峰值推迟的原因：习惯形成（h≈0.71）使消费缓慢调整；投资调整成本（φ≈5.74）使投资响应延迟。两个摩擦协同推迟了响应峰值。
+      <div class="callout-src">Figure 6 · Monetary Policy Shock</div>
+    </div>
+  </div>
+  <div class="foot"><div>Impulse Response · 货币政策冲击</div><div>17 / 20</div></div>
+</section>
+
+<!-- ⑱ 方差分解 对比 -->
+<section class="slide dark" data-animate="directional">
+  <div class="chrome"><div>Act IV · 方差分解</div><div>18 / 20</div></div>
+  <div class="frame" style="padding-top:5vh">
+    <div class="kicker" data-anim>Variance Decomposition · 谁驱动商业周期</div>
+    <h2 class="h-xl" style="margin-bottom:4vh" data-anim>产出 vs 通胀：驱动力截然不同</h2>
+    <div class="grid-2-6-6" style="gap:5vw 4vh">
+      <div data-anim="left" style="padding:3vh 2vw;border-left:3px solid currentColor">
+        <div class="kicker" style="opacity:.9">产出波动</div>
+        <h3 class="h-md" style="margin-top:2vh">TFP 主导</h3>
+        <ul style="margin-top:3vh;padding-left:1.2em;display:flex;flex-direction:column;gap:1.8vh;font-family:var(--sans-zh);font-size:max(13px,1.05vw);line-height:1.55;opacity:.85">
+          <li>TFP 冲击 ε<sup>a</sup> ≈ 35%（最大）</li>
+          <li>投资技术冲击 ε<sup>i</sup> ≈ 20%</li>
+          <li>风险溢价冲击 ε<sup>b</sup> ≈ 15%</li>
+          <li>货币政策冲击 ε<sup>r</sup> ≈ 4%（有限）</li>
+        </ul>
+      </div>
+      <div data-anim="right" style="padding:3vh 2vw;border-left:3px solid currentColor;opacity:.8">
+        <div class="kicker" style="opacity:.9">通胀波动</div>
+        <h3 class="h-md" style="margin-top:2vh">加成冲击主导</h3>
+        <ul style="margin-top:3vh;padding-left:1.2em;display:flex;flex-direction:column;gap:1.8vh;font-family:var(--sans-zh);font-size:max(13px,1.05vw);line-height:1.55;opacity:.85">
+          <li>价格加成冲击 ε<sup>p</sup> ≈ 30%（最大）</li>
+          <li>货币政策冲击 ε<sup>r</sup> ≈ 15%</li>
+          <li>TFP 冲击 ε<sup>a</sup> ≈ 10%</li>
+          <li>风险溢价冲击 ε<sup>b</sup> ≈ 8%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><div>Variance Decomposition · 方差分解</div><div>18 / 20</div></div>
+</section>
+
+<!-- ⑲ 击败 VAR 大引用 -->
+<section class="slide light" data-animate="quote">
+  <div class="chrome"><div>Act IV · 预测能力</div><div>19 / 20</div></div>
+  <div class="frame" style="display:grid;gap:5vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>The Shock · 改变学界认知</div>
+    <blockquote style="font-family:var(--serif-zh);font-weight:700;font-size:4.5vw;line-height:1.25;max-width:72vw">
+      <span data-anim="line" style="display:block">DSGE 的样本外预测，</span>
+      <span data-anim="line" style="display:block">媲美贝叶斯 VAR(4)。</span>
+    </blockquote>
+    <p class="lead" style="max-width:60vw;opacity:.65" data-anim>
+      有结构含义的模型，预测能力可以不输"无理论"的缩减式 VAR。<br>
+      这一结果改变了学界对 DSGE 实用价值的认知。
+    </p>
+    <div class="meta-row" data-anim>
+      <span>— SW2007 Table 2</span><span>·</span><span>1990:Q1–2004:Q4 样本外预测</span>
+    </div>
+  </div>
+  <div class="foot"><div>Forecast · Beating VAR</div><div>19 / 20</div></div>
+</section>
+
+<!-- ⑳ 收束 · 从 SW2007 出发 -->
+<section class="slide hero dark">
+  <div class="chrome"><div>从 SW2007 出发</div><div>20 / 20</div></div>
+  <div class="frame" style="display:grid;gap:5vh;align-content:center;min-height:80vh">
+    <div class="kicker" data-anim>Next Steps · 三条路</div>
+    <h1 class="h-hero" style="font-size:7vw" data-anim>读完之后</h1>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3vw;margin-top:2vh">
+      <div data-anim style="padding:2.5vh 0;border-top:1px solid rgba(255,255,255,.25)">
+        <div class="kicker" style="opacity:.7;margin-bottom:1.5vh">扩展模型</div>
+        <p style="font-family:var(--sans-zh);font-size:max(13px,1.05vw);line-height:1.7;opacity:.82">金融摩擦 BGG 1999 → 银行部门 GK 2010 → 开放经济 Adolfson 2007 → ZLB + OccBin</p>
+      </div>
+      <div data-anim style="padding:2.5vh 0;border-top:1px solid rgba(255,255,255,.25)">
+        <div class="kicker" style="opacity:.7;margin-bottom:1.5vh">动手复现</div>
+        <p style="font-family:var(--sans-zh);font-size:max(13px,1.05vw);line-height:1.7;opacity:.82">Pfeifer / DSGE_mod · Smets_Wouters_2007_45.mod 先用 mh_replic=10000 快速跑通，再升至百万</p>
+      </div>
+      <div data-anim style="padding:2.5vh 0;border-top:1px solid rgba(255,255,255,.25)">
+        <div class="kicker" style="opacity:.7;margin-bottom:1.5vh">延伸阅读</div>
+        <p style="font-family:var(--sans-zh);font-size:max(13px,1.05vw);line-height:1.7;opacity:.82">BGG 1999 → CMR 2014 → KMV 2018 HANK → Eggertsson-Woodford 2003 ZLB</p>
+      </div>
+    </div>
+    <p class="lead" style="max-width:60vw;margin-top:2vh" data-anim>
+      SW2007 是起点，不是终点。
+    </p>
+  </div>
+  <div class="foot"><div>SW2007 · Smets &amp; Wouters AER 2007</div><div>End</div></div>
+</section>
+
+</div>
+
+<div id="nav"></div>
+
+<script>
+const VS = `attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}`;
+const FS_DARK = `precision highp float;
+uniform vec2 u_resolution;uniform float u_time;uniform vec2 u_mouse;
+vec3 palette(float t,vec3 a,vec3 b,vec3 c,vec3 d){return a+b*cos(6.28318*(c*t+d));}
+void main(){
+  vec2 uv=gl_FragCoord.xy/u_resolution.xy;
+  vec2 p=uv*2.0-1.0;p.x*=u_resolution.x/u_resolution.y;
+  vec2 m=u_mouse*2.0-1.0;m.x*=u_resolution.x/u_resolution.y;
+  float md=length(p-m);
+  float mr=sin(md*15.0-u_time*4.0)*exp(-md*3.0);p+=mr*0.08;
+  vec2 p0=p;
+  for(float i=1.0;i<4.0;i++){
+    p.x+=0.1/i*sin(i*3.0*p.y+u_time*0.4)+0.05;
+    p.y+=0.1/i*cos(i*2.0*p.x+u_time*0.3)-0.05;
+  }
+  float r=length(p);float ang=atan(p.y,p.x);
+  vec3 a=vec3(0.12,0.12,0.13);vec3 b=vec3(0.03,0.04,0.05);
+  vec3 c=vec3(1.0,1.0,1.0);vec3 d=vec3(0.1,0.2,0.4);
+  vec3 col=palette(r*1.5+p0.x*0.5+u_time*0.1,a,b,c,d);
+  float disp=sin(r*25.0-u_time*1.5+ang*2.0)*0.5+0.5;
+  col+=vec3(disp*0.015,disp*0.01,disp*0.02);
+  float hi=pow(sin(p.x*4.0+p.y*3.0+u_time)*0.5+0.5,8.0);col+=hi*0.08;
+  vec3 base=vec3(0.05,0.05,0.06);col=mix(base,col,0.85);
+  gl_FragColor=vec4(col,1.0);
+}`;
+const FS_LIGHT = `precision highp float;
+uniform vec2 u_resolution;uniform float u_time;uniform vec2 u_mouse;
+float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){
+  vec2 i=floor(p),f=fract(p);
+  float a=hash(i),b=hash(i+vec2(1,0));
+  float c=hash(i+vec2(0,1)),d=hash(i+vec2(1,1));
+  vec2 u=f*f*(3.0-2.0*f);
+  return mix(a,b,u.x)+(c-a)*u.y*(1.0-u.x)+(d-b)*u.x*u.y;
+}
+float fbm(vec2 p){
+  float v=0.0,a=0.5;mat2 m=mat2(0.80,0.60,-0.60,0.80);
+  for(int i=0;i<5;i++){v+=a*noise(p);p=m*p*2.02;a*=0.5;}return v;
+}
+void main(){
+  vec2 uv=gl_FragCoord.xy/u_resolution.xy;
+  vec2 p=uv;p.x*=u_resolution.x/u_resolution.y;
+  vec2 m=u_mouse;m.x*=u_resolution.x/u_resolution.y;
+  vec2 md=p-m;float dl=length(md);
+  p+=normalize(md+vec2(0.0001))*exp(-dl*5.0)*0.03;
+  vec2 q=vec2(fbm(p*1.8+u_time*0.07),fbm(p*1.8+vec2(5.2,1.3)+u_time*0.06));
+  vec2 r=vec2(fbm(p*2.0+q*1.3+vec2(1.7,9.2)+u_time*0.05),fbm(p*2.0+q*1.3+vec2(8.3,2.8)+u_time*0.04));
+  float f=fbm(p*2.2+r*1.5);
+  vec3 silverDark=vec3(0.86,0.85,0.84);vec3 paper=vec3(0.955,0.945,0.925);
+  vec3 col=mix(silverDark,paper,f);
+  float ph=r.x*2.2+u_time*0.35;
+  col+=vec3(0.78,0.62,0.92)*sin(ph)*0.055;col+=vec3(0.55,0.72,0.95)*sin(ph*0.8+2.0)*0.05;
+  float hl=smoothstep(0.48,0.92,f);col+=hl*0.06;
+  gl_FragColor=vec4(col,1.0);
+}`;
+const mouse={x:0.5,y:0.5};
+addEventListener('mousemove',e=>{mouse.x=e.clientX/innerWidth;mouse.y=e.clientY/innerHeight});
+function bootGL(canvasId,fsSrc){
+  const canvas=document.getElementById(canvasId);
+  const gl=canvas.getContext('webgl',{alpha:false,antialias:true});
+  if(!gl)return()=>false;
+  const mk=(t,s)=>{const sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);return sh};
+  const prog=gl.createProgram();
+  gl.attachShader(prog,mk(gl.VERTEX_SHADER,VS));gl.attachShader(prog,mk(gl.FRAGMENT_SHADER,fsSrc));
+  gl.linkProgram(prog);gl.useProgram(prog);
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+  const pos=gl.getAttribLocation(prog,'position');
+  gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+  const lRes=gl.getUniformLocation(prog,'u_resolution');
+  const lT=gl.getUniformLocation(prog,'u_time');
+  const lM=gl.getUniformLocation(prog,'u_mouse');
+  const resize=()=>{const d=Math.min(window.devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;gl.viewport(0,0,canvas.width,canvas.height)};
+  addEventListener('resize',resize);resize();
+  return(tSec)=>{gl.uniform2f(lRes,canvas.width,canvas.height);gl.uniform1f(lT,tSec);gl.uniform2f(lM,mouse.x,1-mouse.y);gl.drawArrays(gl.TRIANGLES,0,6);return true};
+}
+const drawDark=bootGL('bg-dark',FS_DARK);const drawLight=bootGL('bg-light',FS_LIGHT);
+const t0=Date.now();(function loop(){const t=(Date.now()-t0)/1000;drawDark(t);drawLight(t);requestAnimationFrame(loop)})();
+const deck=document.getElementById('deck');const slides=deck.querySelectorAll('.slide');const nav=document.getElementById('nav');
+let idx=0,total=slides.length,lock=false;
+deck.style.width=(total*100)+'vw';
+slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot';b.dataset.i=i;b.setAttribute('aria-label','Page '+(i+1));b.onclick=()=>go(i);nav.appendChild(b)});
+function go(n){
+  if(lock)return;idx=Math.max(0,Math.min(total-1,n));
+  deck.style.transform=`translateX(${-idx*100}vw)`;
+  nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  const el=slides[idx];const th=el.dataset.theme||(el.classList.contains('light')?'light':(el.classList.contains('dark')?'dark':'dark'));
+  document.body.classList.toggle('light-bg',th==='light');
+  if(window.__playSlide)setTimeout(()=>window.__playSlide(idx),450);
+  lock=true;setTimeout(()=>lock=false,700);
+}
+let overviewOn=false;const ov=document.createElement('div');
+ov.id='overview';ov.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(var(--ink-rgb),.92);backdrop-filter:blur(12px);display:none;overflow-y:auto;padding:4vh 4vw';
+document.body.appendChild(ov);
+function buildOverview(){ov.innerHTML='';const grid=document.createElement('div');grid.style.cssText='display:grid;grid-template-columns:repeat(4,1fr);gap:2vh 1.6vw;max-width:90vw;margin:0 auto';slides.forEach((s,i)=>{const card=document.createElement('div');card.style.cssText='cursor:pointer;border-radius:6px;overflow:hidden;border:2px solid '+(i===idx?'rgba(var(--paper-rgb),.8)':'rgba(var(--paper-rgb),.15)')+';transition:border-color .2s';card.onmouseenter=()=>card.style.borderColor='rgba(var(--paper-rgb),.6)';card.onmouseleave=()=>card.style.borderColor=i===idx?'rgba(var(--paper-rgb),.8)':'rgba(var(--paper-rgb),.15)';const wrap=document.createElement('div');wrap.style.cssText='width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;pointer-events:none;background:'+(s.classList.contains('light')?'var(--paper)':'var(--ink)');const clone=s.cloneNode(true);clone.style.cssText='width:100vw;height:100vh;transform:scale('+(1/4.5)+');transform-origin:top left;position:absolute;top:0;left:0;pointer-events:none';wrap.appendChild(clone);const label=document.createElement('div');label.style.cssText='padding:6px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);opacity:.7';label.textContent=(i+1)+' / '+total;card.appendChild(wrap);card.appendChild(label);card.onclick=()=>{toggleOverview();go(i)};grid.appendChild(card)});ov.appendChild(grid)}
+function toggleOverview(){overviewOn=!overviewOn;if(overviewOn){buildOverview();ov.style.display='block';}else{ov.style.display='none';}}
+addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();toggleOverview();return;}if(overviewOn)return;if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '||e.key==='ArrowDown'){if(window.__pipeAdvance&&window.__pipeAdvance())return;go(idx+1);return;}if(e.key==='ArrowLeft'||e.key==='PageUp'||e.key==='ArrowUp')go(idx-1);if(e.key==='Home')go(0);if(e.key==='End')go(total-1)});
+let wheelTO=null,wheelAcc=0;addEventListener('wheel',e=>{wheelAcc+=e.deltaY+e.deltaX;if(Math.abs(wheelAcc)>50){if(wheelAcc>0&&window.__pipeAdvance&&window.__pipeAdvance()){wheelAcc=0}else{go(idx+(wheelAcc>0?1:-1));wheelAcc=0}}clearTimeout(wheelTO);wheelTO=setTimeout(()=>wheelAcc=0,150)},{passive:true});
+let tx=0,ty=0;addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});addEventListener('touchend',e=>{const dx=(e.changedTouches[0].clientX-tx);const dy=(e.changedTouches[0].clientY-ty);if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)){if(dx<0&&window.__pipeAdvance&&window.__pipeAdvance())return;go(idx+(dx<0?1:-1))}},{passive:true});
+go(0);
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>if(typeof lucide!=='undefined')lucide.createIcons();</script>
+<script type="module">
+let motion;
+try{motion=await import('./motion.min.js')}catch(e1){try{motion=await import('https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm')}catch(e2){console.warn('[motion] both failed');document.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='1';el.style.transform='none'});document.querySelectorAll('[data-animate="pipeline"] [data-anim]').forEach(el=>el.style.opacity='1')}}
+if(motion){
+  const{animate,stagger}=motion;const EASE=[.22,1,.36,1];const slides=[...document.querySelectorAll('.slide')];let pipeStep=-1,lastIdx=-1;
+  function resetAnims(slide){slide.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='';el.style.transform=''})}
+  function playSlide(i){
+    const slide=slides[i];if(!slide)return;lastIdx=i;
+    const recipe=slide.dataset.animate||(slide.classList.contains('hero')?'hero':'cascade');
+    if(recipe==='pipeline'){pipeStep=-1;slide.querySelectorAll('[data-anim]').forEach(el=>{el.style.opacity='0.15';el.style.transform='none'});return}
+    resetAnims(slide);const all=[...slide.querySelectorAll('[data-anim]')];if(!all.length)return;
+    if(recipe==='directional'){const lefts=all.filter(el=>el.dataset.anim==='left');const rights=all.filter(el=>el.dataset.anim==='right');const others=all.filter(el=>!['left','right','divider'].includes(el.dataset.anim));if(others.length)animate(others,{opacity:[0,1],y:[12,0]},{duration:.6,delay:stagger(.1,{start:.15}),easing:EASE});if(lefts.length)animate(lefts,{opacity:[0,1],x:[-24,0]},{duration:.8,delay:.35,easing:EASE});if(rights.length)animate(rights,{opacity:[0,1],x:[24,0]},{duration:.8,delay:1.0,easing:EASE});return}
+    if(recipe==='quote'){const lines=all.filter(el=>el.dataset.anim==='line');const others=all.filter(el=>el.dataset.anim!=='line');if(others.length)animate(others,{opacity:[0,1],y:[8,0]},{duration:.6,delay:stagger(.12,{start:.2}),easing:EASE});if(lines.length)animate(lines,{opacity:[.35,1],y:[10,0]},{duration:.8,delay:stagger(.55,{start:.5}),easing:EASE});return}
+    if(recipe==='hero'){animate(all,{opacity:[0,1],y:[14,0]},{duration:.9,delay:stagger(.16,{start:.2}),easing:EASE});return}
+    animate(all,{opacity:[0,1],y:[16,0]},{duration:.75,delay:stagger(.1,{start:.15}),easing:EASE});
+  }
+  function pipeAdvance(){const slide=slides[lastIdx];if(!slide||slide.dataset.animate!=='pipeline')return false;const steps=[...slide.querySelectorAll('[data-anim="step"]')];if(pipeStep>=steps.length-1)return false;pipeStep++;animate(steps[pipeStep],{opacity:[0.15,1],y:[8,0]},{duration:.5,easing:EASE});return true}
+  window.__playSlide=playSlide;window.__pipeAdvance=pipeAdvance;playSlide(0);
+}
+</script>
+</body>
+</html>
