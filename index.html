@@ -103,7 +103,7 @@ footer a { color:var(--accent); }
 <div class="container">
   <section class="gallery-section" id="gallerySection">
     <div class="gallery-header">
-      <span class="gallery-title">🖼️ 最近 20 张图片</span>
+      <span class="gallery-title">🖼️ 最近 24 张图片</span>
       <span class="gallery-count" id="galleryCount">—</span>
     </div>
     <div class="gallery-grid" id="galleryGrid">
@@ -277,7 +277,7 @@ function pickRecentImages() {
     if (!da && db) return 1;
     return b.path.localeCompare(a.path);
   });
-  return imgs.slice(0, 20);
+  return imgs.slice(0, 24);
 }
 
 function renderGallery() {
