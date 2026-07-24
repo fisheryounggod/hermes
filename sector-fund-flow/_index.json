@@ -1,0 +1,267 @@
+{
+  "version": "2.0",
+  "created_at": "2026-07-24",
+  "last_updated": "2026-07-23",
+  "total_sectors": 22,
+  "total_dates": 1,
+  "date_range": [
+    "2026-07-23",
+    "2026-07-23"
+  ],
+  "categories": {
+    "AI/科技": [
+      "AI应用",
+      "人工智能",
+      "CPO",
+      "大科技",
+      "云计算",
+      "国产算力",
+      "存储芯片",
+      "半导体",
+      "半导体材料设备"
+    ],
+    "通信/电子": [
+      "通信",
+      "消费电子"
+    ],
+    "能源/材料": [
+      "电力",
+      "光伏",
+      "电网设备",
+      "油气资源",
+      "有色金属"
+    ],
+    "医药健康": [
+      "医药生物",
+      "医疗器械",
+      "医疗服务"
+    ],
+    "高端制造/航天": [
+      "军工",
+      "先进制造",
+      "商业航天"
+    ]
+  },
+  "sectors": [
+    {
+      "name": "存储芯片",
+      "secid": "90.BK1137",
+      "file": "data/存储芯片_fund_flow.csv",
+      "color": "#FF4757",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -2806762613998.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "电网设备",
+      "secid": "90.BK0457",
+      "file": "data/电网设备_fund_flow.csv",
+      "color": "#009688",
+      "category": "能源/材料",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 781375539827.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "云计算",
+      "secid": "90.BK0579",
+      "file": "data/云计算_fund_flow.csv",
+      "color": "#00BCD4",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -1202735258051.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "人工智能",
+      "secid": "90.BK0800",
+      "file": "data/人工智能_fund_flow.csv",
+      "color": "#4CAF50",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -2423031205978.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "半导体材料设备",
+      "secid": "90.BK1326",
+      "file": "data/半导体材料设备_fund_flow.csv",
+      "color": "#FFEB3B",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -373257092792.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "消费电子",
+      "secid": "90.BK1037",
+      "file": "data/消费电子_fund_flow.csv",
+      "color": "#5C6BC0",
+      "category": "通信/电子",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 197521592331.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "CPO",
+      "secid": "90.BK1128",
+      "file": "data/CPO_fund_flow.csv",
+      "color": "#2979FF",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -1947538485940.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "通信",
+      "secid": "90.BK1215",
+      "file": "data/通信_fund_flow.csv",
+      "color": "#03A9F4",
+      "category": "通信/电子",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -1314662163656.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "半导体",
+      "secid": "90.BK1036",
+      "file": "data/半导体_fund_flow.csv",
+      "color": "#FFC107",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -3482895780623.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "电力",
+      "secid": "90.BK0428",
+      "file": "data/电力_fund_flow.csv",
+      "color": "#EF5350",
+      "category": "能源/材料",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -254913380326.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "大科技",
+      "secid": "90.BK0891",
+      "file": "data/大科技_fund_flow.csv",
+      "color": "#FF7F50",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -4490862653778.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "光伏",
+      "secid": "90.BK1031",
+      "file": "data/光伏_fund_flow.csv",
+      "color": "#FF7043",
+      "category": "能源/材料",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 140102136849.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "国产算力",
+      "secid": "90.BK1134",
+      "file": "data/国产算力_fund_flow.csv",
+      "color": "#26A69A",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -1770029858672.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "先进制造",
+      "secid": "90.BK1237",
+      "file": "data/先进制造_fund_flow.csv",
+      "color": "#FF9800",
+      "category": "高端制造/航天",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -151201762239.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "军工",
+      "secid": "90.BK0490",
+      "file": "data/军工_fund_flow.csv",
+      "color": "#AB47BC",
+      "category": "高端制造/航天",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 182759675564.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "商业航天",
+      "secid": "90.BK0963",
+      "file": "data/商业航天_fund_flow.csv",
+      "color": "#8BC34A",
+      "category": "高端制造/航天",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -112385348864.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "AI应用",
+      "secid": "90.BK1629",
+      "file": "data/AI应用_fund_flow.csv",
+      "color": "#7E57C2",
+      "category": "AI/科技",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -633762813337.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "油气资源",
+      "secid": "90.BK1649",
+      "file": "data/油气资源_fund_flow.csv",
+      "color": "#C0E040",
+      "category": "能源/材料",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 116583423385.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "有色金属",
+      "secid": "90.BK0478",
+      "file": "data/有色金属_fund_flow.csv",
+      "color": "#78909C",
+      "category": "能源/材料",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 1139548967476.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "医疗器械",
+      "secid": "90.BK1045",
+      "file": "data/医疗器械_fund_flow.csv",
+      "color": "#F06292",
+      "category": "医药健康",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": 408829353.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "医疗服务",
+      "secid": "90.BK1044",
+      "file": "data/医疗服务_fund_flow.csv",
+      "color": "#EC407A",
+      "category": "医药健康",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -56640799661.0,
+      "latest_rows": 240
+    },
+    {
+      "name": "医药生物",
+      "secid": "90.BK1043",
+      "file": "data/医药生物_fund_flow.csv",
+      "color": "#B0BEC5",
+      "category": "医药健康",
+      "latest_date": "2026-07-23",
+      "latest_main_force_total": -7323649529.0,
+      "latest_rows": 240
+    }
+  ]
+}
