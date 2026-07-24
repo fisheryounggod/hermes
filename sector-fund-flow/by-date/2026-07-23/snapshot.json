@@ -1,0 +1,298 @@
+{
+  "date": "2026-07-23",
+  "total_sectors": 22,
+  "top_inflow": [
+    {
+      "name": "有色金属",
+      "secid": "90.BK0478",
+      "category": "能源/材料",
+      "color": "#78909C",
+      "main_force_total": 1139548967476.0,
+      "main_force_yi": 11395.49,
+      "rows": 240
+    },
+    {
+      "name": "电网设备",
+      "secid": "90.BK0457",
+      "category": "能源/材料",
+      "color": "#009688",
+      "main_force_total": 781375539827.0,
+      "main_force_yi": 7813.76,
+      "rows": 240
+    },
+    {
+      "name": "消费电子",
+      "secid": "90.BK1037",
+      "category": "通信/电子",
+      "color": "#5C6BC0",
+      "main_force_total": 197521592331.0,
+      "main_force_yi": 1975.22,
+      "rows": 240
+    },
+    {
+      "name": "军工",
+      "secid": "90.BK0490",
+      "category": "高端制造/航天",
+      "color": "#AB47BC",
+      "main_force_total": 182759675564.0,
+      "main_force_yi": 1827.6,
+      "rows": 240
+    },
+    {
+      "name": "光伏",
+      "secid": "90.BK1031",
+      "category": "能源/材料",
+      "color": "#FF7043",
+      "main_force_total": 140102136849.0,
+      "main_force_yi": 1401.02,
+      "rows": 240
+    }
+  ],
+  "top_outflow": [
+    {
+      "name": "大科技",
+      "secid": "90.BK0891",
+      "category": "AI/科技",
+      "color": "#FF7F50",
+      "main_force_total": -4490862653778.0,
+      "main_force_yi": -44908.63,
+      "rows": 240
+    },
+    {
+      "name": "半导体",
+      "secid": "90.BK1036",
+      "category": "AI/科技",
+      "color": "#FFC107",
+      "main_force_total": -3482895780623.0,
+      "main_force_yi": -34828.96,
+      "rows": 240
+    },
+    {
+      "name": "存储芯片",
+      "secid": "90.BK1137",
+      "category": "AI/科技",
+      "color": "#FF4757",
+      "main_force_total": -2806762613998.0,
+      "main_force_yi": -28067.63,
+      "rows": 240
+    },
+    {
+      "name": "人工智能",
+      "secid": "90.BK0800",
+      "category": "AI/科技",
+      "color": "#4CAF50",
+      "main_force_total": -2423031205978.0,
+      "main_force_yi": -24230.31,
+      "rows": 240
+    },
+    {
+      "name": "CPO",
+      "secid": "90.BK1128",
+      "category": "AI/科技",
+      "color": "#2979FF",
+      "main_force_total": -1947538485940.0,
+      "main_force_yi": -19475.38,
+      "rows": 240
+    }
+  ],
+  "all_sectors": [
+    {
+      "name": "有色金属",
+      "secid": "90.BK0478",
+      "category": "能源/材料",
+      "color": "#78909C",
+      "main_force_total": 1139548967476.0,
+      "main_force_yi": 11395.49,
+      "rows": 240
+    },
+    {
+      "name": "电网设备",
+      "secid": "90.BK0457",
+      "category": "能源/材料",
+      "color": "#009688",
+      "main_force_total": 781375539827.0,
+      "main_force_yi": 7813.76,
+      "rows": 240
+    },
+    {
+      "name": "消费电子",
+      "secid": "90.BK1037",
+      "category": "通信/电子",
+      "color": "#5C6BC0",
+      "main_force_total": 197521592331.0,
+      "main_force_yi": 1975.22,
+      "rows": 240
+    },
+    {
+      "name": "军工",
+      "secid": "90.BK0490",
+      "category": "高端制造/航天",
+      "color": "#AB47BC",
+      "main_force_total": 182759675564.0,
+      "main_force_yi": 1827.6,
+      "rows": 240
+    },
+    {
+      "name": "光伏",
+      "secid": "90.BK1031",
+      "category": "能源/材料",
+      "color": "#FF7043",
+      "main_force_total": 140102136849.0,
+      "main_force_yi": 1401.02,
+      "rows": 240
+    },
+    {
+      "name": "油气资源",
+      "secid": "90.BK1649",
+      "category": "能源/材料",
+      "color": "#C0E040",
+      "main_force_total": 116583423385.0,
+      "main_force_yi": 1165.83,
+      "rows": 240
+    },
+    {
+      "name": "医疗器械",
+      "secid": "90.BK1045",
+      "category": "医药健康",
+      "color": "#F06292",
+      "main_force_total": 408829353.0,
+      "main_force_yi": 4.09,
+      "rows": 240
+    },
+    {
+      "name": "医药生物",
+      "secid": "90.BK1043",
+      "category": "医药健康",
+      "color": "#B0BEC5",
+      "main_force_total": -7323649529.0,
+      "main_force_yi": -73.24,
+      "rows": 240
+    },
+    {
+      "name": "医疗服务",
+      "secid": "90.BK1044",
+      "category": "医药健康",
+      "color": "#EC407A",
+      "main_force_total": -56640799661.0,
+      "main_force_yi": -566.41,
+      "rows": 240
+    },
+    {
+      "name": "商业航天",
+      "secid": "90.BK0963",
+      "category": "高端制造/航天",
+      "color": "#8BC34A",
+      "main_force_total": -112385348864.0,
+      "main_force_yi": -1123.85,
+      "rows": 240
+    },
+    {
+      "name": "先进制造",
+      "secid": "90.BK1237",
+      "category": "高端制造/航天",
+      "color": "#FF9800",
+      "main_force_total": -151201762239.0,
+      "main_force_yi": -1512.02,
+      "rows": 240
+    },
+    {
+      "name": "电力",
+      "secid": "90.BK0428",
+      "category": "能源/材料",
+      "color": "#EF5350",
+      "main_force_total": -254913380326.0,
+      "main_force_yi": -2549.13,
+      "rows": 240
+    },
+    {
+      "name": "半导体材料设备",
+      "secid": "90.BK1326",
+      "category": "AI/科技",
+      "color": "#FFEB3B",
+      "main_force_total": -373257092792.0,
+      "main_force_yi": -3732.57,
+      "rows": 240
+    },
+    {
+      "name": "AI应用",
+      "secid": "90.BK1629",
+      "category": "AI/科技",
+      "color": "#7E57C2",
+      "main_force_total": -633762813337.0,
+      "main_force_yi": -6337.63,
+      "rows": 240
+    },
+    {
+      "name": "云计算",
+      "secid": "90.BK0579",
+      "category": "AI/科技",
+      "color": "#00BCD4",
+      "main_force_total": -1202735258051.0,
+      "main_force_yi": -12027.35,
+      "rows": 240
+    },
+    {
+      "name": "通信",
+      "secid": "90.BK1215",
+      "category": "通信/电子",
+      "color": "#03A9F4",
+      "main_force_total": -1314662163656.0,
+      "main_force_yi": -13146.62,
+      "rows": 240
+    },
+    {
+      "name": "国产算力",
+      "secid": "90.BK1134",
+      "category": "AI/科技",
+      "color": "#26A69A",
+      "main_force_total": -1770029858672.0,
+      "main_force_yi": -17700.3,
+      "rows": 240
+    },
+    {
+      "name": "CPO",
+      "secid": "90.BK1128",
+      "category": "AI/科技",
+      "color": "#2979FF",
+      "main_force_total": -1947538485940.0,
+      "main_force_yi": -19475.38,
+      "rows": 240
+    },
+    {
+      "name": "人工智能",
+      "secid": "90.BK0800",
+      "category": "AI/科技",
+      "color": "#4CAF50",
+      "main_force_total": -2423031205978.0,
+      "main_force_yi": -24230.31,
+      "rows": 240
+    },
+    {
+      "name": "存储芯片",
+      "secid": "90.BK1137",
+      "category": "AI/科技",
+      "color": "#FF4757",
+      "main_force_total": -2806762613998.0,
+      "main_force_yi": -28067.63,
+      "rows": 240
+    },
+    {
+      "name": "半导体",
+      "secid": "90.BK1036",
+      "category": "AI/科技",
+      "color": "#FFC107",
+      "main_force_total": -3482895780623.0,
+      "main_force_yi": -34828.96,
+      "rows": 240
+    },
+    {
+      "name": "大科技",
+      "secid": "90.BK0891",
+      "category": "AI/科技",
+      "color": "#FF7F50",
+      "main_force_total": -4490862653778.0,
+      "main_force_yi": -44908.63,
+      "rows": 240
+    }
+  ]
+}
