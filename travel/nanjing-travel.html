@@ -1,0 +1,441 @@
+<style>
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 60px 60px 50px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(233,30,99,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(184,216,190,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font: 500 18px/1 var(--sans);
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero-title {
+  font: 400 56px/1.1 var(--serif);
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+.hero-title span {
+  color: #E91E63;
+}
+.hero-sub {
+  font: 400 22px/1.4 var(--sans);
+  color: rgba(255,255,255,0.65);
+}
+.hero-badges {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.85);
+  font: 500 14px/1 var(--sans);
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+.badge-pink {
+  background: rgba(233,30,99,0.25);
+  border-color: rgba(233,30,99,0.4);
+  color: #F8BBD9;
+}
+
+.section {
+  padding: 44px 60px;
+}
+.section-title {
+  font: 400 32px/1 var(--serif);
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.section-desc {
+  font: 400 16px/1.4 var(--sans);
+  color: var(--ink-light);
+  margin-bottom: 28px;
+}
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, #E91E63, #B8D8BE);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: #E91E63;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  z-index: 1;
+}
+.timeline-item:nth-child(2)::before { background: #FF9800; }
+.timeline-item:nth-child(3)::before { background: #4CAF50; }
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.day-num {
+  font: 700 13px/1 var(--sans);
+  color: #FFFFFF;
+  background: var(--ink);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.day-theme {
+  font: 500 22px/1 var(--serif);
+  color: var(--ink);
+}
+.day-meta {
+  font: 400 14px/1 var(--sans);
+  color: var(--ink-light);
+  margin-bottom: 14px;
+  padding-left: 2px;
+}
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.event-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font: 400 15px/1.5 var(--sans);
+  color: var(--ink);
+}
+.event-time {
+  font: 500 13px/1 var(--sans);
+  color: var(--ink-light);
+  min-width: 44px;
+  padding-top: 2px;
+}
+.event-dot {
+  width: 6px;
+  height: 6px;
+  background: #E91E63;
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.event-content { flex: 1; }
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.food-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+}
+.food-card:hover { transform: translateY(-2px); }
+.food-emoji {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.food-name {
+  font: 700 15px/1.2 var(--sans);
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.food-place {
+  font: 400 12px/1.3 var(--sans);
+  color: var(--ink-light);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.tip-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tip-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--green);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.tip-content { flex: 1; }
+.tip-title {
+  font: 700 14px/1.3 var(--sans);
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.tip-desc {
+  font: 400 13px/1.4 var(--sans);
+  color: var(--ink-light);
+}
+</style>
+
+<div class="hero">
+  <div class="hero-eyebrow">2026 五一黄金周</div>
+  <div class="hero-title">南京 · 情侣美食<span>3日游</span></div>
+  <div class="hero-sub">老城南 → 钟山风景区 → 博物院 & 大学路</div>
+  <div class="hero-badges">
+    <span class="badge badge-pink">❤️ 情侣出行</span>
+    <span class="badge">🍜 美食为主</span>
+    <span class="badge">☁️ 舒适浪漫</span>
+    <span class="badge">🏯 民国风情</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">📍 三日行程</div>
+  <div class="section-desc">五一假期南京正确打开方式 — 早起错峰、美食不踩雷</div>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="day-header">
+        <span class="day-num">DAY 1</span>
+        <span class="day-theme">老城南 · 舌尖民国</span>
+      </div>
+      <div class="day-meta">🌅 抵达南京 → 入住新街口/夫子庙区域</div>
+      <div class="event-list">
+        <div class="event-row">
+          <span class="event-time">09:00</span><span class="event-dot"></span>
+          <span class="event-content">🚇 抵达南京，入住酒店（新街口或大行宫）</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">11:00</span><span class="event-dot"></span>
+          <span class="event-content">🏘️ <b>老门东</b> — 早去人少，青砖黛瓦超好拍📸</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">12:30</span><span class="event-dot"></span>
+          <span class="event-content">🍜 老门东美食：蒋有记锅贴、小郑酥烧饼、蓝老大糖藕粥</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">14:30</span><span class="event-dot"></span>
+          <span class="event-content">🏯 <b>中华门城墙</b> — 登城walk，俯瞰秦淮河</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">16:30</span><span class="event-dot"></span>
+          <span class="event-content">✝️ <b>夫子庙</b> — 秦淮河畔漫步，等天黑亮灯</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">18:30</span><span class="event-dot"></span>
+          <span class="event-content">🦆 夫子庙美食：回味鸭血粉丝 + 莲湖糕团</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">20:00</span><span class="event-dot"></span>
+          <span class="event-content">🚢 <b>秦淮河夜游</b> — 画舫游河，提前购票！</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="day-header">
+        <span class="day-num">DAY 2</span>
+        <span class="day-theme">钟山 · 风景如画</span>
+      </div>
+      <div class="day-meta">🌿 5A景区扎堆，建议早起冲一波</div>
+      <div class="event-list">
+        <div class="event-row">
+          <span class="event-time">07:30</span><span class="event-dot"></span>
+          <span class="event-content">🌅 <b>明孝陵</b> — 5点早起进园！人少光线绝美</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">10:00</span><span class="event-dot"></span>
+          <span class="event-content">🏔️ <b>中山陵</b> — 台阶爬上去，392级，风景值回体力</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">12:30</span><span class="event-dot"></span>
+          <span class="event-content">🍴 陵园路 → <b>南京大排档</b>（地道南京味道）</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">14:30</span><span class="event-dot"></span>
+          <span class="event-content">💎 <b>美龄宫</b> — 梧桐项链，情侣必打卡！</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">16:00</span><span class="event-dot"></span>
+          <span class="event-content">🚣 <b>玄武湖</b> — 划船/散步，傍晚光线绝美</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">18:30</span><span class="event-dot"></span>
+          <span class="event-content">🦆 湖南路 → 尹氏鸡汁汤包 + 韩复兴盐水鸭</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="day-header">
+        <span class="day-num">DAY 3</span>
+        <span class="day-theme">博物院 · 文艺收尾</span>
+      </div>
+      <div class="day-meta">🏛️ 知识与风景兼备，最后一天不留遗憾</div>
+      <div class="event-list">
+        <div class="event-row">
+          <span class="event-time">09:30</span><span class="event-dot"></span>
+          <span class="event-content">🏛️ <b>南京博物院</b> — 提前小程序预约！历史馆+民国馆</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">12:00</span><span class="event-dot"></span>
+          <span class="event-content">🥟 瑞金路 → <b>李记清真馆</b>（牛肉锅贴天花板）</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">14:00</span><span class="event-dot"></span>
+          <span class="event-content">🎓 <b>东南大学四牌楼</b> — 《人民的名义》取景地，民国校园风</span>
+        </div>
+        <div class="event-row">
+          <span class="event-time">15:30</span><span class="event-dot"></span>
+          <span class="event-content">🚄 返程，带着美食记忆回家</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="background: linear-gradient(180deg, rgba(184,216,190,0.15) 0%, transparent 100%);">
+  <div class="section-title">🍜 必吃清单</div>
+  <div class="section-desc">这8样吃全了，才算真正来过南京</div>
+  <div class="food-grid">
+    <div class="food-card">
+      <div class="food-emoji">🍜</div>
+      <div class="food-name">鸭血粉丝汤</div>
+      <div class="food-place">回味 / 小潘记</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🥟</div>
+      <div class="food-name">牛肉锅贴</div>
+      <div class="food-place">李记清真馆 · 瑞金路</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🫓</div>
+      <div class="food-name">酥烧饼</div>
+      <div class="food-place">小郑酥烧饼 · 老门东</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🦆</div>
+      <div class="food-name">盐水鸭</div>
+      <div class="food-place">韩复兴 · 湖南路</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🍡</div>
+      <div class="food-name">糖藕</div>
+      <div class="food-place">蓝老大 · 老门东</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🍰</div>
+      <div class="food-name">糕团</div>
+      <div class="food-place">莲湖糕团店 · 夫子庙</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🥟</div>
+      <div class="food-name">鸡汁汤包</div>
+      <div class="food-place">尹氏 · 湖南路</div>
+    </div>
+    <div class="food-card">
+      <div class="food-emoji">🧋</div>
+      <div class="food-name">茶颜悦色</div>
+      <div class="food-place">湖南路 / 新街口</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">⚠️ 五一生存指南</div>
+  <div class="section-desc">假期出行，这几条必须记住</div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🏨</div>
+      <div class="tip-content">
+        <div class="tip-title">酒店务必提前订</div>
+        <div class="tip-desc">五一南京酒店价格暴涨还满房，现在就订！</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎫</div>
+      <div class="tip-content">
+        <div class="tip-title">提前买好门票</div>
+        <div class="tip-desc">南博小程序预约，景点门票提前买好</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⏰</div>
+      <div class="tip-content">
+        <div class="tip-title">早起策略</div>
+        <div class="tip-desc">五一8点各景区就排队了，7点出门是王道</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚇</div>
+      <div class="tip-content">
+        <div class="tip-title">交通首选地铁</div>
+        <div class="tip-desc">节假日打车很堵，地铁+共享单车最稳</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🚢</div>
+      <div class="tip-content">
+        <div class="tip-title">秦淮游船提前购</div>
+        <div class="tip-desc">当天现场基本没票，在各大平台提前买</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📸</div>
+      <div class="tip-content">
+        <div class="tip-title">老门东早去</div>
+        <div class="tip-desc">9-10点人少，光线好，拍照秒出片</div>
+      </div>
+    </div>
+  </div>
+</div>
