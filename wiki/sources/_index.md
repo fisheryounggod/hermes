@@ -24,3 +24,4 @@ _暂无 — 等待 raw/ 录入首批材料后由 AI 自动生成_
 - [[2026-08-10_china-oecd-macro-tax-burden]] — 中国与 OECD 国家宏观税负再比较（2026-08-09）
 - [[2026-05-14_pandatalk-critical-thinking]] — 批判性思维培养指南（2026-08-10 入库）
 - [[2026-05-09_wsinsights-sequoia-ai-ascent-2026]] — 红杉 AI Ascent 2026 洞察（2026-08-10 入库）
+- [[2026-08-10_yisheng-zhidi]] — 《一生之敌》Do the Work 完整摘要（2026-08-10，69 划线 + 2 想法）

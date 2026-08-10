@@ -169,3 +169,34 @@ rule: "append-only（只追加，永不删改旧行）"
 **保留**：`raw/` 全部文件未修改；现有 concept 页面和旧日志记录未删除、未覆盖。
 **受影响双链**：新增到 `ai-agent-knowledge-curation`、`raw-wiki-schema-architecture`、`llm-wiki`、`llm-wiki-and-self-growing-pkms` 及相关 raw 文章的链接。
 **待人工确认**：cc-switch 内部数据库 schema 属版本相关实现；官方 OpenAI Docs 搜索接口恢复后需补充最新 Codex 配置文档链接。
+
+## 2026-08-10 22:30 · CREATE · Fisher via Hermes
+
+**动作**：新增《一生之敌》Do the Work 完整读书笔记系统（1 raw + 1 source + 3 concept + 1 entity + 3 index patch + 1 log）
+
+**对象**：
+- `raw/books/2026-08-10_yisheng-zhidi.md` (新，type: raw-book，原始 69 划线 + 2 想法)
+- `wiki/sources/2026-08-10_yisheng-zhidi.md` (新，type: source，结构化摘要)
+- `wiki/concepts/internal-resistance.md` (新，type: concept，内阻力核心概念 + 7 机制聚类)
+- `wiki/concepts/professional-vs-amateur.md` (新，type: concept-stub，占位待完整化)
+- `wiki/concepts/ego-vs-self.md` (新，type: concept-stub，占位待完整化)
+- `wiki/entities/steven-pressfield.md` (新，type: entity，作者人物页)
+- `wiki/sources/_index.md` (patch，追加新条目)
+- `wiki/concepts/_index.md` (patch，追加新条目)
+- `wiki/entities/_index.md` (patch，追加新条目)
+- `log.md` (本次追加)
+
+**原因**：从微信读书 bookId 3300120540 完整抓取 Fisher 2026-08-10 读完的《一生之敌》全部摘录（69 划线 + 2 想法），按 ai-wiki 双层 wiki 规约（AGENTS.md §2）建立 raw 锚点 + 派生摘要 + 概念网 + 实体页，便于后续 personal-assistant weekly check-in 与跨主题引用。
+
+**保留**：`raw/books/` 目录之前不存在，本日新创建；既有 wiki 页和旧 log 行未删除未覆盖；`raw/` 已有材料未改动（按 §1.1 不可篡改）。
+
+**受影响双链**：
+- 新增 wikilink：`internal-resistance`、`professional-vs-amateur`、`ego-vs-self`、`steven-pressfield` → 互链 + 反链 `2026-08-10_yisheng-zhidi`
+- 引用源：`raw/books/2026-08-10_yisheng-zhidi`（按 §1.2 raw 锚点规则）
+
+**stub 标注**：`professional-vs-amateur` 与 `ego-vs-self` 是 stub 类型（AGENTS.md §4.3 #4），被 `internal-resistance` 反向引用但完整内容待后续从 §49–§73 / §85–§87 提炼；非死链。
+
+**待人工确认**：
+1. Pressfield 在《The War of Art》（2002）首次提出 Resistance 概念，本书是续作《Do the Work》（2011）。两书概念层级关系待 Fisher 后续读《The War of Art》时核实。
+2. §86 "自性五信条"含形而上 / 新纪元色彩，是否要在 concept 页加 "⚠ 含形而上成分，谨慎引用" 标注？
+3. personal-assistant 任务的 5 条行动推论（电商 Charm / 博士论文 / 雅思）已生成到 `~/.claude/personal_assistant/tasks.json`，按 by_deadline then by_domain 排列。

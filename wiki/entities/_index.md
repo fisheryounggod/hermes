@@ -12,6 +12,7 @@ tags: [index, entities]
 
 ## 当前内容
 - [[canghe]] — 苍何，X 知识管理博主 / LLM wiki 中文实战推动者
+- [[steven-pressfield]] — 史蒂文·普莱斯菲尔德，作家，17 年才赚到第一笔稿费，《The War of Art》《Do the Work》作者
 
 ## 实体类型
 - 人物（author / founder / speaker）

@@ -19,6 +19,9 @@ tags: [index, concepts]
 - [[codex-config-migration-to-cc-switch]] — Windows 下将 Codex 自定义提供商迁移并交由 cc-switch 代理接管
 - [[gpr-theoretical-modeling]] — GPR 纳入 DSGE 模型的四种方法（SDF / 风险规避 / 调整成本 / 资本回报波动）
 - [[dsge-gpr-two-country-model]] — 两国 DSGE 框架：GPR 通过风险溢价渠道与资本效率渠道驱动回国效应与安全港效应（Feng et al. 2023）
+- [[internal-resistance]] — 内阻力（Resistance）：普莱斯菲尔德用以命名"想做却没做的自我"的宇宙级力量
+- [[professional-vs-amateur]] — 职业选手 vs 业余爱好者（stub，Pressfield 核心分野）
+- [[ego-vs-self]] — 自我 vs 自性（stub，Pressfield 借用荣格框架的本体论根基）
 
 ## 建页触发条件
 - 一份 source 里出现 ≥ 3 次的专业术语
