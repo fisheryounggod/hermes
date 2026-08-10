@@ -1,0 +1,176 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "ctime": 1765460153549,
+      "path": "sources/papers/beirne2026.md",
+      "title": "cf-gpr-异质性"
+    },
+    {
+      "type": "file",
+      "ctime": 1768464430339,
+      "path": "excalidraw/Index Notes/🏡 Home.md"
+    },
+    {
+      "type": "search",
+      "ctime": 1769144473497,
+      "query": "[theme:beamer]",
+      "title": "Marp"
+    },
+    {
+      "type": "file",
+      "ctime": 1774339379007,
+      "path": "research/金融经济学二十五讲/金融经济学二十五讲.md"
+    },
+    {
+      "type": "group",
+      "ctime": 1775356492662,
+      "items": [
+        {
+          "type": "graph",
+          "ctime": 1775031435489,
+          "title": "Color5Graph",
+          "options": {
+            "collapse-filter": true,
+            "search": "path:research/CBDC研究  ",
+            "showTags": false,
+            "showAttachments": false,
+            "hideUnresolved": true,
+            "showOrphans": false,
+            "collapse-color-groups": true,
+            "colorGroups": [
+              {
+                "query": "tag:#color/red",
+                "color": {
+                  "a": 1,
+                  "rgb": 14701138
+                }
+              },
+              {
+                "query": "tag:#color/blue",
+                "color": {
+                  "a": 1,
+                  "rgb": 5397472
+                }
+              },
+              {
+                "query": "tag:#color/yellow",
+                "color": {
+                  "a": 1,
+                  "rgb": 13885705
+                }
+              },
+              {
+                "query": "tag:#color/green",
+                "color": {
+                  "a": 1,
+                  "rgb": 1734413
+                }
+              },
+              {
+                "query": "tag:#color/purple",
+                "color": {
+                  "a": 1,
+                  "rgb": 9637101
+                }
+              }
+            ],
+            "collapse-display": true,
+            "showArrow": true,
+            "textFadeMultiplier": 0.2,
+            "nodeSizeMultiplier": 2.34462123011161,
+            "lineSizeMultiplier": 3.66300166231299,
+            "collapse-forces": true,
+            "centerStrength": 0.79585213330167,
+            "repelStrength": 14.1953613551809,
+            "linkStrength": 1,
+            "linkDistance": 183,
+            "scale": 1.5527107455669682,
+            "close": true
+          }
+        }
+      ],
+      "title": "Research"
+    },
+    {
+      "type": "group",
+      "ctime": 1775356523638,
+      "items": [
+        {
+          "type": "file",
+          "ctime": 1775040985395,
+          "path": "wiki/00-Index/WEREAD.base"
+        },
+        {
+          "type": "file",
+          "ctime": 1775012606308,
+          "path": "outputs/Anthony/Anthony学习指南.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1775012558591,
+          "path": "outputs/02-投资理财/黄阳投资笔记学习.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1775185613634,
+          "path": "wiki/inbox/06-AI教程/Claude教程索引.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1776086524567,
+          "path": "raw/09-书签收藏/理解矩阵.md"
+        }
+      ],
+      "title": "To Read"
+    },
+    {
+      "type": "group",
+      "ctime": 1775356560825,
+      "items": [
+        {
+          "type": "file",
+          "ctime": 1775788943678,
+          "path": "raw/03-技术教程/Claude Code 15 个隐藏功能.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1775988123796,
+          "path": "raw/02-商业经济/对话大疆汪滔：求真理、得自由、活成故事.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1775195040463,
+          "path": "raw/08-BOOKS/Weread/The Art of Loving.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1775047734926,
+          "path": "wiki/inbox/02-经济商业/李扬：面对稳定币浪潮，中国需双轨并进专家解读稳定币.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1775182741478,
+          "path": "raw/02-商业经济/投资工具箱.md",
+          "title": ""
+        },
+        {
+          "type": "file",
+          "ctime": 1775983604805,
+          "path": "raw/01-学习认知/认知体系，不是学出来的，而是长出来的.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1776138206793,
+          "path": "raw/03-技术教程/Obsidian/如何让 Obsidian 变美.md"
+        }
+      ],
+      "title": "To Review"
+    },
+    {
+      "type": "file",
+      "ctime": 1775392739010,
+      "path": "outputs/投资学习/巴菲特致股东信/巴菲特致股东信知识体系.md"
+    }
+  ]
+}

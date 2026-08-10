@@ -1,0 +1,21 @@
+{
+  "cssTheme": "Composer",
+  "accentColor": "",
+  "enabledCssSnippets": [
+    "【便签样式】stickies",
+    "callout",
+    "IOTO-table",
+    "MCL Multi Column",
+    "MCL Gallery Cards",
+    "MCL Wide Views",
+    "metadata-hider-auto-gen",
+    "Typora",
+    "my-styles"
+  ],
+  "theme": "moonstone",
+  "textFontFamily": "iA Writer Quattro S",
+  "monospaceFontFamily": "iA Writer Mono S",
+  "baseFontSize": 15,
+  "interfaceFontFamily": "iA Writer Duo S,Microsoft YaHei",
+  "baseFontSizeAction": false
+}

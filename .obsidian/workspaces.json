@@ -1,0 +1,3514 @@
+{
+  "workspaces": {
+    "Home": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "80954098f95083a0",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "baeced1955fd72e8",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新标签页"
+                }
+              },
+              {
+                "id": "7eb397eec2c5cdd4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "raw/让Python绘制一套动态图形给你看看！.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "让Python绘制一套动态图形给你看看！"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "byModifiedTime",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "7728762f76eab18e",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "🏠Home"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "b59ba0bf12cda498",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "recent-notes-view"
+                }
+              },
+              {
+                "id": "7eb27dd7fd615aef",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "line:thedankoe",
+                    "matchingCase": true,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "raw/出海建站全流程地图.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.7776370373230743,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "出海建站全流程地图 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/出海建站全流程地图.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "出海建站全流程地图 的出链列表"
+                }
+              },
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "raw/让Python绘制一套动态图形给你看看！.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "让Python绘制一套动态图形给你看看！ 的反向链接列表"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 249.50390243530273
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0a94e60c47d828bf",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "calendar"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "git-view"
+                }
+              },
+              {
+                "id": "1367078e22435a27",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "thino_view"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "word-query-view"
+                }
+              },
+              {
+                "id": "e919027c73f58c06",
+                "type": "leaf",
+                "state": {
+                  "type": "word-review-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "word-review-view"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "raw/富人圈层不外传的50条赚钱铁律（深度解析版）.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "富人圈层不外传的50条赚钱铁律（深度解析版） 的大纲"
+                }
+              },
+              {
+                "id": "dd84388f9b282b2c",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              }
+            ],
+            "currentTab": 6
+          }
+        ],
+        "direction": "horizontal",
+        "width": 357.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "terminal:Open terminal": false,
+          "homepage:Open homepage": false,
+          "my-query:Word Query": false,
+          "recent-notes:Recent notes": false,
+          "obsidian-memos:Thino": false,
+          "obsidian-memos:Thino Super": false,
+          "vscode-editor:新建代码文件": false,
+          "templater-obsidian:Templater": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "my-smart-composer:Open smart composer": false,
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:New drawing": false,
+          "obsidian-git:Open Git source control": false,
+          "my-flashcards-review:Word Review": false,
+          "my-financial-tracker:Open Financial Dashboard": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "obsidian42-brat:BRAT": false,
+          "claudian:Open Claudian": false,
+          "marp-slides:Show Slide Preview": false,
+          "my-hinote:Open Highlights View": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false
+        }
+      },
+      "active": "7eb397eec2c5cdd4",
+      "mtime": "2026-05-12T17:04:40+08:00"
+    },
+    "Research": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4de7ca929613926c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "f2e1e5b1c2671f8e",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/00-我的研究/CFW/FW2012-repl/Replication of Forbes and Warnock (2012).md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "Replication of Forbes and Warnock (2012)"
+                }
+              },
+              {
+                "id": "c08d00c5c30d8ede",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/00-我的研究/CFW/FW2012-repl/FW2012 变量构造.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "FW2012 变量构造"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "dimension": 73.95833333333334,
+            "children": [
+              {
+                "id": "2109023474fd268a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "notebook-navigator",
+                  "state": {},
+                  "pinned": true,
+                  "icon": "notebook-navigator",
+                  "title": "笔记本导航器"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "7eb27dd7fd615aef",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "line:stock-  ",
+                    "matchingCase": true,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "5a6176399609d778",
+                "type": "leaf",
+                "state": {
+                  "type": "book-explorer-view",
+                  "state": {},
+                  "icon": "bold-glyph",
+                  "title": "Book Explorer"
+                }
+              },
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              }
+            ],
+            "currentTab": 5
+          },
+          {
+            "id": "cbd8f22b4be96dab",
+            "type": "tabs",
+            "dimension": 26.041666666666668,
+            "children": [
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "执行力——这个时代最体面的PUA 的反向链接列表"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "The Swift Programming Language (6.3) 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "执行力——这个时代最体面的PUA 的出链列表"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "The Swift Programming Language (6.3) 的大纲"
+                }
+              },
+              {
+                "id": "b59ba0bf12cda498",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "clock-10",
+                  "title": "最近笔记"
+                }
+              }
+            ],
+            "currentTab": 4
+          }
+        ],
+        "direction": "horizontal",
+        "width": 254.5,
+        "collapsed": true
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0a94e60c47d828bf",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "2d36231f17bcdc9e",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              },
+              {
+                "id": "a3cac10a6b3af517",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "d28b2bb3daac6e80",
+                "type": "leaf",
+                "state": {
+                  "type": "opencode-view",
+                  "state": {},
+                  "icon": "opencode-logo",
+                  "title": "OpenCode"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "e919027c73f58c06",
+                "type": "leaf",
+                "state": {
+                  "type": "word-review-view",
+                  "state": {},
+                  "icon": "brain",
+                  "title": "Word Review"
+                }
+              },
+              {
+                "id": "99e8f0af81664a30",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 382.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-memos:Thino Super": false,
+          "homepage:Open homepage": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "terminal:Open terminal": false,
+          "claudian:Open Claudian": false,
+          "obsidian-memos:Thino": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-booknote-plugin:书库": false,
+          "obsidian-opencode:OpenCode": false,
+          "notebook-navigator:笔记本导航器": false,
+          "my-hinote:Open Highlights View": false,
+          "workspaces:管理工作区布局": false,
+          "my-query:Word Query": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "my-flashcards-review:Word Review": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "vscode-editor:新建代码文件": false,
+          "my-smart-composer:Open smart composer": false,
+          "obsidian-git:Open Git source control": false,
+          "templater-obsidian:Templater": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "obsidian-trash-explorer:Open trash explorer": false
+        }
+      },
+      "active": "2d36231f17bcdc9e",
+      "mtime": "2026-04-20T00:36:06+08:00"
+    },
+    "Read": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4de7ca929613926c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "7728762f76eab18e",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "🏠Home"
+                }
+              },
+              {
+                "id": "c48ea68c4bd08c5d",
+                "type": "leaf",
+                "state": {
+                  "type": "weread-bookshelf-view",
+                  "state": {},
+                  "icon": "library",
+                  "title": "微信读书书架"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "dimension": 62.109375,
+            "children": [
+              {
+                "id": "2109023474fd268a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "notebook-navigator",
+                  "state": {},
+                  "pinned": true,
+                  "icon": "notebook-navigator",
+                  "title": "笔记本导航器"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "7eb27dd7fd615aef",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "line:stock-  ",
+                    "matchingCase": true,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "5a6176399609d778",
+                "type": "leaf",
+                "state": {
+                  "type": "book-explorer-view",
+                  "state": {},
+                  "icon": "bold-glyph",
+                  "title": "Book Explorer"
+                }
+              },
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              }
+            ],
+            "currentTab": 5
+          },
+          {
+            "id": "cbd8f22b4be96dab",
+            "type": "tabs",
+            "dimension": 37.890625,
+            "children": [
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "执行力——这个时代最体面的PUA 的反向链接列表"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "The Swift Programming Language (6.3) 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "执行力——这个时代最体面的PUA 的出链列表"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "The Swift Programming Language (6.3) 的大纲"
+                }
+              },
+              {
+                "id": "b59ba0bf12cda498",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "clock-10",
+                  "title": "最近笔记"
+                }
+              }
+            ],
+            "currentTab": 4
+          }
+        ],
+        "direction": "horizontal",
+        "width": 254.5
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0a94e60c47d828bf",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "2d36231f17bcdc9e",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              },
+              {
+                "id": "a3cac10a6b3af517",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "d28b2bb3daac6e80",
+                "type": "leaf",
+                "state": {
+                  "type": "opencode-view",
+                  "state": {},
+                  "icon": "opencode-logo",
+                  "title": "OpenCode"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "e919027c73f58c06",
+                "type": "leaf",
+                "state": {
+                  "type": "word-review-view",
+                  "state": {},
+                  "icon": "brain",
+                  "title": "Word Review"
+                }
+              },
+              {
+                "id": "99e8f0af81664a30",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 491.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-memos:Thino Super": false,
+          "homepage:Open homepage": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "terminal:Open terminal": false,
+          "claudian:Open Claudian": false,
+          "obsidian-memos:Thino": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-booknote-plugin:书库": false,
+          "obsidian-opencode:OpenCode": false,
+          "notebook-navigator:笔记本导航器": false,
+          "my-hinote:Open Highlights View": false,
+          "workspaces:管理工作区布局": false,
+          "my-query:Word Query": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "my-flashcards-review:Word Review": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "vscode-editor:新建代码文件": false,
+          "my-smart-composer:Open smart composer": false,
+          "obsidian-git:Open Git source control": false,
+          "templater-obsidian:Templater": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "obsidian-trash-explorer:Open trash explorer": false
+        }
+      },
+      "active": "2d36231f17bcdc9e",
+      "mtime": "2026-04-19T10:59:57+08:00"
+    },
+    "Weread": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4de7ca929613926c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c48ea68c4bd08c5d",
+                "type": "leaf",
+                "state": {
+                  "type": "weread-bookshelf-view",
+                  "state": {},
+                  "icon": "library",
+                  "title": "微信读书书架"
+                }
+              },
+              {
+                "id": "7181302166d6bf1e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "raw/08-BOOKS/Weread/专注的真相.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "专注的真相"
+                }
+              },
+              {
+                "id": "24b552d695bc5d96",
+                "type": "leaf",
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://weread.qq.com/web/reader/59b324d0813ababe6g010489",
+                    "title": "专注的真相 - 李笑来 - 微信读书",
+                    "mode": "webview"
+                  },
+                  "icon": "globe-2",
+                  "title": "专注的真相 - 李笑来 - 微信读书"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "dimension": 62.109375,
+            "children": [
+              {
+                "id": "2109023474fd268a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "notebook-navigator",
+                  "state": {},
+                  "pinned": true,
+                  "icon": "notebook-navigator",
+                  "title": "笔记本导航器"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "7eb27dd7fd615aef",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "line:stock-  ",
+                    "matchingCase": true,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "5a6176399609d778",
+                "type": "leaf",
+                "state": {
+                  "type": "book-explorer-view",
+                  "state": {},
+                  "icon": "bold-glyph",
+                  "title": "Book Explorer"
+                }
+              },
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              }
+            ],
+            "currentTab": 5
+          },
+          {
+            "id": "cbd8f22b4be96dab",
+            "type": "tabs",
+            "dimension": 37.890625,
+            "children": [
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "执行力——这个时代最体面的PUA 的反向链接列表"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "wiki/02-Concepts/层次原则.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "The Swift Programming Language (6.3) 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "执行力——这个时代最体面的PUA 的出链列表"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "The Swift Programming Language (6.3) 的大纲"
+                }
+              },
+              {
+                "id": "b59ba0bf12cda498",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "clock-10",
+                  "title": "最近笔记"
+                }
+              }
+            ],
+            "currentTab": 4
+          }
+        ],
+        "direction": "horizontal",
+        "width": 254.5,
+        "collapsed": true
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0a94e60c47d828bf",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "2d36231f17bcdc9e",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              },
+              {
+                "id": "a3cac10a6b3af517",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "d28b2bb3daac6e80",
+                "type": "leaf",
+                "state": {
+                  "type": "opencode-view",
+                  "state": {},
+                  "icon": "opencode-logo",
+                  "title": "OpenCode"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "e919027c73f58c06",
+                "type": "leaf",
+                "state": {
+                  "type": "word-review-view",
+                  "state": {},
+                  "icon": "brain",
+                  "title": "Word Review"
+                }
+              },
+              {
+                "id": "99e8f0af81664a30",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 491.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "my-financial-tracker:Open Financial Dashboard": false,
+          "obsidian-memos:Thino Super": false,
+          "homepage:Open homepage": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "terminal:Open terminal": false,
+          "claudian:Open Claudian": false,
+          "obsidian-memos:Thino": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-booknote-plugin:书库": false,
+          "obsidian-opencode:OpenCode": false,
+          "notebook-navigator:笔记本导航器": false,
+          "my-hinote:Open Highlights View": false,
+          "workspaces:管理工作区布局": false,
+          "my-query:Word Query": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "my-flashcards-review:Word Review": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "vscode-editor:新建代码文件": false,
+          "my-smart-composer:Open smart composer": false,
+          "obsidian-git:Open Git source control": false,
+          "templater-obsidian:Templater": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "obsidian-trash-explorer:Open trash explorer": false
+        }
+      },
+      "active": "7181302166d6bf1e",
+      "mtime": "2026-04-25T12:02:13+08:00"
+    },
+    "ArcGIS": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "ec1166adb8b91745",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "4b062e32345f8310",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "🏠Home"
+                }
+              },
+              {
+                "id": "be86f3322fed9a6a",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/01-自学笔记/ArcGIS学习笔记.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "ArcGIS学习笔记"
+                }
+              },
+              {
+                "id": "8bd5a93780ff0d6e",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "raw/06-文章合集/新枝/文章/🔗 · ArcGis操作小白/🔗 · ArcGis操作小白.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "🔗 · ArcGis操作小白"
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "dimension": 62.109375,
+            "children": [
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "ffdad1b2726ce173",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "file.",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cbd8f22b4be96dab",
+            "type": "tabs",
+            "dimension": 37.890625,
+            "children": [
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "temp/未命名.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "未命名 的反向链接列表"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "The Swift Programming Language (6.3) 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "执行力——这个时代最体面的PUA 的出链列表"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "raw/06-文章合集/新枝/文章/🔗 · ArcGis操作小白/🔗 · ArcGis操作小白.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "🔗 · ArcGis操作小白 的大纲"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 323.5
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ea8140bdb8265165",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "5f69bb8091a4b716",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              },
+              {
+                "id": "bf0a55afa8d855e2",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              },
+              {
+                "id": "f4b77f37446c207a",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 511.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "obsidian-trash-explorer:Open trash explorer": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "terminal:Open terminal": false,
+          "homepage:Open homepage": false,
+          "my-query:Word Query": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-memos:Thino": false,
+          "obsidian-memos:Thino Super": false,
+          "vscode-editor:新建代码文件": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-opencode:OpenCode": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "notebook-navigator:笔记本导航器": false,
+          "my-smart-composer:Open smart composer": false,
+          "my-flashcards-review:Word Review": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "claudian:Open Claudian": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "obsidian-booknote-plugin:书库": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "my-hinote:Open Highlights View": false,
+          "obsidian-git:Open Git source control": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "my-financial-tracker:Open Financial Dashboard": false
+        }
+      },
+      "active": "8bd5a93780ff0d6e",
+      "mtime": "2026-04-24T19:55:58+08:00"
+    },
+    "Concepts": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "ec1166adb8b91745",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "4b062e32345f8310",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "mode": "preview",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "🏠Home"
+                }
+              },
+              {
+                "id": "ff3c4eb105222ff3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "raw/06-文章合集/新枝/文章/🔗 · 面板分位数回归模型的Stata操作与应用/🔗 · 面板分位数回归模型的Stata操作与应用.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "🔗 · 面板分位数回归模型的Stata操作与应用"
+                }
+              },
+              {
+                "id": "30bd5744945b6d2f",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/01-自学笔记/面板分位数回归：理论原理与Stata实操.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "面板分位数回归：理论原理与Stata实操"
+                }
+              },
+              {
+                "id": "b2b3c2f976d4d934",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "wiki/02-Concepts/White估计量.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "White估计量"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "dimension": 62.109375,
+            "children": [
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "byModifiedTime",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "ffdad1b2726ce173",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "file.",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "e0470c69473975c6",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "clock-10",
+                  "title": "最近笔记"
+                }
+              }
+            ],
+            "currentTab": 4
+          },
+          {
+            "id": "cbd8f22b4be96dab",
+            "type": "tabs",
+            "dimension": 37.890625,
+            "children": [
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "temp/未命名.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "未命名 的反向链接列表"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "The Swift Programming Language (6.3) 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "执行力——这个时代最体面的PUA 的出链列表"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "wiki/02-Concepts/White估计量.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "White估计量 的大纲"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 229.50390243530273
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ea8140bdb8265165",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "5f69bb8091a4b716",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              },
+              {
+                "id": "bf0a55afa8d855e2",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              },
+              {
+                "id": "f4b77f37446c207a",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ],
+            "currentTab": 4
+          }
+        ],
+        "direction": "horizontal",
+        "width": 504.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "obsidian-trash-explorer:Open trash explorer": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "terminal:Open terminal": false,
+          "homepage:Open homepage": false,
+          "my-query:Word Query": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-memos:Thino": false,
+          "obsidian-memos:Thino Super": false,
+          "vscode-editor:新建代码文件": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-opencode:OpenCode": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "notebook-navigator:笔记本导航器": false,
+          "my-smart-composer:Open smart composer": false,
+          "my-flashcards-review:Word Review": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "claudian:Open Claudian": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "obsidian-booknote-plugin:书库": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "my-hinote:Open Highlights View": false,
+          "obsidian-git:Open Git source control": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "my-financial-tracker:Open Financial Dashboard": false
+        }
+      },
+      "active": "b2b3c2f976d4d934",
+      "mtime": "2026-04-25T12:00:24+08:00"
+    },
+    "计量": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4de7ca929613926c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "7728762f76eab18e",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "mode": "preview",
+                    "source": true,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "🏠Home"
+                }
+              },
+              {
+                "id": "7483086f2dd0ac74",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/01-自学笔记/计量学习/计量线代基础.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "计量线代基础"
+                }
+              },
+              {
+                "id": "c976f3cbc7721ad6",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "raw/连玉君 2017 stata视频讲义.pdf",
+                    "page": 4,
+                    "left": -15,
+                    "top": 783,
+                    "zoom": 0.8152447834414166
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file-text",
+                  "title": "连玉君 2017 stata视频讲义"
+                }
+              }
+            ],
+            "currentTab": 2
+          },
+          {
+            "id": "397ba497414462f2",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "247b27d9051f19e5",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/01-自学笔记/计量学习/连玉君 2017 stata视频讲义.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "连玉君 2017 stata视频讲义"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "dimension": 67.25559481743227,
+            "children": [
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "7eb27dd7fd615aef",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": true,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              }
+            ],
+            "currentTab": 3
+          },
+          {
+            "id": "cbd8f22b4be96dab",
+            "type": "tabs",
+            "dimension": 32.744405182567725,
+            "children": [
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "执行力——这个时代最体面的PUA 的反向链接列表"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "raw/Ghostty：Claude Code的最佳搭档，终端生产力核武器.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "Ghostty：Claude Code的最佳搭档，终端生产力核武器 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "raw/01-学习认知/执行力——这个时代最体面的PUA.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "执行力——这个时代最体面的PUA 的出链列表"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "raw/03-技术教程/The Swift Programming Language (6.3).md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "The Swift Programming Language (6.3) 的大纲"
+                }
+              },
+              {
+                "id": "b59ba0bf12cda498",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "clock-10",
+                  "title": "最近笔记"
+                }
+              }
+            ],
+            "currentTab": 4
+          }
+        ],
+        "direction": "horizontal",
+        "width": 306.50390243530273
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0a94e60c47d828bf",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "2d36231f17bcdc9e",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              },
+              {
+                "id": "a3cac10a6b3af517",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "d28b2bb3daac6e80",
+                "type": "leaf",
+                "state": {
+                  "type": "opencode-view",
+                  "state": {},
+                  "icon": "opencode-logo",
+                  "title": "OpenCode"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "e919027c73f58c06",
+                "type": "leaf",
+                "state": {
+                  "type": "word-review-view",
+                  "state": {},
+                  "icon": "brain",
+                  "title": "Word Review"
+                }
+              },
+              {
+                "id": "99e8f0af81664a30",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              },
+              {
+                "id": "580027e207ed457e",
+                "type": "leaf",
+                "state": {
+                  "type": "mathpad-view",
+                  "state": {},
+                  "icon": "sigma",
+                  "title": "Mathpad"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 415.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "my-financial-tracker:Open Financial Dashboard": false,
+          "obsidian-memos:Thino Super": false,
+          "homepage:Open homepage": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "terminal:Open terminal": false,
+          "claudian:Open Claudian": false,
+          "obsidian-memos:Thino": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-opencode:OpenCode": false,
+          "my-hinote:Open Highlights View": false,
+          "workspaces:管理工作区布局": false,
+          "my-query:Word Query": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "my-flashcards-review:Word Review": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "vscode-editor:新建代码文件": false,
+          "my-smart-composer:Open smart composer": false,
+          "obsidian-git:Open Git source control": false,
+          "templater-obsidian:Templater": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "obsidian-trash-explorer:Open trash explorer": false,
+          "mathpad:Open Mathpad": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false
+        }
+      },
+      "active": "247b27d9051f19e5",
+      "mtime": "2026-04-28T17:42:36+08:00"
+    },
+    "lianyujun": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4de7ca929613926c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "7728762f76eab18e",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "🏠Home"
+                }
+              },
+              {
+                "id": "7483086f2dd0ac74",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/01-自学笔记/计量学习/计量线代基础.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "计量线代基础"
+                }
+              },
+              {
+                "id": "c976f3cbc7721ad6",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "raw/连玉君 2017 stata视频讲义.pdf",
+                    "page": 13,
+                    "left": -20,
+                    "top": 227,
+                    "zoom": 0.7700987306064879
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file-text",
+                  "title": "连玉君 2017 stata视频讲义"
+                }
+              },
+              {
+                "id": "247b27d9051f19e5",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "outputs/01-自学笔记/计量学习/连玉君 2017 stata视频讲义.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": true,
+                      "extraContext": true,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "连玉君 2017 stata视频讲义"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "7347ca693b68411a",
+        "type": "split",
+        "children": [
+          {
+            "id": "ab416138d977abb9",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "43d0ec8975229b5a",
+                "type": "leaf",
+                "state": {
+                  "type": "notebook-navigator",
+                  "state": {},
+                  "icon": "notebook-navigator",
+                  "title": "笔记本导航器"
+                }
+              },
+              {
+                "id": "acce77b7b9f15295",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "byModifiedTime",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "fec534afc3e1b28b",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "b59ba0bf12cda498",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-notes-view",
+                  "state": {},
+                  "icon": "clock-10",
+                  "title": "最近笔记"
+                }
+              },
+              {
+                "id": "7eb27dd7fd615aef",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "line:thedankoe",
+                    "matchingCase": true,
+                    "explainSearch": false,
+                    "collapseAll": true,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "05f21b00fdae6c85",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "useHierarchy": false,
+                    "showSearch": true,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "2a033bba49236165",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [
+                        {
+                          "query": "tag:#color/red  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14701138
+                          }
+                        },
+                        {
+                          "query": "tag:#color/blue  ",
+                          "color": {
+                            "a": 1,
+                            "rgb": 1120468
+                          }
+                        },
+                        {
+                          "query": "tag:#color/yellow",
+                          "color": {
+                            "a": 1,
+                            "rgb": 14151705
+                          }
+                        },
+                        {
+                          "query": "tag:#color/green",
+                          "color": {
+                            "a": 1,
+                            "rgb": 5431378
+                          }
+                        },
+                        {
+                          "query": "tag:#color/purple",
+                          "color": {
+                            "a": 1,
+                            "rgb": 11668463
+                          }
+                        }
+                      ],
+                      "collapse-display": true,
+                      "showArrow": true,
+                      "textFadeMultiplier": -0.8,
+                      "nodeSizeMultiplier": 1.26342515633658,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.800130208333333,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 237,
+                      "scale": 0.6227701466056882,
+                      "close": true
+                    }
+                  },
+                  "icon": "lucide-git-fork",
+                  "title": "🏠Home 的关系图"
+                }
+              },
+              {
+                "id": "32e54a8a645007d6",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "🏠Home 的出链列表"
+                }
+              },
+              {
+                "id": "27f1163e6a05912a",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "🏠Home.md",
+                    "collapseAll": true,
+                    "extraContext": true,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "🏠Home 的反向链接列表"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 357.50390243530273,
+        "collapsed": true
+      },
+      "right": {
+        "id": "0577df3b61840aa1",
+        "type": "split",
+        "children": [
+          {
+            "id": "02c1b89bcb656aa7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "0a94e60c47d828bf",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              },
+              {
+                "id": "85c6de3e0779b074",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              },
+              {
+                "id": "a3014fbc887500be",
+                "type": "leaf",
+                "state": {
+                  "type": "word-query-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Word Query"
+                }
+              },
+              {
+                "id": "e919027c73f58c06",
+                "type": "leaf",
+                "state": {
+                  "type": "word-review-view",
+                  "state": {},
+                  "icon": "brain",
+                  "title": "Word Review"
+                }
+              },
+              {
+                "id": "99e8f0af81664a30",
+                "type": "leaf",
+                "state": {
+                  "type": "extraction-view",
+                  "state": {},
+                  "icon": "star",
+                  "title": "Highlights"
+                }
+              },
+              {
+                "id": "7eb397eec2c5cdd4",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              },
+              {
+                "id": "6887b84a655f5983",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "outputs/01-自学笔记/计量学习/连玉君 2017 stata视频讲义.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "连玉君 2017 stata视频讲义 的大纲"
+                }
+              }
+            ],
+            "currentTab": 6
+          }
+        ],
+        "direction": "horizontal",
+        "width": 306.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-regex-pipeline:Regex Rulesets": false,
+          "mathpad:Open Mathpad": false,
+          "obsidian-trash-explorer:Open trash explorer": false,
+          "my-financial-tracker:Open Financial Dashboard": false,
+          "obsidian-memos:Thino Super": false,
+          "homepage:Open homepage": false,
+          "bases:新建数据库": false,
+          "canvas:新建白板": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "terminal:Open terminal": false,
+          "claudian:Open Claudian": false,
+          "obsidian-memos:Thino": false,
+          "recent-notes:最近笔记": false,
+          "obsidian-opencode:OpenCode": false,
+          "my-hinote:Open Highlights View": false,
+          "workspaces:管理工作区布局": false,
+          "my-query:Word Query": false,
+          "obsidian-kindle-suite:Export to EPUB": false,
+          "obsidian-kindle-suite:Import Kindle Notes": false,
+          "obsidian-kindle-suite:Import Kindle Vocabulary": false,
+          "obsidian-kindle-suite:Send to Kindle": false,
+          "my-flashcards-review:Word Review": false,
+          "fix-math:Current file": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "cmdr:Templater: Open insert template modal": false,
+          "cmdr:Git: Commit-and-sync": false,
+          "float-search:Search obsidian in sidebar view": false,
+          "obsidian-document-analyzer:AI分析文档": false,
+          "obsidian-send-to-kindle:Send to Kindle": false,
+          "obsidian-send-to-kindle:Import Kindle Notes": false,
+          "obsidian-send-to-kindle:Import Kindle Vocabulary": false,
+          "obsidian-weread-plugin:打开微信读书书架": false,
+          "vscode-editor:新建代码文件": false,
+          "my-smart-composer:Open smart composer": false,
+          "obsidian-git:Open Git source control": false,
+          "templater-obsidian:Templater": false,
+          "o2any-obsdian:文章渲染预览": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "obsidian42-brat:BRAT": false,
+          "notebook-navigator:笔记本导航器": false
+        }
+      },
+      "active": "247b27d9051f19e5",
+      "mtime": "2026-05-11T00:13:44+08:00"
+    }
+  },
+  "active": "Home"
+}

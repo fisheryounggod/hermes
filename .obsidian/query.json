@@ -1,0 +1,94 @@
+{
+  "queries": [
+    {
+      "createdAt": "2025/12/29 13:28:58",
+      "id": "202512291328580",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"book\"},\"relation\":\"AND\"}]",
+      "title": "Book",
+      "updatedAt": "2025/12/29 13:28:58",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2025/12/29 13:29:12",
+      "id": "202512291329121",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"重要\"},\"relation\":\"AND\"}]",
+      "title": "重要",
+      "updatedAt": "2025/12/29 13:29:12",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2025/12/29 13:29:22",
+      "id": "202512291329222",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"研究\"},\"relation\":\"AND\"}]",
+      "title": "研究",
+      "updatedAt": "2025/12/29 13:29:22",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2025/12/29 17:18:35",
+      "id": "202512291718354",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"prompt\"},\"relation\":\"AND\"},{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"ai\"},\"relation\":\"OR\"}]",
+      "title": "AI",
+      "updatedAt": "2025/12/29 17:18:35",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2026/01/20 10:42:35",
+      "id": "202601201042355",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"note/todo\"},\"relation\":\"AND\"},{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"todo\"},\"relation\":\"OR\"}]",
+      "title": "ToDo",
+      "updatedAt": "2026/01/20 10:42:35",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2026/01/20 10:44:53",
+      "id": "202601201044536",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"投资\"},\"relation\":\"AND\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"投资\"},\"relation\":\"OR\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"商业\"},\"relation\":\"OR\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"股\"},\"relation\":\"AND\"}]",
+      "title": "投资",
+      "updatedAt": "2026/01/20 10:44:53",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2026/01/20 10:45:39",
+      "id": "202601201045397",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TYPE\",\"value\":{\"operator\":\"IS\",\"value\":\"IMAGED\"},\"relation\":\"AND\"}]",
+      "title": "图片",
+      "updatedAt": "2026/01/20 10:45:39",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2026/01/20 10:46:09",
+      "id": "202601201046098",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TYPE\",\"value\":{\"operator\":\"IS\",\"value\":\"CONNECTED\"},\"relation\":\"AND\"},{\"type\":\"TYPE\",\"value\":{\"operator\":\"IS\",\"value\":\"LINKED\"},\"relation\":\"OR\"},{\"type\":\"TYPE\",\"value\":{\"operator\":\"IS_NOT\",\"value\":\"IMAGED\"},\"relation\":\"AND\"}]",
+      "title": "链接",
+      "updatedAt": "2026/01/20 10:46:09",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2026/01/20 10:56:27",
+      "id": "202601201056279",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"tool\"},\"relation\":\"AND\"},{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"资源\"},\"relation\":\"OR\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"tool\"},\"relation\":\"OR\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"工具\"},\"relation\":\"OR\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"资源\"},\"relation\":\"OR\"},{\"type\":\"TYPE\",\"value\":{\"operator\":\"IS\",\"value\":\"CONNECTED\"},\"relation\":\"OR\"},{\"type\":\"TYPE\",\"value\":{\"operator\":\"IS\",\"value\":\"LINKED\"},\"relation\":\"OR\"}]",
+      "title": "资源",
+      "updatedAt": "2026/01/20 10:56:27",
+      "userId": "Thino"
+    },
+    {
+      "createdAt": "2026/01/20 10:58:20",
+      "id": "202601201058209",
+      "pinnedAt": "",
+      "querystring": "[{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"健康\"},\"relation\":\"AND\"},{\"type\":\"TAG\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"health\"},\"relation\":\"OR\"},{\"type\":\"TEXT\",\"value\":{\"operator\":\"CONTAIN\",\"value\":\"健康\"},\"relation\":\"OR\"}]",
+      "title": "健康",
+      "updatedAt": "2026/01/20 10:58:20",
+      "userId": "Thino"
+    }
+  ]
+}

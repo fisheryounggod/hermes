@@ -1,0 +1,6 @@
+{
+  "format": "YYYYMMDD",
+  "folder": "sources/diarys",
+  "autorun": false,
+  "template": "sources/templates/tp-day"
+}

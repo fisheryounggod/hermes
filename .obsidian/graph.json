@@ -1,0 +1,58 @@
+{
+  "collapse-filter": true,
+  "search": "path:research/CBDC研究  ",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": false,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "tag:#color/red",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "tag:#color/blue",
+      "color": {
+        "a": 1,
+        "rgb": 5397472
+      }
+    },
+    {
+      "query": "tag:#color/yellow",
+      "color": {
+        "a": 1,
+        "rgb": 13885705
+      }
+    },
+    {
+      "query": "tag:#color/green",
+      "color": {
+        "a": 1,
+        "rgb": 1734413
+      }
+    },
+    {
+      "query": "tag:#color/purple",
+      "color": {
+        "a": 1,
+        "rgb": 9637101
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": 0.2,
+  "nodeSizeMultiplier": 2.34462123011161,
+  "lineSizeMultiplier": 3.66300166231299,
+  "collapse-forces": true,
+  "centerStrength": 0.79585213330167,
+  "repelStrength": 14.1953613551809,
+  "linkStrength": 1,
+  "linkDistance": 183,
+  "scale": 1.5527107455669682,
+  "close": true
+}

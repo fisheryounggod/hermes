@@ -1,0 +1,14 @@
+# Obsidian
+.obsidian/plugins/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Kiro / Claudian (contains API keys + runtime state)
+.claudian/
+.codian/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
