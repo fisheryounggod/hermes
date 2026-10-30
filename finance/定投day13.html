@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 13 · 长期并不远</div>
+    <div class="title">最重要的好消息<br>对普通人来说长期并非永远</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 第13章</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">一句话核心</div>
+    <div class="highlight-box">
+      <div class="text">所谓"永远"正在缩短<br>所以"长期"并没有那么长</div>
+    </div>
+    <div class="quote">
+      所谓长期，不过是"至少度过两个大周期"。度过三个周期，基本相当于巴菲特的永远。
+      <div class="author">—— 李笑来</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">三个解脱性结论</div>
+    <ul class="point-list">
+      <li>每一代人赚到的钱，都比上一代更多——这是量级差异，不是通胀</li>
+      <li>每一代人都有理解能力天花板，巴菲特也拿不准谷歌、亚马逊、比特币</li>
+      <li>经济周期的时长正在逐步缩短——信息流通越快，协作越顺，修复越快</li>
+    </ul>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">✓</span>大萧条修复：数十年（一个完整周期）</div>
+      <div class="row"><span class="tag ok">✓</span>亚洲金融危机修复：短短几年</div>
+      <div class="row"><span class="tag ok">✓</span>次贷危机修复：更快</div>
+      <div class="row"><span class="tag">→</span>区块链数字资产周期：约 3–5 年，两个周期 ≈ 7 年</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">怎么判断周期</div>
+    <ul class="point-list">
+      <li>一个上升不叫趋势，一个下降也不叫趋势；上升+下降才构成一个周期</li>
+      <li>两个周期之后，才能判断出上升、水平或下降的趋势</li>
+      <li>判断方法：找最近的历史最高点，作为 B 阶段（下降）的起点</li>
+      <li>只有 B 阶段起点是已知的——何时结束无法判断，也没必要判断</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="danger-box">
+      <div class="text">最坏的结果不是亏钱<br>而是在周期还没走完时提前离场</div>
+    </div>
+    <div class="quote">
+      度过两个周期之后，你想继续持有、全部套现还是部分套现，随你便——但那时你最大的变化是：
+      <div class="author">前所未有地淡定从容</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思</div>
+    <ul class="point-list">
+      <li>我是不是把"长期"想象成了"永远"，从而不敢开始？</li>
+      <li>我的定投计划里，有没有一条明确的"两个周期后复盘"节点？</li>
+      <li>如果现在只是周期中途，我还会按计划买入吗？如果不会，缺的是什么？</li>
+      <li>我能用什么客观证据判断周期位置，而不是靠情绪？</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">别急，因为所谓的长期其实真的没多久</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一章：全书结语 · 方法论总纲
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
