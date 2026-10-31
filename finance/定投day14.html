@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 14 · 全书结语</div>
+    <div class="title">慢慢变富<br>才是最浪漫的事</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 结语（Finale）</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">一句话核心</div>
+    <div class="highlight-box">
+      <div class="text">我们都是普通人<br>但每一个都有机会活得并不普通</div>
+    </div>
+    <div class="quote">
+      在主动的边界之内，不断强化心理建设并拼命在场外赚钱；
+      在主动的边界之外，主动选择 BOX，用场外赚到的钱定期投入——
+      借助趋势的被动力量，逐步摆脱阶层固化的束缚，最终获得自由。
+      <div class="author">—— 李笑来《结语》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">方法论总纲：两段式动作</div>
+    <ul class="point-list">
+      <li><b>边界之内（可主动）：</b>强化心理建设 + 拼命想办法在场外赚钱——这是你唯一能百分之百说了算的地方</li>
+      <li><b>边界之外（不可主动）：</b>不挣扎、不预测、不择时，只按规则定投标的，让趋势的被动力量替你工作</li>
+      <li>二者缺一不可：只有场外赚钱没有定投，钱会花掉；只有定投没有场外能力，额度会枯竭</li>
+      <li>最终目标不是数字变大，而是<b>摆脱阶层固化、获得自由</b></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">这不是一本书，是一个完整产品</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">01</span>践行方法论：定投</div>
+      <div class="row"><span class="tag ok">02</span>践行标的：BOX</div>
+      <div class="row"><span class="tag ok">03</span>践行额外补给站：b.watch</div>
+      <div class="row"><span class="tag ok">04</span>践行社区：笑来定投课堂</div>
+    </div>
+    <div class="quote">
+      人至践则无敌！——不是发贱的贱，而是践行的「践」。我崇尚践行，做不到就没用。
+      <div class="author">—— 李笑来</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">最反直觉的一问</div>
+    <div class="danger-box">
+      <div class="text">为什么人们都不喜欢慢慢变富？<br>天天只想着暴富，却半点实现不了，<br>最后郁郁而终</div>
+    </div>
+    <ul class="point-list">
+      <li>巴菲特也想不通：慢慢变富明明可行，为什么绝大多数人拒绝？</li>
+      <li>本书的全部方法论，都是为了把"慢慢变富"从口号变成可执行的默认动作</li>
+      <li>作者自陈：讲道理讲了十几年，这次是最具实操性的一个——目标现实且令人振奋</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我的"主动边界之内"具体写下来是什么？心理建设 + 场外赚钱，各自的第一项动作是什么？</li>
+      <li>我的"主动边界之外"有没有被"择时""换标的""追热点"偷偷侵入？</li>
+      <li>我是在做"慢慢变富"，还是在用定投的壳做"暴富"？两者对同一个下跌的反应完全不同</li>
+      <li>我的践行环境（工具、记录、社区）齐了吗？还是只有方法没有环境？</li>
+      <li>如果明天我就开始，我今天就写下金额、周期、标的与复盘日期了吗？</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">我能想到最浪漫的事<br>就是看着你慢慢变富</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一章：附录 1 · 为什么要投资区块链数字资产
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
