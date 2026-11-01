@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 15 · 附录一</div>
+    <div class="title">皆难否<br>区块链数字资产</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 附录 1《为什么要投资区块链数字资产》</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">一句话核心</div>
+    <div class="highlight-box">
+      <div class="text">厉害的不是"所有人都接受"<br>而是"皆难否"</div>
+    </div>
+    <div class="quote">
+      比特币被宣布死亡已经至少 364 次。但无论涨也罢跌也罢，
+      没有人能否认真实存在的比特币和它的增值趋势。
+      <div class="author">—— 李笑来《附录 1》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">先破一个概念：共识 ≠ 皆难否</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">共识</span>区块链里指机器与机器之间用<b>算法</b>达成的共识</div>
+      <div class="row"><span class="tag ok">皆难否</span>所有人<b>难以否认</b>的事实——与"接受"无关</div>
+      <div class="row"><span class="tag ok">类比</span>美元在大排摊不被接受，但没人否认美元的价值</div>
+    </div>
+    <ul class="point-list">
+      <li>人与人之间几乎没有标准沟通协议，唯一能想到的共识只有"赚钱"</li>
+      <li>所以别乱显摆专用术语，容易露馅</li>
+      <li>比特币诞生十年，从"社会实验"变成了"社会实践"</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">八年前入场的理由：金融互联网</div>
+    <div class="quote">
+      互联网大幅降低了<b>信息流通成本</b>，改变了世界；
+      如果有个东西能大幅降低<b>资产流通成本</b>，那这个世界必然再次巨变。
+      之前是"信息互联网"，现在是"金融互联网"。
+      <div class="author">—— 李笑来</div>
+    </div>
+    <ul class="point-list">
+      <li>类比推理的价值：互联网当年同样不可想象，但方向可推</li>
+      <li>十年后区块链技术的价值本身已具备"皆难否"属性</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">两个关键判断</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">2140</div>
+        <div class="label">白皮书规划的挖矿终点，<b>跑道还剩 120 年</b>——超过所有人的生命极限</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">1 → N</div>
+        <div class="label">当年只有一个标的靠谱（比特币），今天已有多标的，才谈得上<b>稀释机会成本</b></div>
+      </div>
+    </div>
+    <div class="danger-box">
+      <div class="text">只有一个标的时，无法稀释机会成本</div>
+    </div>
+    <ul class="point-list">
+      <li>成千上万个山寨币出现过，在作者眼中靠谱的仍然只有比特币</li>
+      <li>"稀释机会成本"是很重要的投资策略，绝大多数所谓投资人完全不具备这个概念</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">于是有了 BOX：一揽子标的</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">01</span>把一系列标的锁定在一个篮子里</div>
+      <div class="row"><span class="tag ok">02</span>用市场上可交易的 Token 锚定篮子价值</div>
+      <div class="row"><span class="tag ok">03</span>满足条件时，Token 持有者可赎回篮子中的对应标的</div>
+    </div>
+    <div class="quote">
+      BOX 就是这样一个 ETF。<b>分散 + 稀释机会成本</b>，才是定投能落到实处的结构。
+      <div class="author">—— 李笑来《附录 1》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我判断一项资产时，用的是"大家都接受"还是"谁都无法否认"？这两者差别在哪？</li>
+      <li>我能否为自己的标的讲出一个"降低某类成本"的类比推理？还是只在事后解释涨跌？</li>
+      <li>我的持仓是"单一押注"还是"一揽子"？如果是单一，我是否清楚自己承担的是全部机会成本？</li>
+      <li>我判断的趋势，跑道有多长？如果只剩 5 年，我还会用同样的仓位吗？</li>
+      <li>面对"比特币已被宣布死亡 364 次"这类噪音，我的主场是被情绪带跑，还是守住定投标的？</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">不是"所有人都接受"<br>而是"皆难否"</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一章：附录 2 · 为什么定投 BOX
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
