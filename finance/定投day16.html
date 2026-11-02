@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 16 · 附录二</div>
+    <div class="title">韭菜盒子<br>定投 BOX 的结构</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 附录 2《为什么定投 BOX》</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">一句话核心</div>
+    <div class="highlight-box">
+      <div class="text">从"押注某个项目"<br>变成"押注整个行业发展"</div>
+    </div>
+    <div class="quote">
+      当定投标的从单一项目（比如比特币）转换成一系列标的（比如 BOX），
+      除了有效稀释机会成本之外，还等同于把赌注从"放到某个项目上"
+      变成"放到整个行业发展上"——这是降低风险到极致的靠谱方法论。
+      <div class="author">—— 李笑来《附录 2》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">BOX 到底是什么</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">名称</span>Btc + eOs + Xin，同时也是中文"盒子"</div>
+      <div class="row"><span class="tag ok">性质</span>锚定"一揽子主流区块链资产"的区块链凭证（Token）</div>
+      <div class="row"><span class="tag ok">本质</span>一个 <b>管理费为零</b> 的 ETF 产品</div>
+      <div class="row"><span class="tag ok">创始人</span>李笑来本人也在定投 BOX</div>
+    </div>
+    <ul class="point-list">
+      <li>江湖戏称"韭菜盒子"；"定投 BOX"被戏称"总吃韭菜盒子"</li>
+      <li>申购与赎回在 b.watch 网站进行，可在二级市场用 USDT 直接买卖</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">成分表：10,000 BOX = 1 BTC + 1500 EOS + 8 XIN</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">50%</div>
+        <div class="label">BTC 权重——2019.7 币种市占比 63%，长期必然被摊薄</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">4 : 1</div>
+        <div class="label">EOS 与 XIN 在剩余一半中的权重比（XIN 占比略高）</div>
+      </div>
+    </div>
+    <div class="danger-box">
+      <div class="text">要么主流资产，要么传销资产——定投者只能选主流</div>
+    </div>
+    <ul class="point-list">
+      <li>2017～2018 的牛熊已教育市场：随便写白皮书就募资的项目"不堪一击"</li>
+      <li>传销资产短期可能很赚钱，但不可能长期——定投者要穿越不止一个牛熊</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">三条护城河</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">01</span>零管理费：不赚这一块钱的基金经理</div>
+      <div class="row"><span class="tag ok">02</span>公开透明：持仓在 Mixin 公链上，随时可查</div>
+      <div class="row"><span class="tag ok">03</span>无法随意增发：流通量可核对，杜绝"假份额"</div>
+    </div>
+    <ul class="point-list">
+      <li>任何交易所上架 BOX，用户都能核对它有没有私自增发流通量——这是新手必须学会的一课</li>
+      <li>赎回条件：市值超 10,000 美元收 1% 手续费；二级市场卖出双向各 1‰；或自己设定最早赎回时间（如三年后）</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">技术发展路线：为什么是这三个</div>
+    <div class="quote">
+      可信账簿（BTC）→ 可信代码平台（ETH/EOS）→ 可信执行环境（Mixin）→ 可信硬件（？）
+      <div class="author">—— 李笑来，区块链技术发展的路线判断</div>
+    </div>
+    <ul class="point-list">
+      <li><b>ETH vs EOS</b>：像 DOS 与 WINDOWS 的差别，EOS 是多线程的；且 BlockOne 是区块链世界资金最雄厚的公司</li>
+      <li><b>Mixin 的误解</b>：Mixin Messenger 只是 Dapp，Mixin Network 才是公链</li>
+      <li><b>路线差异</b>：别的公链自下而上先造链再造 Dapp；Mixin 自上而下，先做非常好用的 Dapp（2017.12），再做公链（2019.2）</li>
+      <li>投资成功的核心：<b>投资行为契合发展规律</b>，让趋势成为朋友而不是阻力</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我的持仓是"押注某个项目"还是"押注整个行业发展"？差别有多大？</li>
+      <li>如果我只持有一个标的，我承担的是"标的风险"还是"行业风险"？我是否清楚二者的量级差异？</li>
+      <li>我有没有能力判断一个资产是"主流"还是"传销"？我的判据是什么，还是只是看涨幅？</li>
+      <li>我选择标的是否契合技术演进的内在逻辑，还是只在追热点？</li>
+      <li>我的仓位结构里，有没有"管理费/摩擦成本"在悄悄侵蚀长期收益？</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">只要区块链行业好<br>BOX 就必然好</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一章：附录 3 · 关于 b.watch
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
