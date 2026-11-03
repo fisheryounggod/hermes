@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 17 · 附录三</div>
+    <div class="title">持有 BOX<br>等于同时持有 b.watch</div>
+    <div class="subtitle">《定投改变命运》李笑来 · 附录 3《关于 b.watch》</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">一句话核心</div>
+    <div class="highlight-box">
+      <div class="text">从"赚价差"<br>变成"赚持有期间的持续分配"</div>
+    </div>
+    <div class="quote">
+      b.watch 是 BOX 申购、赎回与交易的场所。它的收益不是自己涨出来的，
+      而是<b>由持有 BOX 的人持续产生并定期发放</b>的。
+      <div class="author">—— 李笑来《附录 3》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">b.watch 是什么</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">定位</span>BOX 的申购、赎回与交易场所</div>
+      <div class="row"><span class="tag ok">身份</span>链上区块链 ETF 交易所</div>
+      <div class="row"><span class="tag ok">与 BOX 的关系</span>BOX 是标的，b.watch 是场</div>
+    </div>
+    <ul class="point-list">
+      <li>持 BOX = 同时与 <b>BOX</b> 共同成长，与 <b>b.watch</b> 共同成长</li>
+      <li>双重身份：一边是资产价格，一边是承载交易与分发的"企业"</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">当前收入：两笔手续费</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">1%</div>
+        <div class="label">BOX 赎回时缴纳的手续费</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">2‰</div>
+        <div class="label">二级市场 BOX/USDT 交易对双向各 1‰，合计交易额</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>这些收入的 <b>50%</b> 将定期发放给 BOX 持有者</li>
+      <li>"刚开始这个收入看起来并不多，经年累月……发展会非常惊人"</li>
+    </ul>
+    <div class="danger-box">
+      <div class="text">注意：这是"持续流量"，不是一次性卖出</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">未来收入：节点收益</div>
+    <ul class="point-list">
+      <li>EOS 节点收益</li>
+      <li>XIN 节点收益</li>
+    </ul>
+    <div class="quote">
+      作为节点需要一定储备，时机成熟时 b.watch 会启动节点收益计划；
+      超级节点产生收益时，除去成本之外，剩余收益将 <b>100% 分发给 BOX 持有者</b>。
+      <div class="author">—— 李笑来《附录 3》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">企业价值到底在哪</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">本质</span>赎回手续费的 5‰ + 交易手续费的 1‰</div>
+      <div class="row"><span class="tag ok">分配</span>未来七年企业价值的 100% 在笑来课堂分配</div>
+      <div class="row"><span class="tag ok">形式</span>按规则分发 b.watch 股份</div>
+    </div>
+    <ul class="point-list">
+      <li>分发规则之一：<b>BOX 的持有时间长度</b></li>
+      <li>分发规则之二：<b>BOX 定投任务的完成程度</b></li>
+      <li>分发规则之三：<b>笑来课堂的销售业绩</b></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">底层原理：把收益结构改掉</div>
+    <ul class="point-list">
+      <li>传统定投的回报<b>完全依赖价格</b>：标的涨才有收益</li>
+      <li>持有 BOX 则叠加了一条<b>与价格无关的持续分配流</b>：有人申购、有人赎回、有人交易，手续费就持续产生</li>
+      <li>于是你从"赌一个终点价"变成"同时拥有终点价和过程现金流"</li>
+      <li>持有时长越长、定投完成度越高、分发份额越多——<b>行为本身被写进了分配规则</b></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我的持仓回报，是<b>只靠价格上涨</b>，还是也有"持有期间就产生"的现金流？</li>
+      <li>我的资产里，有多少是我<b>长期持有</b>的？短期波动会不会让我错过分配资格？</li>
+      <li>我是否理解"赎回费""交易费"这类摩擦成本？如果完全没有，那是好事还是隐患？</li>
+      <li>我选标的时，除了"会涨"，有没有考虑<b>商业模式本身能否产生收入</b>？</li>
+      <li>如果我坚持定投 7 年，我的持有时长在收益分配上处于什么位置？</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">持有 BOX<br>就是持有 b.watch 的分配权</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一章：附录 4 · 关于笑来定投课堂
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
