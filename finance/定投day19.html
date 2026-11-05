@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 19 · 全书复盘</div>
+    <div class="title">13 章主线结构图</div>
+    <div class="subtitle">把《定投改变命运》的全部论证压成一张地图</div>
+  </div>
+
+  <div class="section">
+    <div class="highlight-box">
+      <div class="text">全书只论证了一件事：<br>普通人翻身靠的不是更聪明、更拼，而是<b>选对趋势 + 把执行交给自动化</b>。</div>
+    </div>
+    <div class="quote">
+      我们都是普通人，不过，我们中的每一个其实都有机会活得并不普通。
+      <div class="author">—— 李笑来《结语》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">主线一：机会是否存在（第 1–4 章）</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">Ch1</span><span class="tag ok">结论</span><span>努力不是出路，投资才是——钱不休息，人会休息</span></div>
+      <div class="row"><span class="tag">Ch2</span><span class="tag ok">结论</span><span>证券市场是第九大奇迹：零门槛借用全世界的聪明</span></div>
+      <div class="row"><span class="tag">Ch3</span><span class="tag ok">结论</span><span>普通人的唯一靠谱方式是定投；微笑曲线 vs 猥琐曲线</span></div>
+      <div class="row"><span class="tag">Ch4</span><span class="tag ok">结论</span><span>只有"长期只涨不跌"的标的，即用 ETF 稀释机会成本</span></div>
+    </div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">9 年</div>
+        <div class="label">78 年寿命中真正可自由支配的时间</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">78 : 9</div>
+        <div class="label">巴菲特的"钱在拼"相当于普通人 8.6 辈子</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>第 1 章把"努力"证伪：24 年不休息只多拼出 14% 有效寿命</li>
+      <li>第 2 章把"选股"证伪：买全市场最看好的标的 = 借用他人的智慧，零成本</li>
+      <li>第 4 章引出关键限定：<b>没有只涨不跌的标的，只有长期来看只涨不跌的</b></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">主线二：为什么没人做到（第 5–8 章）</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">Ch5</span><span class="tag ok">结论</span><span>定投是社会化行为，没人陪伴就坚持不下来</span></div>
+      <div class="row"><span class="tag">Ch6</span><span class="tag ok">结论</span><span>不是笨，是"愚昧"——未受教育的原罪；贪不是病根</span></div>
+      <div class="row"><span class="tag">Ch7</span><span class="tag ok">结论</span><span>病症：嫌贵、嫌涨多了、频繁换车道</span></div>
+      <div class="row"><span class="tag">Ch8</span><span class="tag ok">结论</span><span>关键全在心理建设；定投让你变成"被动聪明"的人</span></div>
+    </div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">100%</div>
+        <div class="label">一招一式（只买）的成功率</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">25%</div>
+        <div class="label">多一招"买+卖"后的成功率 50%×50%</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>第 5 章的荒谬对照：定投房产 = 给银行打工二十年；<b>流动性才是决定性因素</b></li>
+      <li>第 6 章的诊断：亏钱不是因为贪，是因为<b>买了看不懂的标的</b></li>
+      <li>第 7 章的概率论：<b>定投之所以威力大，正因为它只有一招一式</b>，没有择时动作就没有犯错机会</li>
+      <li>第 8 章的机制：长期买入自动完成"长期持有"→ 变有耐心；定期买入 → 变有纪律</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">主线三：背后的机理（第 9 章，7 小节）</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">9.1</span><span class="tag ok">主动人格</span><span>远离抱怨者：世界充满不对称性，不是不公平</span></div>
+      <div class="row"><span class="tag">9.2</span><span class="tag ok">主动边界</span><span>边界一是自己，二是控制范围；越界即愚昧</span></div>
+      <div class="row"><span class="tag">9.3</span><span class="tag ok">边界之外</span><span>决定命运的关键因素常在你控制不了的地方</span></div>
+      <div class="row"><span class="tag">9.4</span><span class="tag ok">主动地被动</span><span>主动选趋势，被动等趋势；一生只有三五个关键决策</span></div>
+      <div class="row"><span class="tag">9.5</span><span class="tag ok">只讲做到过的事</span><span>做不到就别逼逼；定投社区的三条行为规范</span></div>
+      <div class="row"><span class="tag">9.6</span><span class="tag ok">被动的威力</span><span>周期越长、额度越大，被动优势越大；教育=系统想让你成为什么</span></div>
+      <div class="row"><span class="tag">9.7</span><span class="tag ok">不信命</span><span>过去不必必然决定未来；主动边界内做到极致</span></div>
+    </div>
+    <ul class="point-list">
+      <li>9.4 是全书最反直觉的一节：<b>决定命运的不是努力，是"选对的那几个决策"</b></li>
+      <li>9.6 给出了被动优势的量化直觉：<b>投资周期越长、额度越大，被动的力量越强</b></li>
+      <li>9.5 与第 11 章"不要沦为半吊子"同源：<b>认知的终点是可验证的行为</b></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">主线四：普通人的优势与边界（第 10–13 章 + 结语）</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">Ch10</span><span class="tag ok">镜像世界</span><span>没有伟大目标的人总在镜像世界里选错那个</span></div>
+      <div class="row"><span class="tag">Ch11</span><span class="tag ok">不要半吊子</span><span>要么不做，要做就做全套；绝大多数基金不值得定投</span></div>
+      <div class="row"><span class="tag">Ch12</span><span class="tag ok">极端优势</span><span>钱不多，但没有使用期限；场外赚钱能力可无限磨练</span></div>
+      <div class="row"><span class="tag">Ch13</span><span class="tag ok">长期非永远</span><span>两个周期才叫趋势；周期在缩短，不必赌"永远"</span></div>
+      <div class="row"><span class="tag">结语</span><span class="tag ok">总纲</span><span>边界内强化心理 + 场外赚钱；边界外选 BOX 定期投入</span></div>
+    </div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">2 个周期</div>
+        <div class="label">判断趋势所需的最小样本（一升一降）</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">无期限</div>
+        <div class="label">普通人本金的优势：不像机构有赎回压力</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>第 12 章：<b>机构的钱有期限，个人的钱没有</b>——这是普通人唯一的结构性优势</li>
+      <li>第 13 章：不用赌"永远"，只要赌够两个周期；<b>周期在缩短</b>反而是机会</li>
+      <li>结语是全书唯一的"施工图"，其余 13 章都在为它提供论据</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">底层原理：这不是 13 个论点，是 1 个系统的三层</div>
+    <ul class="point-list">
+      <li><b>第一层 · 机会层（Ch1–4）</b>：证明"存在一条不需要拼的通路"，并把标的收敛到"长期只涨不跌"的一篮子资产</li>
+      <li><b>第二层 · 执行层（Ch5–9）</b>：解释为什么这通路没人走——因为它要求<b>放弃择时、放弃比较、放弃频繁换车道</b>，而人天生抗拒放弃</li>
+      <li><b>第三层 · 主体层（Ch10–13 + 结语）</b>：补上"你是谁"——普通人的优势是无期限的钱、无负担的时间、可磨练的场外能力</li>
+      <li>三层的连接点是一个词：<b>被动</b>。定投的全部技术含量，就是把决策交给"已被验证的趋势"，把执行交给"不需要判断的日程"</li>
+      <li>反过来说：<b>任何一个"要判断"的策略，都在书里被判为半吊子</b>。这就是全书 13 章的同一个结论</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">风险提醒：这张地图不能用来"选章"</div>
+    <div class="danger-box">
+      <div class="text">复盘最大的陷阱：<br>把"读懂"当成"执行了"。<br>第 8 章说得很清楚——<b>不定投，你永远不知道它的好处</b>；<br>而第 11 章说，<b>一半操作吹整个牛逼的人，是大傻逼</b>。</div>
+    </div>
+    <ul class="point-list">
+      <li>地图可以告诉你路径，但<b>不能替你走</b>。走向"被动"的第一步永远是：写下标的、金额、周期、复盘日期</li>
+      <li>警惕"复盘综合症"：读第二遍、第三遍带来的理解快感，很容易被误认成执行进度</li>
+      <li>书中的标的（BOX、b.watch）是 2019 年的特定产品，<b>方法可复用，产品不可照抄</b>——第 4 章的"实用主义"原则优先于任何忠诚</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>13 章里，我<b>只记住了结论、却没记住推导</b>的有哪几章？——那正是我实际不理解的章节</li>
+      <li>我的定投决策里，有几个是需要"判断"的？<b>每多一个判断，就多一次犯错机会</b></li>
+      <li>我是不是在用"研究标的"替代"执行定投"？这是第 7 章说的哪一种病症？</li>
+      <li>我的钱有没有使用期限？<b>如果我随时要用钱，我就无法承受"永远"</b>——第 12 章的优势对我成立吗？</li>
+      <li>第 9.4 节说一生只有三五个关键决策，我列出来了吗？我的定投在不在其中？</li>
+      <li>结语要求"边界内拼命场外赚钱 + 边界外定期投入"，<b>我的场外收入在增长吗</b>？</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">读懂 13 章<br>不如定投 1 次</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一单元：Day 20 · 重读第3章《普通人投资的唯一正确方式就是定投》
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
