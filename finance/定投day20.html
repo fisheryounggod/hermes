@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 20 · 重读</div>
+    <div class="title">第3章：普通人投资的唯一正确方式就是定投</div>
+    <div class="subtitle">回到策略源头，校准自己的定投计划</div>
+  </div>
+
+  <div class="section">
+    <div class="highlight-box">
+      <div class="text">定投改变的不是收益率，而是<b>收益的确定性</b>：<br>它让下跌从"坏消息"变成"折扣"，<br>让"同一个世界"在两种人手里长成两张脸。</div>
+    </div>
+    <div class="quote">
+      在交易市场这个神奇的地方，普通人唯一靠谱的投资方式只有定投 —— 切记！
+      <div class="author">—— 李笑来《第3章》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">原文证据：11 个月定投 vs 一把梭</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">起点</span><span class="tag ok">2018-09</span><span>每月定投 1,000 美元 · 持续 11 个月 · 龙门基金</span></div>
+      <div class="row"><span class="tag">投入</span><span class="tag ok">$11,000</span><span>期间价格从 $92 最高跌到 $23 最低</span></div>
+      <div class="row"><span class="tag">均价</span><span class="tag ok">$54</span><span>定投摊薄后的持仓均价</span></div>
+      <div class="row"><span class="tag">结果</span><span class="tag ok">74.01%</span><span>11 个月后账面 $19,141.44（$82 也比上月跌了 $1）</span></div>
+      <div class="row"><span class="tag">对照</span><span class="tag">一把梭</span><span>同样 $11,000 一次性买入 · 11 个月后仅 +10.81%</span></div>
+    </div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">74.01%</div>
+        <div class="label">定投 11 个月的收益率</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">10.81%</div>
+        <div class="label">一把梭 11 个月的收益率</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>注意这里的对照不是"定投 vs 不投资"——<b>是两种都在场的人</b>，同样的钱、同样的标的、同样的 11 个月</li>
+      <li>差别不在于哪个人更聪明，在于<b>一个人在下跌中依然可以执行，另一个在下跌中已经出局</b></li>
+      <li>定投甚至<b>没有错过任何一段</b>：它既没吃到 $92 的最高点，也没躲过 $23 的最低点，却拿到了 74%</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">微笑曲线 vs 猥琐曲线：同一个世界，两张脸</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">定投者</span><span>价格曲线 = 无数个<b>微笑曲线</b></span><span>下跌时神清气爽，因为均价降低 = 低价筹码到手</span></div>
+      <div class="row"><span class="tag">一把梭者</span><span>价格曲线 = 无数个<b>猥琐曲线</b></span><span>下跌时度日如年，最终割肉离场</span></div>
+      <div class="row"><span class="tag">离场者</span><span>然后在高位重新入场</span><span>被恐惧支配过一次的人，涨的时候更害怕</span></div>
+    </div>
+    <ul class="point-list">
+      <li><b>痛苦和快乐并不对称</b>：赔掉 10 块的痛苦，远大于赚到 10 块的快乐——基因决定的，不是性格</li>
+      <li>所以一把梭者"没赔钱"是<b>侥幸</b>：他的收益取决于入场点恰好不深，而他撑不到第六个月的可能性极大</li>
+      <li>那些"觉得来晚了"的人不知道：定投者每次买入都<b>把自己的入场时间向前平移</b>，永远不算晚</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">底层原理：定投到底改变了什么（我的提炼）</div>
+    <ul class="point-list">
+      <li><b>它把"价格"从信号降级成参数</b>。择时者把价格当信号（涨=买，跌=跑），定投者把价格当参数（贵=少赚点，便宜=多买点）。这是全部差异的源头。</li>
+      <li><b>它把收益的不确定性换成了成本的不确定性</b>。一把梭的收益完全由一个随机变量（入场点）决定；定投的收益由"持续投入的时间段"决定——你用<b>已知的痛苦</b>（每月扣一次钱）换掉了<b>未知的痛苦</b>（一次性买在高点的绝望）。</li>
+      <li><b>它把长期变成了入场资格</b>。原文说得很准：定投是"使用自己的长期去支持的行为"。既然赌上了未来，选标的时就会深思熟虑——<b>长期不是结果，是筛选器</b>。</li>
+      <li><b>它的收益恰恰来源于波动，考验也恰恰来源于波动</b>。若标的一路上涨不回头，定投反而跑输一把梭（成本摊薄慢）；因此定投的收益不是"上涨的功劳"，是"下跌时你没走"的功劳。</li>
+      <li><b>它改变的是主观感受，而这恰恰是最稀缺的东西</b>。原文结尾那句"这世界，幸福本来就是罕见稀缺的"——定投带来的不是更高的数字，而是<b>不必再为每一次下跌自责</b>。</li>
+    </ul>
+    <div class="danger-box">
+      <div class="text">反直觉提醒：<br>定投在<b>单边上涨</b>的市场里跑输一把梭。<br>所以"定投赚得多"是错的说法，正确说法是：<br><b>定投在有波动的长期里，把"能不能拿住"这件事从收益变量里删掉了。</b></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">回到我的定投计划：四个参数，逐个校准</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">① 标的</span><span class="tag ok">长期只涨不跌</span><span>第4章：没有只涨不跌的标的，只有长期来看只涨不跌的</span></div>
+      <div class="row"><span class="tag">② 钱</span><span class="tag ok">没有使用期限</span><span>第12章：我的钱不多，但可以十年不用</span></div>
+      <div class="row"><span class="tag">③ 额度</span><span class="tag ok">来自场外收入</span><span>结语：场外拼命赚钱，场外定期投入</span></div>
+      <div class="row"><span class="tag">④ 执行</span><span class="tag ok">不择时不比较</span><span>第8章：定投让你变成"被动聪明"的人</span></div>
+    </div>
+    <ul class="point-list">
+      <li>四个参数里，<b>①③④ 都是决策，② 是资格</b>。缺 ② 则前三个毫无意义——用短期要用的钱定投，等于自己制造一把梭</li>
+      <li><b>最常缺的是 ④</b>：多数人失败不是选错标的，而是中途加了"判断"——嫌贵、嫌涨多了、换车道（第7章三病症）</li>
+      <li>校准动作：把 <b>标的 / 金额 / 周期 / 复盘日期</b> 四行写在纸上。写不出来的，说明还没准备好开始</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我的定投里，<b>哪一个参数是"判断"出来的</b>？把它删掉，还剩多少？</li>
+      <li>我的钱能<b>十年不用</b>吗？如果不能，第12章给我的优势根本不成立</li>
+      <li>如果下个月我的标的<b>再跌 50%</b>，我会加仓、拿住，还是割肉？（诚实回答，这决定我是不是真的在定投）</li>
+      <li>我有没有在用"看盘"来代替"定投"？看盘是我唯一没有纪律的动作</li>
+      <li>我的标的是"长期只涨不跌"的吗？如果它已经连续三年下跌且原因不明，我是不是该重读第4章？</li>
+      <li>我是不是在羡慕"一把梭赚得多"的人？<b>他只是这一轮没被淘汰，不是方法更优</b></li>
+      <li>今天我能做的唯一动作是什么？如果答案是"再读一章"，我就有问题了</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">定投的真正对手<br>不是市场，是"我等一个更便宜的机会"这句话</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一单元：Day 21 · 重读第5–6章《为什么很少人用定投 / 为什么聪明人总做错决策》
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
