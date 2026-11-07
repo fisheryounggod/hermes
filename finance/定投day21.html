@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 21 · 重读</div>
+    <div class="title">第5–6章：为什么很少人用定投，为什么聪明人总做错决策</div>
+    <div class="subtitle">心理建设：识别自己的决策偏误清单</div>
+  </div>
+
+  <div class="section">
+    <div class="highlight-box">
+      <div class="text">定投用得少，不是因为它难，而是因为它<b>太反人性</b>：<br>它要求你在没人鼓掌时坚持，<br>在别人赚钱时忍住，在下跌时继续买。</div>
+    </div>
+    <div class="quote">
+      定投实际上是一个社会化行为，甚至是社交化行为。
+      <div class="author">—— 李笑来《第5章》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">第5章：全世界都在定投，只是定投的是房子</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">房产定投</span><span>标的不用想</span><span>期限银行定好 · 间隔按月还贷 · 金额反向倒推</span></div>
+      <div class="row"><span class="tag">证券定投</span><span>每一步都要自己想</span><span>"不靠谱吧 / 风险多大 / 咱弄不懂"</span></div>
+      <div class="row"><span class="tag">社会共识</span><span>炒股 = 投机 = 跳楼</span><span>身边没有成功案例，缺乏说服力</span></div>
+    </div>
+    <ul class="point-list">
+      <li>房产定投有<b>巨大的社会化动力</b>驱动：丈母娘、结婚、面子、户籍——每一个理由都在替你执行计划</li>
+      <li>证券定投则要<b>对抗整个社会化共识</b>，所以能坚持下来的人极少</li>
+      <li>原文给出的残酷对照：贷款买房 = 用<b>两套房的钱</b>买一套房（30年利息≈房价）；而定投茅台的"笨蛋同学"18年约 40 倍</li>
+      <li><b>对资产来说，流动性是决定性因素</b>：房产流动性趋近于零，股票近乎 100%——同样叫资产，兑现能力天差地别</li>
+      <li>结论：<b>参与定投社区一定是最优策略</b>。在外面你是异类，你说什么都很难被理解；在社区里，<b>不定投才是异类</b></li>
+    </ul>
+    <div class="danger-box">
+      <div class="text">多数人把"定投用得少"误读成"这方法不适合我"。<br>真实原因是：<b>它需要你独自扛过没有掌声的那几年。</b></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">第6章：真正的病不是"贪"，是"愚昧"</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">愚笨</div>
+        <div class="label">智商差<br>原始人 / 爱因斯坦都一样</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">愚昧</div>
+        <div class="label">未开化、未受教育<br>可以后天消除</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>每个新手都会得出同一个结论：<b>"过往的一切操作都是错的"</b>——涨了卖飞了，跌了刚买就跌，抄底变接刀，换车道发现自己的车道最慢</li>
+      <li>绝大多数人对失败的总结是"太贪了"。原文说：<b>根源根本不在贪婪</b>——在交易市场上贪婪是普遍的，不是罪</li>
+      <li>真正的根源是：<b>"他购买了根本看不懂、无法判断合理价格的标的"</b>。10 元不知道贵不贵，20 元也不知道，2 元还是不知道</li>
+      <li>所以他的卖出依据只是"跟着感觉走"——原文称之为<b>"随机漫步的傻瓜"</b>，而这些人不止原地不动，还会慢慢沉沦</li>
+      <li>为什么定投能治这个病？因为定投<b>一开始就锁定了几乎必然长期看涨的标的</b>，买的就是整个行业而非单个项目，于是"几年之内所有价格都是合理的"</li>
+    </ul>
+    <div class="big-quote">
+      <div class="text">定投是最好的投资教育，<br>也是最好的投资教育实践<br><span style="font-size:22px;font-weight:400;">—— 聪明不重要，持续践行才重要</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">底层原理：我的决策偏误清单（把"贪"翻译成 6 个可操作的坑）</div>
+    <ul class="point-list">
+      <li><b>① 我以为的"贵/便宜"是情绪，不是估值</b>。无法判断合理价格时，任何价格判断都是噪音——这正是"看不懂"的别名</li>
+      <li><b>② 我用"结果"倒推"决策"</b>。卖飞了、买早了、抄底失败——都是事后诸葛。判据只有一个：<b>这个动作是否在计划内</b></li>
+      <li><b>③ 我把"波动"当成"风险"</b>。真正杀死收益的是中途离场和换标的，不是价格下跌本身（第3章：下跌对定投者是折扣）</li>
+      <li><b>④ 我用单一标的承担全部命运</b>。看不懂的东西就是不能买——买不懂的资产，是把"选择权"交给运气</li>
+      <li><b>⑤ 我在最不该说话的时候说话</b>：论坛、群里、"我早说过"——社交压力是定投最大的杀手，因为它把计划变成了表演</li>
+      <li><b>⑥ 我用"看盘"代替"执行"</b>。打开账户的次数越多，做出的额外决策就越多，而每一个额外决策都是额外的犯错概率</li>
+    </ul>
+    <div class="danger-box">
+      <div class="text">把这 6 条贴在显示器边上。<br><b>下次你想做任何计划外的操作时，先问："这是哪一条？"</b><br>如果答案只是"我心里不安"，那就是愚昧在说话。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">回到我的定投计划：两件今天就能做的事</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">① 补社区</span><span class="tag ok">降低社会化阻力</span><span>找 1 个同频社区 / 1 个定投同伴，减少"异类感"</span></div>
+      <div class="row"><span class="tag">② 写偏误清单</span><span class="tag ok">把安心变成条款</span><span>写下"计划外操作的 6 个触发点"，提前写好应对动作</span></div>
+    </div>
+    <ul class="point-list">
+      <li>第5章的"定投五问"就是定投计划的<b>最小合同</b>：标的 / 长期 / 间隔 / 每次金额 / 出意外怎么办</li>
+      <li>其中<b>只有第 5 问是大多数人的空缺</b>——"出意外怎么办"没写，意外来临时就会临时决策，而临时决策几乎必然是错的</li>
+      <li>第6章的逻辑可以迁移到生活：<b>任何长期决策失败，几乎都不是因为不够聪明，而是因为没被开化</b>。定投就是持续完成这个开化过程</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我现在做的投资决策，有几个是<b>计划内</b>的？如果绝大多数都不是，问题不在市场，在计划</li>
+      <li>我上一次因为<b>"心里不安"</b>做了计划外的操作，是什么时候？结果如何？</li>
+      <li>我买的东西，<b>我真的懂吗</b>？用一句话说清它靠什么赚钱——说不清就是"看不懂"</li>
+      <li>我的定投计划里，"<b>出意外怎么办</b>"这一栏写了吗？没写就今天补上</li>
+      <li>我在一个<b>定投同伴</b>身边吗？如果没有，我的计划能扛过第 6 个月吗</li>
+      <li>我羡慕的"一把梭赚得快"的人，是<b>方法更优</b>，还是<b>这一轮还没被淘汰</b>？</li>
+      <li>今天我可以停止的一个动作是什么？<b>少做一个动作，往往比多做一个更有价值</b></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">定投的敌人不是市场，<br>是"我等一个更便宜的机会"，<br>以及"我朋友都这么赚的"</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一单元：Day 22 · 重读第7章《人们是如何神奇地避开最优质投资标的的》
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
