@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #F2F2F2;
+    --green: #B8D8BE;
+    --pink: #E91E63;
+    --yellow: #FFF200;
+    --ink: #2D2926;
+    --ink-light: #5C5350;
+    --white: #FFFFFF;
+    --serif: 'DM Serif Display', 'KingHwa_OldSong', Georgia, 'Noto Serif SC', serif;
+    --sans: 'DM Sans', 'KingHwa_OldSong', -apple-system, 'PingFang SC', system-ui, sans-serif;
+    --mono: 'SF Mono', 'Menlo', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; background: var(--bg); }
+
+  .page {
+    width: 1080px;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .page > .grain {
+    position: absolute;
+    inset: 0;
+    filter: url(#noise);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  mark { background: rgba(255,242,0,0.45); color: inherit; padding: 4px 8px; }
+
+  .colophon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 60px 36px;
+    border-top: 1px solid rgba(45,41,38,0.08);
+  }
+
+  .colophon .who {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .colophon .who img {
+    width: 40px; height: 40px;
+    border-radius: 50%; object-fit: cover;
+  }
+
+  .colophon .who span {
+    font: 400 24px/1 var(--sans);
+    color: var(--ink-light);
+  }
+
+  .colophon .info-source {
+    font: 400 22px/1 var(--mono);
+    color: var(--ink-light);
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+<div class="page">
+  <div class="grain"></div>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .page-inner { width: 1080px; background: #F2F2F2; padding: 56px 60px 48px; font-family: 'PingFang SC', -apple-system, 'DM Sans', sans-serif; color: #2D2926; }
+  .header { border-left: 6px solid #E91E63; padding-left: 24px; margin-bottom: 40px; }
+  .header .label { font-size: 20px; color: #5C5350; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .header .title { font-size: 44px; font-weight: 700; color: #2D2926; line-height: 1.25; }
+  .header .subtitle { font-size: 26px; color: #5C5350; margin-top: 12px; }
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 28px; font-weight: 700; color: #2D2926; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .section-title::before { content: ''; width: 8px; height: 8px; background: #E91E63; border-radius: 50%; flex-shrink: 0; }
+  .highlight-box { background: #FFF200; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .highlight-box .text { font-size: 26px; font-weight: 700; color: #2D2926; line-height: 1.5; }
+  .quote { background: #B8D8BE; border-radius: 8px; padding: 18px 24px; font-size: 24px; line-height: 1.7; color: #2D2926; margin-bottom: 16px; }
+  .quote .author { font-size: 18px; color: #5C5350; margin-top: 10px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-item { background: #fff; border-radius: 8px; padding: 18px 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .grid-item .num { font-size: 42px; font-weight: 700; color: #E91E63; line-height: 1; }
+  .grid-item .label { font-size: 20px; color: #5C5350; margin-top: 6px; line-height: 1.5; }
+  .point-list { list-style: none; padding: 0; }
+  .point-list li { font-size: 22px; line-height: 1.6; color: #2D2926; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); display: flex; align-items: flex-start; gap: 14px; }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '→'; color: #E91E63; font-weight: 700; flex-shrink: 0; }
+  .contrast-box { background: #fff; border-radius: 8px; padding: 18px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px; }
+  .contrast-box .row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(45,41,38,0.08); font-size: 22px; }
+  .contrast-box .row:last-child { border-bottom: none; }
+  .contrast-box .row .tag { background: #E91E63; color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 18px; margin-right: 12px; }
+  .contrast-box .row .tag.ok { background: #4CAF50; }
+  .danger-box { background: #fff; border-left: 6px solid #E91E63; padding: 18px 24px; border-radius: 0 8px 8px 0; margin-bottom: 16px; }
+  .danger-box .text { font-size: 24px; font-weight: 700; color: #E91E63; line-height: 1.5; }
+  .footer-note { font-size: 20px; color: #5C5350; padding-top: 20px; border-top: 1px solid rgba(45,41,38,0.08); text-align: center; }
+  .big-quote { background: #6C63FF; border-radius: 8px; padding: 24px 28px; margin-bottom: 16px; }
+  .big-quote .text { font-size: 32px; font-weight: 700; color: #fff; line-height: 1.5; text-align: center; }
+</style>
+
+
+<div class="page-inner">
+  <div class="header">
+    <div class="label">Day 22 · 重读</div>
+    <div class="title">第7章：人们是如何神奇地避开最优质投资标的的</div>
+    <div class="subtitle">逆向思考：我在哪些地方被"避开好资产"了</div>
+  </div>
+
+  <div class="section">
+    <div class="highlight-box">
+      <div class="text">避开最优质标的，不需要任何恶意或愚蠢，<br>只需要三种再平常不过的心理反应：<br><b>贵、涨多了、别人涨得更多。</b></div>
+    </div>
+    <div class="quote">
+      答案是，他们还是有病：<b>跟长期收益有仇的病。</b>
+      <div class="author">—— 李笑来《第7章》</div>
+    </div>
+    <div class="quote">
+      一切好的标的都具有共同的特征：<b>市值相对非常大、流动性相对非常好、筹码相对非常分散。</b>
+      <div class="author">—— 李笑来《第7章》</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">原文给出的规模：这不是失误，是系统性回避</div>
+    <div class="grid">
+      <div class="grid-item">
+        <div class="num">&lt;0.05%</div>
+        <div class="label">当下持有贵州茅台的股民比例<br>长期持有的比例更低</div>
+      </div>
+      <div class="grid-item">
+        <div class="num">180×</div>
+        <div class="label">茅台过去八年涨幅<br>比特币同期 1万–2万倍</div>
+      </div>
+    </div>
+    <ul class="point-list">
+      <li>原文的狠话：能避开茅台，就能避开<b>万科、腾讯、可口可乐、比特币</b>——这不是运气差，是同一套机制在反复生效</li>
+      <li>很多人其实<b>买过</b>最优质标的，也曾经持有过很长时间——问题出在"交出筹码"的那一刻</li>
+      <li>关键事实：<b>无论是高价还是低价，都有让一部分人震荡出局的作用</b>。高位被踢出局的人，事后看大多是错的</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-title">三种病症：每一个都是"避坑"的心理陷阱</div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag">① 涨多了</span><span>"都涨这么多了，还会再涨吗？！"</span><span>因为"价格高"交出筹码</span></div>
+      <div class="row"><span class="tag">② 贵了</span><span>"这个标的咋这么贵？"</span><span>被绝对价格吓退，转去买"下一支十倍股"</span></div>
+      <div class="row"><span class="tag">③ 换车道</span><span>"别人的比我的涨得快"</span><span>像堵车时不断并线，越换越慢</span></div>
+      <div class="row"><span class="tag ok">定投者</span><span>"该标的是否值得长期持有"</span><span>看着同样的波动：无动于衷</span></div>
+    </div>
+    <ul class="point-list">
+      <li><b>病症②的荒谬之处</b>：投资不是看价格，是看<b>增长潜力</b>。"基数小所以更容易涨"完全没有依据——于是大多数人用尽聪明才智寻找的"下一个百倍币"，绝大多数没有成功</li>
+      <li><b>定投者的价格观</b>：苹果 5000 亿市值买、6000 亿买、7000–8000 亿买、一万亿<b>该买还买</b>；比特币 100 美元买、1000 买、10000 买，跌到 4000 <b>依然买</b></li>
+      <li><b>病症③的机制</b>：换车道者会发现，新标的到手后"涨得不像原来那么猛了"，甚至开始跌，于是换回去——直到承认自己不适合</li>
+      <li>定投 BOX 者更极端：<b>早就选好了</b>，等于选择了一系列标的，清楚自己已稀释机会成本，押的是整个行业发展——一时一刻的优劣<b>连噪音都不算</b></li>
+    </ul>
+    <div class="danger-box">
+      <div class="text">"涨多了"和"贵"是同一件事的两种说法。<br>它们都把<b>过去的价格</b>当成了<b>未来的上限</b>——<br>而长期里，价格是结果，不是原因。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">底层原理：定投的威力来自"只有一招一式"</div>
+    <div class="quote">
+      定投的最大威力恰恰就来自于它<b>只有一招一式</b>。因为你完全没有任何其它选择，你只要做就好了。你只有一个动作，那也是唯一的动作——而且那个动作<b>永远不会出错</b>。
+      <div class="author">—— 李笑来《第7章》</div>
+    </div>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">定投：一招</span><span>只买</span><span>成功率 = <b>100%</b></span></div>
+      <div class="row"><span class="tag">两招：买 + 卖</span><span>随机漫步，各 50%</span><span>50% × 50% = <b>25%</b></span></div>
+      <div class="row"><span class="tag">两招但有把握</span><span>每次 80% 正确</span><span>80% × 80% = <b>64%</b></span></div>
+      <div class="row"><span class="tag">高手也只有 60%</span><span>连续做对</span><span>60% × 60% = <b>36%</b></span></div>
+      <div class="row"><span class="tag">再加频繁换车道</span><span>连续换 4–5 次</span><span>成功率 <b>&lt;40%</b>（甚至更低）</span></div>
+    </div>
+    <ul class="point-list">
+      <li><b>每多一个需要判断的动作，成功概率就乘一次</b>。这就是"非定投者感觉自己的操作全都是错的"的原因——不是手法差，是<b>分母被自己越乘越小</b></li>
+      <li>不断研究新技术的人更惨：把式太多，每学一个新把式就忍不住演练一遍——在其他领域这是好习惯，<b>在投资领域会害死人</b>，因为普通人没有那么多试错机会</li>
+      <li>同一逻辑在生活里同样成立：<b>英语=每天朗读一小时</b>；<b>写作=提高有效阅读量</b>；<b>养生=持续锻炼</b>。人们偏要报班、买技巧、吃保健品——"他们遇到的那么多坑其实完全就是自己挖的"</li>
+      <li>原文收束：绝大多数人能神奇地避开所有最优质标的，<b>核心原因就在于他们坚决不肯只使用最安全最靠谱只有一招一式的策略</b></li>
+    </ul>
+    <div class="big-quote">
+      <div class="text">"避开好资产"不需要你做任何坏事，<br>只需要你<b>少做一个动作</b>。<br><span style="font-size:22px;font-weight:400;">而少做一个动作，是绝大多数人最难做到的自律</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">我的提炼：三句话把"避开"翻译成可执行的防线</div>
+    <ul class="point-list">
+      <li><b>① 把判断压缩成一个二元问题</b>：定投者唯一的判断标准是"是否值得长期持有"——简单到不可能出错。凡是需要我"预测"的问题，都是我自找的</li>
+      <li><b>② 用"优质标的的共同特征"代替"我的偏好"</b>：市值大、流动性好、筹码分散——这是一组客观门槛，不需要我懂每个项目，只需要它通过规模与流动性的筛选</li>
+      <li><b>③ 每次想加动作时，先算概率乘积</b>：多一个动作 = 成功率先乘一次 50%。所以"少动"本身就是收益最高的动作，而不是"无为"或"懒惰"</li>
+    </ul>
+    <div class="contrast-box">
+      <div class="row"><span class="tag ok">今天可做①</span><span>写下我的唯一判断标准</span><span>一句话，例如"市值够大、能长期持有"</span></div>
+      <div class="row"><span class="tag ok">今天可做②</span><span>写"不换车道"条款</span><span>任何标的对比、任何"下一支十倍股"念头 → 一律不行动</span></div>
+      <div class="row"><span class="tag ok">今天可做③</span><span>设一条"只看不下单"的规则</span><span>下跌时想抄底 → 先核对是否在计划内</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">今日反思（自问清单）</div>
+    <ul class="point-list">
+      <li>我持有过的最优质标的，是什么时候、因为什么理由卖出的？那个理由现在还成立吗</li>
+      <li>我此刻"觉得贵"的标的，是基于<b>价格</b>还是基于<b>增长</b>？如果是价格，那正是原文说的病症②</li>
+      <li>我最近一次"换车道"，是因为<b>新标的确有更好的长期逻辑</b>，还是因为<b>旧标的没涨</b>？这两者只有前者是合法的</li>
+      <li>我的定投计划里，有没有任何需要"我判断"的环节？（有 → 就是额外的犯错概率）</li>
+      <li>如果把我的所有操作删掉，只留下"定期买入 + 长期持有"，结果会变差还是变好？</li>
+      <li>我在工作/学习上是否也在犯同样的错——不断寻找新方法，而不是持续完成最简单的那一件？</li>
+      <li>今天我可以<b>删掉</b>的一个动作是什么？少做，往往比多做更有价值</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="big-quote">
+      <div class="text">定投不是让你看得更准，<br>而是让你<b>不必再看得那么准</b></div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    📖 下一单元：Day 23 · 重读第8章《定投策略成功的关键完全在于心理建设》
+  </div>
+</div>
+
+<div class="colophon">
+    <div class="who">
+      <img src="" alt="">
+      <span>杨雄飞</span>
+    </div>
+    <span class="info-source">李笑来《定投改变命运》</span>
+  </div>
+</div>
+</body>
+</html>
